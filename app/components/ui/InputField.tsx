@@ -22,7 +22,7 @@ export default function InputField({
   return (
     <div className="w-full space-y-3">
       {title && (
-        <label className="text-[18px] font-medium text-primaryText">
+        <label className="text-[16px] font-semibold text-primaryText">
           {title}
         </label>
       )}
@@ -37,13 +37,14 @@ export default function InputField({
         className="
         mt-1
           w-full
+          h-12
           rounded-lg
           border
           border-[#E2E8F0]
           bg-[#F0F8FF]
-          px-[11px]
-          py-[11px]
-          text-[16px]
+          px-3
+          py-3
+          text-[14px]
           text-gray-900
           outline-none
           transition

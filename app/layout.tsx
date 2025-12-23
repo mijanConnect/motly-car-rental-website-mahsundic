@@ -10,7 +10,7 @@ const poppins = Poppins({
 });
 
 export const metadata = {
-  title: "Montly Car Rental Service",
+  title: "Motly Car Rental Service",
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {

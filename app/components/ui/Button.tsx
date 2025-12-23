@@ -19,7 +19,7 @@ export default function Button({
   ...props
 }: ButtonProps) {
   const baseStyles =
-    "font-medium rounded-[8px] transition-all duration-200 flex items-center justify-center gap-2";
+    "font-[13px] font-semibold rounded-[8px] transition-all duration-200 flex items-center justify-center gap-2";
 
   const variantStyles = {
     primary: "bg-primary text-white hover:bg-primary/90 disabled:bg-primary/50",

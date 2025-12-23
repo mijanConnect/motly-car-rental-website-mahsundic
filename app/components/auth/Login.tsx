@@ -22,10 +22,10 @@ export default function LoginPage() {
         />
       </div>
       <div className="mb-6">
-        <h1 className="mb-1 text-[24px] font-semibold text-primaryText">
+        <h1 className="mb-1 text-[18px] font-bold text-primaryText">
           Login
         </h1>
-        <p className="text-[16px] text-primaryParagraph">
+        <p className="text-[15px] text-primaryParagraph">
           Login to access your travelwise account
         </p>
       </div>
@@ -47,7 +47,7 @@ export default function LoginPage() {
         />
       </div>
       <p
-        className="text-right text-[16px] font-medium text-red-600 cursor-pointer mt-2 hover:underline"
+        className="text-right text-[15px] font-medium text-red-600 cursor-pointer mt-2 hover:underline"
         onClick={() => router.push("/forgot-password")}
       >
         Forgot Password?
@@ -76,9 +76,9 @@ export default function LoginPage() {
         </Button>
       </div>
       <div className="mt-6 text-center">
-        <p className="text-[16px]">
+        <p className="text-[15px]">
           Don&apos;t have an account?{" "}
-          <span className="font-medium text-primary cursor-pointer hover:underline">
+          <span className="font-semibold text-primary cursor-pointer hover:underline">
             Sign Up
           </span>
         </p>

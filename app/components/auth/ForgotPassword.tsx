@@ -23,10 +23,10 @@ export default function ForgotPasswordPage() {
         <Image src="/assets/logo.png" alt="Logo" width={130} height={130} />
       </div>
       <div className="mb-6">
-        <h1 className="mb-1 text-[24px] font-semibold text-primaryText">
+        <h1 className="mb-1 text-[18px] font-semibold text-primaryText">
           Forgot Password
         </h1>
-        <p className="text-[16px] text-primaryParagraph">
+        <p className="text-[14px] text-primaryParagraph">
           Enter your email to receive a password reset code
         </p>
       </div>
