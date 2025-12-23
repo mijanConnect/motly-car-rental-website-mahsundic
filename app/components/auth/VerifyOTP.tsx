@@ -41,7 +41,7 @@ export default function VerifyOTPPage() {
         <Image src="/assets/logo.png" alt="Logo" width={130} height={130} />
       </div>
       <div className="mb-6">
-        <h1 className="mb-1 text-[18px] font-semibold text-primaryText">
+        <h1 className="mb-1 text-[18px] font-bold text-primaryText">
           Verify OTP
         </h1>
         <p className="text-[14px] text-primaryParagraph">

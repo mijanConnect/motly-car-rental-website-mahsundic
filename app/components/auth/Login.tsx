@@ -10,6 +10,41 @@ export default function LoginPage() {
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
+
+  const handleLogin = async () => {
+    if (!email || !password) {
+      setError("Please fill in all fields");
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      setError("Please enter a valid email address");
+      return;
+    }
+
+    if (password.length < 8) {
+      setError("Password must be at least 8 characters long");
+      return;
+    }
+
+    setIsLoading(true);
+    setError("");
+
+    try {
+      // Handle login logic here
+      console.log("Logging in user:", { email });
+      // After login, navigate to dashboard or home page
+      router.push("/");
+    } catch (error) {
+      setError("Failed to login. Please try again.");
+      console.error("Login failed:", error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   return (
     <div className="bg-background shadow-sm p-8 rounded-lg w-full max-w-[525px] border border-gray-200">
@@ -22,20 +57,26 @@ export default function LoginPage() {
         />
       </div>
       <div className="mb-6">
-        <h1 className="mb-1 text-[18px] font-bold text-primaryText">
-          Login
-        </h1>
+        <h1 className="mb-1 text-[18px] font-bold text-primaryText">Login</h1>
         <p className="text-[15px] text-primaryParagraph">
           Login to access your travelwise account
         </p>
       </div>
+      {error && (
+        <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded text-red-700 text-[14px]">
+          {error}
+        </div>
+      )}
       <div className="w-full space-y-4">
         <InputField
           title="Email"
           type="email"
           placeholder="Enter your email"
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e) => {
+            setEmail(e.target.value);
+            setError("");
+          }}
         />
 
         <InputField
@@ -43,7 +84,10 @@ export default function LoginPage() {
           type="password"
           placeholder="Enter your password"
           value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          onChange={(e) => {
+            setPassword(e.target.value);
+            setError("");
+          }}
         />
       </div>
       <p
@@ -53,8 +97,14 @@ export default function LoginPage() {
         Forgot Password?
       </p>
       <div className="mt-6">
-        <Button fullWidth variant="primary" size="md">
-          Login
+        <Button
+          fullWidth
+          variant="primary"
+          size="md"
+          onClick={handleLogin}
+          disabled={isLoading}
+        >
+          {isLoading ? "Logging in..." : "Login"}
         </Button>
       </div>
       <div>
@@ -78,7 +128,10 @@ export default function LoginPage() {
       <div className="mt-6 text-center">
         <p className="text-[15px]">
           Don&apos;t have an account?{" "}
-          <span className="font-semibold text-primary cursor-pointer hover:underline">
+          <span
+            onClick={() => router.push("/register")}
+            className="font-semibold text-primary cursor-pointer hover:underline"
+          >
             Sign Up
           </span>
         </p>

@@ -45,13 +45,18 @@ export default function UpdatePasswordPage() {
     }
   };
 
+  const passwordsMatch =
+    newPassword && confirmPassword && newPassword === confirmPassword;
+  const passwordMismatch =
+    newPassword && confirmPassword && newPassword !== confirmPassword;
+
   return (
     <div className="bg-background shadow-sm p-8 rounded-lg w-full max-w-[525px] border border-gray-200">
       <div className="flex justify-center mb-6">
         <Image src="/assets/logo.png" alt="Logo" width={130} height={130} />
       </div>
       <div className="mb-6">
-        <h1 className="mb-1 text-[18px] font-semibold text-primaryText">
+        <h1 className="mb-1 text-[18px] font-bold text-primaryText">
           Update Password
         </h1>
         <p className="text-[15px] text-primaryParagraph">
@@ -75,16 +80,26 @@ export default function UpdatePasswordPage() {
           }}
         />
 
-        <InputField
-          title="Confirm Password"
-          type="password"
-          placeholder="Confirm your new password"
-          value={confirmPassword}
-          onChange={(e) => {
-            setConfirmPassword(e.target.value);
-            setError("");
-          }}
-        />
+        <div>
+          <InputField
+            title="Confirm Password"
+            type="password"
+            placeholder="Confirm your new password"
+            value={confirmPassword}
+            onChange={(e) => {
+              setConfirmPassword(e.target.value);
+              setError("");
+            }}
+          />
+          {passwordMismatch && (
+            <p className="text-red-600 text-[12px] mt-1">
+              Passwords do not match
+            </p>
+          )}
+          {passwordsMatch && (
+            <p className="text-green-600 text-[12px] mt-1">Passwords match</p>
+          )}
+        </div>
       </div>
       <div className="mt-6">
         <Button
