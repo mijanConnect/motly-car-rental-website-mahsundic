@@ -1,72 +1,148 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className="border-t bg-white/80 backdrop-blur">
-      <div className="mx-auto flex max-w-6xl flex-col gap-6 px-4 py-8 sm:flex-row sm:items-start sm:justify-between">
-        <div className="space-y-2">
-          <h2 className="text-lg font-semibold text-[--color-primary]">
-            NextStore
-          </h2>
-          <p className="max-w-sm text-sm text-gray-600">
-            Simple demo store built with Next.js, RTK Query, and Tailwind.
-          </p>
-        </div>
-
-        <div className="grid w-full grid-cols-2 gap-4 text-sm sm:w-auto sm:grid-cols-3">
-          <div className="space-y-2">
-            <h3 className="font-semibold text-gray-800">Shop</h3>
-            <div className="flex flex-col gap-1 text-gray-600">
-              <Link href="#products" className="hover:text-[--color-primary]">
-                Products
-              </Link>
-              <Link href="/" className="hover:text-[--color-primary]">
-                Home
-              </Link>
-            </div>
-          </div>
-          <div className="space-y-2">
-            <h3 className="font-semibold text-gray-800">Company</h3>
-            <div className="flex flex-col gap-1 text-gray-600">
-              <Link href="/" className="hover:text-[--color-primary]">
-                About
-              </Link>
-              <Link href="/" className="hover:text-[--color-primary]">
-                Contact
-              </Link>
-            </div>
-          </div>
-          <div className="space-y-2 col-span-2 sm:col-span-1">
-            <h3 className="font-semibold text-gray-800">Stay updated</h3>
-            <form className="flex flex-col gap-2 sm:flex-row">
-              <input
-                type="email"
-                placeholder="Email address"
-                className="w-full rounded-md border px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[--color-primary]"
-              />
-              <button
-                type="submit"
-                className="whitespace-nowrap rounded-md bg-[--color-primary] px-3 py-2 text-sm font-semibold text-white transition hover:opacity-90"
+    <footer className="bg-primary">
+      <div className="container mx-auto flex flex-col gap-6 px-4 py-10 lg:py-20 md:py-8 sm:py-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-12 lg:gap-25">
+          <div className="space-y-2 sm:col-span-2 lg:col-span-1">
+            <div>
+              <Link
+                href="/"
+                className="text-lg font-semibold flex items-center gap-4"
               >
-                Subscribe
-              </button>
-            </form>
+                <Image
+                  src="/assets/logo-nav.png"
+                  alt="Login Image"
+                  width={50}
+                  height={50}
+                />
+                <h2 className="text-[30px] font-bold text-white">MOTLY</h2>
+              </Link>
+            </div>
+            <p className="text-sm text-white mt-[18px]">
+              Rent a car with ease and confidence. We offer a wide selection of
+              vehicles, simple booking, and dependable service to make every
+              journey enjoyable.
+            </p>
+          </div>
+
+          <div className="space-y-3">
+            <h3 className="font-semibold text-white text-[18px]">Pages</h3>
+            <ul className="flex flex-col gap-2 text-white text-[15px]">
+              <li>
+                <Link
+                  href="#products"
+                  className="hover:underline transform transition-all"
+                >
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/"
+                  className="hover:underline transform transition-all"
+                >
+                  Service
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/"
+                  className="hover:underline transform transition-all"
+                >
+                  My Booking
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/"
+                  className="hover:underline transform transition-all"
+                >
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/"
+                  className="hover:underline transform transition-all"
+                >
+                  Contact Us
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          <div className="space-y-3">
+            <h3 className="font-semibold text-white text-[18px]">Support</h3>
+            <ul className="flex flex-col gap-2 text-white text-[15px]">
+              <li>
+                <Link
+                  href="/"
+                  className="hover:underline transform transition-all"
+                >
+                  Contact
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/"
+                  className="hover:underline transform transition-all"
+                >
+                  FAQ
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/"
+                  className="hover:underline transform transition-all"
+                >
+                  Privacty Policy
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/"
+                  className="hover:underline transform transition-all"
+                >
+                  Terms & Conditions
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          <div className="space-y-3 sm:col-span-2 lg:col-span-1">
+            <div className="space-y-3">
+              <h3 className="font-semibold text-white text-[18px]">Contact</h3>
+              <ul className="flex flex-col gap-2 text-white text-[15px]">
+                <li>Office : 42 Marine Parade, Australia</li>
+                <li>
+                  Mail :{" "}
+                  <a
+                    href="mailto:info@8pxlstudio.com"
+                    className="hover:scale-110 hover:text-[--color-primary] transform transition-all"
+                  >
+                    info@8pxlstudio.com
+                  </a>
+                </li>
+                <li>
+                  Phone :{" "}
+                  <a
+                    href="tel:+0123456789"
+                    className="hover:scale-110 hover:text-[--color-primary] transform transition-all"
+                  >
+                    +0123456789
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
-      <div className="border-t bg-white/70">
-        <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-4 text-xs text-gray-500 sm:flex-row sm:items-center sm:justify-between">
-          <span>
-            © {new Date().getFullYear()} NextStore. All rights reserved.
-          </span>
-          <div className="flex gap-3">
-            <Link href="/" className="hover:text-[--color-primary]">
-              Privacy
-            </Link>
-            <Link href="/" className="hover:text-[--color-primary]">
-              Terms
-            </Link>
-          </div>
+      <div className="bg-primary">
+        <div className="text-center py-4 text-sm text-white border-t border-white/20">
+          <span>© {new Date().getFullYear()} Motly. All rights reserved.</span>
         </div>
       </div>
     </footer>
