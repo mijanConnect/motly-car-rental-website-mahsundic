@@ -21,7 +21,7 @@ export default function Footer() {
                 <h2 className="text-[30px] font-bold text-white">MOTLY</h2>
               </Link>
             </div>
-            <p className="text-sm text-white mt-[18px]">
+            <p className="text-[14px] text-white mt-[18px]">
               Rent a car with ease and confidence. We offer a wide selection of
               vehicles, simple booking, and dependable service to make every
               journey enjoyable.
