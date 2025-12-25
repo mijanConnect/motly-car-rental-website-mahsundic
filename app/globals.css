@@ -9,6 +9,7 @@
   --font-poppins: "Poppins", sans-serif;
   --color-primaryText: #262626;
   --color-primaryParagraph: #313131;
+  --color-primaryParagraphLight: #a8a8a8;
 }
 
 :root {
