@@ -148,10 +148,12 @@ export default function SearchBox() {
                     <p className="text-sm font-semibold mb-2">Select Date</p>
                     <Calendar
                       mode="single"
-                      selected={collectionDate}
-                      onSelect={setCollectionDate}
+                      selected={returnDate}
+                      onSelect={setReturnDate}
                       disabled={(date) =>
-                        date < new Date(new Date().setHours(0, 0, 0, 0))
+                        collectionDate
+                          ? date < collectionDate
+                          : date < new Date(new Date().setHours(0, 0, 0, 0))
                       }
                     />
                   </div>
@@ -161,15 +163,15 @@ export default function SearchBox() {
                       {/* <Clock className="h-4 w-4" /> */}
                       <input
                         type="time"
-                        value={collectionTime}
-                        onChange={(e) => setCollectionTime(e.target.value)}
+                        value={returnTime}
+                        onChange={(e) => setReturnTime(e.target.value)}
                         className="border border-gray-300 rounded px-3 py-2"
                       />
                     </div>
                   </div>
                 </div>
                 <button
-                  onClick={() => setOpenCollection(false)}
+                  onClick={() => setOpenReturn(false)}
                   className="w-full bg-primary text-white py-2 rounded hover:opacity-90"
                 >
                   Done
