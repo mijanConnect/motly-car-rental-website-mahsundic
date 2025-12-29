@@ -1,23 +1,26 @@
 "use client";
 
 import Image from "next/image";
-import React, { useState } from "react";
 import { Star } from "lucide-react";
+import Button from "../ui/Button";
+import { Car } from "@/types/product";
 
-export default function CarCard() {
-  const [rating] = useState(3); // Can be changed to 4, 3, 2, 1, etc.
+interface CarCardProps {
+  car: Car;
+}
 
+export default function CarCard({ car }: CarCardProps) {
   return (
     <>
-      <div className="mt-[42px] p-4 border border-gray-300 rounded-lg shadow-md">
-        <div className="flex justify-between">
+      <div className="p-4 border border-gray-300 rounded-lg shadow-md hover:shadow-lg hover:bg-gray-50 transition-shadow duration-300">
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-0 justify-between">
           <div className="flex-7/3">
-            <div className="flex gap-5 w-full pr-5 border-r border-gray-300">
+            <div className="flex flex-col md:flex-row gap-5 w-full pr-0 lg:pr-5 border-0 lg:border-r border-gray-300">
               {/* Image part */}
               <div className="relative w-[214px] h-[196px] overflow-hidden shrink-0">
                 <Image
-                  src="/assets/card/car-1.png"
-                  alt="Car Image"
+                  src={car.image}
+                  alt={car.name}
                   fill
                   className="object-cover w-full h-full rounded-lg"
                 />
@@ -25,13 +28,13 @@ export default function CarCard() {
               {/* Right Side part */}
               <div className="flex-1">
                 <div className="flex justify-between items-center mb-1">
-                  <h2 className="text-[22px]">Audi S60</h2>
+                  <h2 className="text-[22px]">{car.name}</h2>
                   <div className="flex gap-1">
                     {[...Array(5)].map((_, i) => (
                       <Star
                         key={i}
                         className={`h-4 w-4 ${
-                          i < rating
+                          i < car.star
                             ? "fill-gray-800 text-gray-800"
                             : "fill-gray-300 text-gray-300"
                         }`}
@@ -41,7 +44,7 @@ export default function CarCard() {
                 </div>
                 <a
                   href="#"
-                  className="text-[16px] text-primaryParagraphLight mb-3 hover:underline inline-block"
+                  className="text-[16px] text-primaryTextLight mb-3 hover:underline inline-block"
                 >
                   Or similar upper class
                 </a>
@@ -55,7 +58,9 @@ export default function CarCard() {
                       width={18}
                       height={18}
                     />
-                    <p className="text-primaryParagraph text-[16px]">4 Doors</p>
+                    <p className="text-primaryText text-[16px]">
+                      {car.doors} Doors
+                    </p>
                   </div>
                   {/* Seats */}
                   <div className="flex gap-[5px] items-center">
@@ -65,7 +70,9 @@ export default function CarCard() {
                       width={18}
                       height={18}
                     />
-                    <p className="text-primaryParagraph text-[16px]">4 Seats</p>
+                    <p className="text-primaryText text-[16px]">
+                      {car.seats} Seats
+                    </p>
                   </div>
                   {/* Suitcase */}
                   <div className="flex gap-[5px] items-center">
@@ -75,8 +82,8 @@ export default function CarCard() {
                       width={18}
                       height={18}
                     />
-                    <p className="text-primaryParagraph text-[16px]">
-                      4 Suitcases
+                    <p className="text-primaryText text-[16px]">
+                      {car.suitcases} Suitcases
                     </p>
                   </div>
                   {/* Automatic */}
@@ -87,8 +94,8 @@ export default function CarCard() {
                       width={18}
                       height={18}
                     />
-                    <p className="text-primaryParagraph text-[16px]">
-                      Automatic
+                    <p className="text-primaryText text-[16px]">
+                      {car.transmission}
                     </p>
                   </div>
                   {/* Climate */}
@@ -99,7 +106,9 @@ export default function CarCard() {
                       width={18}
                       height={18}
                     />
-                    <p className="text-primaryParagraph text-[16px]">Climate</p>
+                    <p className="text-primaryText text-[16px]">
+                      {car.climate}
+                    </p>
                   </div>
                 </div>
                 {/* Fuel Policy and Kilometers */}
@@ -113,11 +122,11 @@ export default function CarCard() {
                       height={18}
                     />
                     <div>
-                      <p className="text-[16px] text-primaryParagraph">
+                      <p className="text-[16px] text-primaryText">
                         Fuel Policy
                       </p>
-                      <p className="text-[16px] font-medium text-primaryParagraph">
-                        Fair
+                      <p className="text-[16px] font-medium text-primaryText">
+                        {car.fuelPolicy}
                       </p>
                     </div>
                   </div>
@@ -130,32 +139,85 @@ export default function CarCard() {
                       height={18}
                     />
                     <div>
-                      <p className="text-[16px] text-primaryParagraph">
-                        Kilometers
-                      </p>
-                      <p className="text-[16px] font-medium text-primaryParagraph">
-                        1,400 km Free
+                      <p className="text-[16px] text-primaryText">Kilometers</p>
+                      <p className="text-[16px] font-medium text-primaryText">
+                        {car.kilometers} km Free
                       </p>
                     </div>
                   </div>
                 </div>
                 {/* Information */}
-                <div className="mt-4 flex gap-2 items-center">
+                <div className="mt-4 flex gap-2 items-start">
                   <Image
                     src="/assets/card/info.png"
                     alt="Icon"
                     width={18}
                     height={18}
                   />
-                  <p className="text-[14px] text-gray-500">
+                  <p className="text-[14px] text-primaryText">
                     Comprehensive insurance and theft protection{" "}
-                    <span className="font-semibold">and deposit of €250</span>
+                    <span className="font-semibold">
+                      and deposit of €{car.deposit}
+                    </span>
                   </p>
                 </div>
               </div>
             </div>
           </div>
-          <div className="flex-7/4"></div>
+          {/* Card Right side */}
+          <div className="flex-7/4 pl-0 lg:pl-8">
+            <div className="flex justify-between">
+              <div>
+                <p className="text-xl text-primaryText">Terrific</p>
+                <p className="text-[16px] text-primaryTextLight">
+                  Offer Evaluation
+                </p>
+              </div>
+              <div>
+                <p className="bg-[#F29D26] p-3 text-xl font-semibold text-white rounded-sm">
+                  {car.rating}
+                </p>
+              </div>
+            </div>
+            <div className="flex justify-between mt-5">
+              <div>
+                <p className="text-2xl font-medium text-primaryText">
+                  €{car.price}
+                </p>
+                <p className="text-[16px] text-primaryText">
+                  Price for {car.days} days
+                </p>
+              </div>
+              <div className="flex items-start gap-2">
+                <Image
+                  src="/assets/card/PayPal.png"
+                  alt="Icon"
+                  width={50}
+                  height={34}
+                />
+                <Image
+                  src="/assets/card/Visa.png"
+                  alt="Icon"
+                  width={50}
+                  height={34}
+                />
+                <Image
+                  src="/assets/card/Maestro.png"
+                  alt="Icon"
+                  width={50}
+                  height={34}
+                />
+              </div>
+            </div>
+            <div className="flex justify-end mt-5 flex-col sm:flex-row gap-4">
+              <Button variant="primary" size="md" className="w-full sm:w-[150px]">
+                Book Now
+              </Button>
+              <Button variant="outline" size="md" className="w-full sm:w-[150px]">
+                View Details
+              </Button>
+            </div>
+          </div>
         </div>
       </div>
     </>
