@@ -188,32 +188,43 @@ export default function CarCard({ car }: CarCardProps) {
                   Price for {car.days} days
                 </p>
               </div>
-              <div className="flex items-start gap-2">
+              <div className="flex items-center gap-2">
                 <Image
                   src="/assets/card/PayPal.png"
                   alt="Icon"
                   width={50}
                   height={34}
+                  className="h-[34px] w-[50px]"
                 />
                 <Image
                   src="/assets/card/Visa.png"
                   alt="Icon"
                   width={50}
                   height={34}
+                  className="h-[34px] w-[50px]"
                 />
                 <Image
                   src="/assets/card/Maestro.png"
                   alt="Icon"
                   width={50}
                   height={34}
+                  className="h-[34px] w-[50px]"
                 />
               </div>
             </div>
             <div className="flex justify-end mt-5 flex-col sm:flex-row gap-4">
-              <Button variant="primary" size="md" className="w-full sm:w-[150px]">
+              <Button
+                variant="primary"
+                size="md"
+                className="w-full sm:w-[150px]"
+              >
                 Book Now
               </Button>
-              <Button variant="outline" size="md" className="w-full sm:w-[150px]">
+              <Button
+                variant="outline"
+                size="md"
+                className="w-full sm:w-[150px]"
+              >
                 View Details
               </Button>
             </div>
