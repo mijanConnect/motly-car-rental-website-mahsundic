@@ -1,3 +1,4 @@
+import DownloadLink from "../components/home/DownloadLink";
 import SearchBox from "../components/home/SearchBox";
 import Cars from "./cars/page";
 
@@ -6,6 +7,7 @@ export default function Home() {
     <main>
       <SearchBox />
       <Cars />
+      <DownloadLink />
     </main>
   );
 }
