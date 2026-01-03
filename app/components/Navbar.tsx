@@ -175,7 +175,7 @@ export default function Navbar() {
               </div>
 
               <Link
-                href="#products"
+                href="/login"
                 className="text-white"
                 onClick={() => setOpen(false)}
               >
