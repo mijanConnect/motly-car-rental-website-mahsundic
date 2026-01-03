@@ -92,7 +92,7 @@ const cars: Car[] = [
 export default function Cars() {
   return (
     <>
-      <div className="mt-20">
+      <div>
         <h1 className="text-[30px] font-semiBold mb-3">Top Rated Cars</h1>
         <div className="flex flex-col gap-4">
           {cars.map((car) => (

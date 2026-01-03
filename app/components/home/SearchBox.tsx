@@ -34,7 +34,7 @@ export default function SearchBox() {
 
   return (
     <>
-      <div className="border border-gray-300 shadow-md p-[30px] rounded-lg mt-[30px]">
+      <div className="border border-gray-300 shadow-md p-[30px] rounded-lg mt-[38px] md:mt-[90px] mb-[38px] md:mb-20">
         {/* Search Bar */}
         <div className="flex items-center gap-2 border-b pb-2 mb-5 border-gray-300">
           <MapPin className="h-5 sm:h-6 text-gray-500" />

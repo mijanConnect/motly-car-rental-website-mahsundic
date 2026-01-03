@@ -3,10 +3,10 @@ import Image from "next/image";
 export default function DownloadLink() {
   return (
     <>
-      <div className="flex justify-center mt-[140px]">
+      <div className="flex justify-center my-[70px] lg:my-[180px]">
         <div className="border py-[46px] md:py-[86px] px-10 sm:px-[60px] md:px-[126px] border-gray-300 rounded-[32px]">
           <div className="flex flex-col">
-            <h1 className="text-center inline-block text-[30px] sm:text-[40px] md:text-[60px] font-semibold mb-4.5 leading-tight text-primaryText">
+            <h1 className="text-center inline-block text-[24px] sm:text-[40px] md:text-[60px] font-semibold mb-4.5 leading-tight text-primaryText">
               Now Available on the
               <br />
               Motly App
