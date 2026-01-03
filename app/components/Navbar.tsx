@@ -81,7 +81,7 @@ export default function Navbar() {
     <>
       <style>{navbarStyles}</style>
       <header
-        className={`sticky top-0 z-20 bg-primary rounded-b-5 shadow-[0_3px_5px_rgba(0,0,0,0.15)] px-4 transition-transform duration-300 ${
+        className={`sticky top-0 z-20 bg-primary rounded-b-2xl shadow-[0_3px_5px_rgba(0,0,0,0.15)] px-4 transition-transform duration-300 ${
           isVisible ? "translate-y-0" : "-translate-y-full"
         }`}
       >
@@ -159,15 +159,15 @@ export default function Navbar() {
               >
                 <span
                   className={`pr-2 ${
-                    lang === "EN" ? "font-bold" : "opacity-70"
-                  } border-r`}
+                    lang === "EN" ? "opacity-100" : "opacity-50"
+                  }`}
                 >
                   EN
                 </span>
-
+                <div className="border-l border-white h-6" />
                 <span
                   className={`pl-2 ${
-                    lang === "DE" ? "font-bold" : "opacity-70"
+                    lang === "DE" ? "opacity-100" : "opacity-50"
                   }`}
                 >
                   DE
