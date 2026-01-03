@@ -17,7 +17,7 @@ export default function CarCard({ car }: CarCardProps) {
           <div className="flex-7/3">
             <div className="flex flex-col md:flex-row gap-5 w-full pr-0 lg:pr-5 border-0 lg:border-r border-gray-300">
               {/* Image part */}
-              <div className="relative w-[214px] h-[196px] overflow-hidden shrink-0">
+              <div className="relative w-full md:w-[214px] h-[300px] md:h-[196px] overflow-hidden shrink-0">
                 <Image
                   src={car.image}
                   alt={car.name}
