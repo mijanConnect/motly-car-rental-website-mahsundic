@@ -19,7 +19,7 @@ export default function Button({
   ...props
 }: ButtonProps) {
   const baseStyles =
-    "font-[16px] font-medium rounded-[8px] transition-all duration-200 flex items-center justify-center gap-2 whitespace-nowrap cursor-pointer disabled:cursor-not-allowed";
+    "font-[16px] rounded-[8px] transition-all duration-200 flex items-center justify-center gap-2 whitespace-nowrap cursor-pointer disabled:cursor-not-allowed";
 
   const variantStyles = {
     primary: "bg-primary text-white hover:bg-primary/90 disabled:bg-primary/50",
@@ -31,7 +31,7 @@ export default function Button({
 
   const sizeStyles = {
     sm: "px-4 py-2 text-sm",
-    md: "px-6 py-3 text-base",
+    md: "px-6 py-[11px] text-base",
     lg: "px-8 py-4 text-lg",
   };
 

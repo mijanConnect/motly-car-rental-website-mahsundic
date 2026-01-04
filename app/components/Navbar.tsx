@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
-import UserIcon from "./Svg";
+import { UserIcon } from "./Svg";
 
 const navbarStyles = `
   .nav-link {
@@ -130,7 +130,7 @@ export default function Navbar() {
               >
                 My Booking
               </Link>
-              <Link
+              {/* <Link
                 href="#products"
                 className={`nav-link py-1 transform transition-all ${
                   isActive("#products") ? "active" : ""
@@ -138,7 +138,7 @@ export default function Navbar() {
                 onClick={() => setOpen(false)}
               >
                 About us
-              </Link>
+              </Link> */}
               <Link
                 href="#products"
                 className={`nav-link py-1 transform transition-all ${
