@@ -17,7 +17,7 @@ export default function DetailsCarCard({ car }: CarCardProps) {
           <div className="flex-10/3 border-0 lg:border-r border-stroke">
             <div className="flex flex-col md:flex-row gap-3 w-full pr-0 lg:pr-4">
               {/* Image part */}
-              <div className="relative w-[170px] h-[170px] overflow-hidden shrink-0">
+              <div className="relative w-full md:w-[170px] h-[270px] md:h-[170px] overflow-hidden shrink-0">
                 <Image
                   src={car.image}
                   alt={car.name}
@@ -43,6 +43,7 @@ export default function DetailsCarCard({ car }: CarCardProps) {
                     ))}
                   </div>
                 </div>
+                {/* <p className="text-[12px]">Dhaka Da-11 6422</p> */}
                 <a
                   href="#"
                   className="text-[14px] text-primaryTextLight mb-3 hover:underline inline-block"

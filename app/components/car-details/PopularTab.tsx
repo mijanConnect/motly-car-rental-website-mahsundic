@@ -3,34 +3,31 @@
 import { useState } from "react";
 
 const tabs = [
-  { id: "Highest offer rating", label: "Highest offer rating" },
-  { id: "popularity", label: "Popularity" },
-  { id: "Best customer rating", label: "Best customer rating" },
-  { id: "Lowest Price", label: "Lowest Price" },
+  { id: "highest", label: "Highest offer rating" },
+  { id: "new", label: "New" },
+  { id: "recommended", label: "Recommended" },
+  { id: "low", label: "Lowest price" },
 ];
 
 export default function PopularTab() {
-  const [activeTab, setActiveTab] = useState("Highest offer rating");
+  const [activeTab, setActiveTab] = useState("highest");
 
   return (
     <div className="w-full">
       {/* Tabs Header */}
-      <div className="flex gap-4 border-b border-stroke">
+      <div className="flex gap-4 border-b border-stroke overflow-x-scroll scrollbar-hide w-[350px] sm:w-[560px] md:w-[720px] xl:w-auto xl:overflow-hidden">
         {tabs.map((tab) => (
           <button
             key={tab.id}
             onClick={() => setActiveTab(tab.id)}
-            className={`relative px-6 py-2 text-[18px] font-medium rounded-md transition-all duration-300
-              ${
-                activeTab === tab.id
-                  ? "text-primary"
-                  : "text-gray-600 hover:text-gray-800"
-              }
-            `}
+            className={`relative px-6 py-2 text-[16px] font-medium rounded-md transition-all duration-300 text-nowrap ${
+              activeTab === tab.id
+                ? "text-primary"
+                : "text-gray-600 hover:text-gray-800"
+            }`}
           >
             {tab.label}
 
-            {/* Bottom Indicator */}
             {activeTab === tab.id && (
               <span className="absolute left-0 -bottom-px w-full h-0.5 bg-primary" />
             )}
@@ -39,10 +36,10 @@ export default function PopularTab() {
       </div>
 
       {/* Content Area */}
-      <div className="relative mt-6">
+      {/* <div className="relative mt-6">
         <div
           className={`transition-opacity duration-300 ${
-            activeTab === "Highest offer "
+            activeTab === "highest"
               ? "opacity-100"
               : "opacity-0 absolute inset-0 pointer-events-none"
           }`}
@@ -75,7 +72,19 @@ export default function PopularTab() {
             Recommended cars specially selected for you.
           </p>
         </div>
-      </div>
+
+        <div
+          className={`transition-opacity duration-300 ${
+            activeTab === "low"
+              ? "opacity-100"
+              : "opacity-0 absolute inset-0 pointer-events-none"
+          }`}
+        >
+          <p className="text-gray-700">
+            Budget friendly cars with lowest price.
+          </p>
+        </div>
+      </div> */}
     </div>
   );
 }

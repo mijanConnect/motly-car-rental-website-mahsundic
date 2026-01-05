@@ -77,7 +77,7 @@ export default function SideSearch() {
             </PopoverTrigger>
             <PopoverContent className="w-auto p-0" align="start">
               <div className="p-4 space-y-4">
-                <div className="flex gap-3">
+                <div className="flex flex-col md:flex-row gap-3">
                   <div>
                     <p className="text-sm font-semibold mb-2">Select Date</p>
                     <Calendar
@@ -143,7 +143,7 @@ export default function SideSearch() {
             </PopoverTrigger>
             <PopoverContent className="w-auto p-0" align="start">
               <div className="p-4 space-y-4">
-                <div className="flex gap-3">
+                <div className="flex flex-col md:flex-row gap-3">
                   <div>
                     <p className="text-sm font-semibold mb-2">Select Date</p>
                     <Calendar

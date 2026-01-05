@@ -52,8 +52,8 @@ export default function Category() {
   const [selectedId, setSelectedId] = useState<number | null>(null);
 
   return (
-    <div className="border border-stroke rounded-lg px-3 py-3">
-      <ul className="flex gap-4 flex-wrap justify-between">
+    <div className="border border-stroke rounded-lg p-1 lg:p-3 ">
+      <ul className="flex gap-1 lg:gap-4 justify-between overflow-x-scroll scrollbar-hide w-[320px] sm:w-[560px] md:w-[720px] xl:w-auto xl:overflow-hidden">
         {categories.map((category) => {
           const isSelected = selectedId === category.id;
           return (
@@ -98,8 +98,12 @@ export default function Category() {
                     />
                   </svg>
 
-                  <p className="text-[16px] font-medium">{category.name}</p>
-                  <p className="text-[16px]">From €{category.price}</p>
+                  <p className="text-[14px] lg:text-[16px] font-medium text-nowrap">
+                    {category.name}
+                  </p>
+                  <p className="text-[14px] lg:text-[16px] text-nowrap">
+                    From €{category.price}
+                  </p>
                 </div>
               </a>
             </li>

@@ -11,7 +11,7 @@
   --color-primaryTextLight: #747474;
   --color-primaryParagraph: #313131;
   --color-primaryParagraphLight: #a8a8a8;
-  --color-stroke: #DBD6D6;
+  --color-stroke: #dbd6d6;
 }
 
 :root {
@@ -136,4 +136,13 @@ body {
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
