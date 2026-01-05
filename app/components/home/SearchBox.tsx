@@ -34,9 +34,9 @@ export default function SearchBox() {
 
   return (
     <>
-      <div className="border border-gray-300 shadow-md p-[30px] rounded-lg mt-[38px] md:mt-[90px] mb-[38px] md:mb-20">
+      <div className="border border-stroke shadow-md p-[30px] rounded-lg mt-[38px] md:mt-[90px] mb-[38px] md:mb-20">
         {/* Search Bar */}
-        <div className="flex items-center gap-2 border-b pb-2 mb-5 border-gray-300">
+        <div className="flex items-center gap-2 border-b pb-2 mb-5 border-stroke">
           <MapPin className="h-5 sm:h-6 text-gray-500" />
           <input
             type="text"
@@ -49,9 +49,9 @@ export default function SearchBox() {
           {/* Collection Date and Time */}
           <Popover open={openCollection} onOpenChange={setOpenCollection}>
             <PopoverTrigger asChild>
-              <div className="border border-gray-300 rounded-lg w-full cursor-pointer hover:bg-gray-50 transition">
+              <div className="border border-stroke rounded-lg w-full cursor-pointer hover:bg-gray-50 transition">
                 <div className="flex justify-between">
-                  <div className="flex-1 flex flex-col gap-1 border-r border-gray-300 px-5 py-3.5">
+                  <div className="flex-1 flex flex-col gap-1 border-r border-stroke px-5 py-3.5">
                     <p className="text-[14px] sm:text-[18px] text-primaryParagraph">
                       Collection Date
                     </p>
@@ -97,7 +97,7 @@ export default function SearchBox() {
                         type="time"
                         value={collectionTime}
                         onChange={(e) => setCollectionTime(e.target.value)}
-                        className="border border-gray-300 rounded px-3 py-2"
+                        className="border border-stroke rounded px-3 py-2"
                       />
                     </div>
                   </div>
@@ -115,9 +115,9 @@ export default function SearchBox() {
           {/* Return Date and Time */}
           <Popover open={openReturn} onOpenChange={setOpenReturn}>
             <PopoverTrigger asChild>
-              <div className="border border-gray-300 rounded-lg w-full cursor-pointer hover:bg-gray-50 transition">
+              <div className="border border-stroke rounded-lg w-full cursor-pointer hover:bg-gray-50 transition">
                 <div className="flex justify-between">
-                  <div className="flex-1 flex flex-col gap-1 border-r border-gray-300 px-5 py-3.5">
+                  <div className="flex-1 flex flex-col gap-1 border-r border-stroke px-5 py-3.5">
                     <p className="text-[14px] sm:text-[18px] text-primaryParagraph">
                       Return Date
                     </p>
@@ -165,7 +165,7 @@ export default function SearchBox() {
                         type="time"
                         value={returnTime}
                         onChange={(e) => setReturnTime(e.target.value)}
-                        className="border border-gray-300 rounded px-3 py-2"
+                        className="border border-stroke rounded px-3 py-2"
                       />
                     </div>
                   </div>

@@ -12,9 +12,9 @@ interface CarCardProps {
 export default function DetailsCarCard({ car }: CarCardProps) {
   return (
     <>
-      <div className="p-4 border border-gray-300 rounded-lg shadow-md hover:shadow-lg hover:bg-gray-50 transition-shadow duration-300">
+      <div className="p-4 border border-stroke rounded-lg hover:shadow-md hover:bg-gray-50 transition-shadow duration-300">
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-0 justify-between">
-          <div className="flex-10/3 border-0 lg:border-r border-gray-300">
+          <div className="flex-10/3 border-0 lg:border-r border-stroke">
             <div className="flex flex-col md:flex-row gap-3 w-full pr-0 lg:pr-4">
               {/* Image part */}
               <div className="relative w-[170px] h-[170px] overflow-hidden shrink-0">

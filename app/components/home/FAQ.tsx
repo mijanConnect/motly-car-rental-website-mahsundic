@@ -107,7 +107,7 @@ function FAQItem({ item, isExpanded, onToggle }: FAQItemProps) {
   }, [isExpanded]);
 
   return (
-    <div className="border-b border-gray-300 overflow-hidden">
+    <div className="border-b border-stroke overflow-hidden">
       <button
         onClick={onToggle}
         className="w-full flex justify-between items-center py-3 transition-colors duration-200"

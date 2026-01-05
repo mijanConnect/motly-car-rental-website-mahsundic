@@ -15,7 +15,7 @@ export default function PopularTab() {
   return (
     <div className="w-full">
       {/* Tabs Header */}
-      <div className="flex gap-4 border-b border-gray-300">
+      <div className="flex gap-4 border-b border-stroke">
         {tabs.map((tab) => (
           <button
             key={tab.id}

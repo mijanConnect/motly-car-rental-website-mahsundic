@@ -52,7 +52,7 @@ export default function Category() {
   const [selectedId, setSelectedId] = useState<number | null>(null);
 
   return (
-    <div className="border border-gray-300 rounded-lg px-3 py-3">
+    <div className="border border-stroke rounded-lg px-3 py-3">
       <ul className="flex gap-4 flex-wrap justify-between">
         {categories.map((category) => {
           const isSelected = selectedId === category.id;

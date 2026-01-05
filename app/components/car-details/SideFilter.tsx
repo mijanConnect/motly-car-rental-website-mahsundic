@@ -53,7 +53,7 @@ export default function FilterAccordion() {
   };
 
   return (
-    <div className="border mt-4 border-gray-300 rounded-lg p-4">
+    <div className="border mt-4 border-stroke rounded-lg p-4">
       <div className="w-full max-w-sm">
         {sections.map((section, index) => {
           const isOpen = openSections.includes(index);
@@ -97,7 +97,7 @@ export default function FilterAccordion() {
                           type="checkbox"
                           checked={checked.includes(item)}
                           onChange={() => toggleItem(item)}
-                          className="h-4 w-4 rounded border-gray-300 text-green-600 focus:ring-green-500"
+                          className="h-4 w-4 rounded border-stroke text-green-600 focus:ring-green-500"
                         />
                         <span>{item}</span>
                       </div>

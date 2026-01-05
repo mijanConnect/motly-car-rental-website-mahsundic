@@ -34,9 +34,9 @@ export default function SideSearch() {
 
   return (
     <>
-      <div className="border border-gray-300 p-3 rounded-lg">
+      <div className="border border-stroke p-3 rounded-lg">
         {/* Search Bar */}
-        <div className="flex items-center gap-2 border-b pb-1 mb-3 border-gray-300">
+        <div className="flex items-center gap-2 border-b pb-1 mb-3 border-stroke">
           <MapPin className="h-4 sm:h-5 text-gray-500" />
           <input
             type="text"
@@ -49,9 +49,9 @@ export default function SideSearch() {
           {/* Collection Date and Time */}
           <Popover open={openCollection} onOpenChange={setOpenCollection}>
             <PopoverTrigger asChild>
-              <div className="border border-gray-300 rounded-sm w-full cursor-pointer hover:bg-gray-50 transition">
+              <div className="border border-stroke rounded-sm w-full cursor-pointer hover:bg-gray-50 transition">
                 <div className="flex justify-between items-start">
-                  <div className="flex-1 flex flex-col gap-1 border-r border-gray-300 p-3">
+                  <div className="flex-1 flex flex-col gap-1 border-r border-stroke p-3">
                     <p className="text-[14px] sm:text-[16px] text-primaryParagraph font-medium">
                       Collection
                     </p>
@@ -97,7 +97,7 @@ export default function SideSearch() {
                         type="time"
                         value={collectionTime}
                         onChange={(e) => setCollectionTime(e.target.value)}
-                        className="border border-gray-300 rounded px-3 py-2"
+                        className="border border-stroke rounded px-3 py-2"
                       />
                     </div>
                   </div>
@@ -115,9 +115,9 @@ export default function SideSearch() {
           {/* Return Date and Time */}
           <Popover open={openReturn} onOpenChange={setOpenReturn}>
             <PopoverTrigger asChild>
-              <div className="border border-gray-300 rounded-sm w-full cursor-pointer hover:bg-gray-50 transition">
+              <div className="border border-stroke rounded-sm w-full cursor-pointer hover:bg-gray-50 transition">
                 <div className="flex justify-between items-start">
-                  <div className="flex-1 flex flex-col gap-1 border-r border-gray-300 p-3">
+                  <div className="flex-1 flex flex-col gap-1 border-r border-stroke p-3">
                     <p className="text-[14px] sm:text-[16px] text-primaryParagraph font-medium">
                       Return
                     </p>
@@ -165,7 +165,7 @@ export default function SideSearch() {
                         type="time"
                         value={returnTime}
                         onChange={(e) => setReturnTime(e.target.value)}
-                        className="border border-gray-300 rounded px-3 py-2"
+                        className="border border-stroke rounded px-3 py-2"
                       />
                     </div>
                   </div>

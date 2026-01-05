@@ -168,9 +168,9 @@ export default function RegisterPage() {
 
       <div>
         <div className="my-6 flex items-center">
-          <hr className="grow border-t border-gray-300" />
+          <hr className="grow border-t border-stroke" />
           <span className="mx-4 text-gray-500">or</span>
-          <hr className="grow border-t border-gray-300" />
+          <hr className="grow border-t border-stroke" />
         </div>
       </div>
 
