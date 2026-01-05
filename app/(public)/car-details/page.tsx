@@ -7,6 +7,7 @@ import DetailsCars from "@/app/components/car-details/DetailsCars";
 import PopularTab from "@/app/components/car-details/PopularTab";
 import FilterPanel from "@/app/components/car-details/SideFilter";
 import SideSearch from "@/app/components/car-details/SideSearch";
+import Feedback from "@/app/components/car-details/Feedback";
 
 const sidebarAnimationStyles = `
   @keyframes slideInFromLeft {
@@ -111,6 +112,7 @@ export default function Page() {
           </div>
         </div>
       </div>
+      <Feedback />
     </>
   );
 }
