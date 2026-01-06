@@ -45,7 +45,7 @@ export default function DetailsMain() {
                 Or similar upper class
               </a>
             </div>
-            <div>
+            <div className="flex flex-col items-end">
               <h3 className="text-[36px] font-medium text-red-500">€46.91</h3>
               <p className="text-[18px] text-primaryTextLight">
                 Price for 3 days
@@ -217,7 +217,7 @@ export default function DetailsMain() {
           </div>
           <div className="flex justify-end mt-8 flex-col sm:flex-row gap-4">
             <Button variant="outline" size="lg" className="w-full">
-              View Details
+              View Reviews
             </Button>
             <Button variant="primary" size="lg" className="w-full">
               Book Now
