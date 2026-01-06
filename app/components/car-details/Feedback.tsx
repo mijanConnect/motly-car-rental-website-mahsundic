@@ -7,6 +7,7 @@ import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import Button from "../ui/Button";
 
 const reviews = [
   {
@@ -174,10 +175,12 @@ export default function Feedback() {
             </SwiperSlide>
           ))}
         </Swiper>
-
         {/* <button className="swiper-button-prev absolute left-0 top-1/2 -translate-y-1/2 p-3 rounded-full shadow bg-white z-10"></button>
         <button className="swiper-button-next absolute right-0 top-1/2 -translate-y-1/2 p-3 rounded-full shadow bg-white z-10"></button> */}
       </div>
+      <Button variant="primary" size="md" className="h-12 flex mx-auto">
+        View All Reveiws
+      </Button>
     </div>
   );
 }

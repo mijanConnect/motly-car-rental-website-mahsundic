@@ -29,7 +29,7 @@ export default function DetailsCarCard({ car }: CarCardProps) {
               {/* Right Side part */}
               <div className="flex-1">
                 <div className="flex justify-between items-center">
-                  <h2 className="text-[18px]">{car.name}</h2>
+                  <h2 className="text-[18px] text-primaryText">{car.name}</h2>
                   <div className="flex gap-1">
                     {[...Array(5)].map((_, i) => (
                       <Star
