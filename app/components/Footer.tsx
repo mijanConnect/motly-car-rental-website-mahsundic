@@ -4,20 +4,22 @@ import Image from "next/image";
 export default function Footer() {
   return (
     <footer className="bg-primary">
-      <div className="container mx-auto flex flex-col gap-6 px-4 py-10 lg:py-20 md:py-8 sm:py-12">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-12 lg:gap-25">
-          <div className="space-y-2 sm:col-span-2 lg:col-span-1">
+      <div className="container mx-auto flex flex-col gap-6 px-4 py-8 md:py-8 sm:py-12 lg:py-20">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-12 lg:gap-25">
+          <div className="space-y-2 col-span-2 lg:col-span-1">
             <div>
               <Link
                 href="/"
                 className="text-lg font-semibold flex items-center gap-4"
               >
-                <Image
-                  src="/assets/logo-nav.png"
-                  alt="Login Image"
-                  width={50}
-                  height={50}
-                />
+                <div className="border rounded-sm p-1">
+                  <Image
+                    src="/assets/logo-nav.png"
+                    alt="Login Image"
+                    width={46}
+                    height={46}
+                  />
+                </div>
                 <h2 className="text-[30px] font-bold text-white">MOTLY</h2>
               </Link>
             </div>
@@ -112,8 +114,8 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div className="space-y-3 sm:col-span-2 lg:col-span-1">
-            <div className="space-y-3">
+          <div className="space-y-3 col-span-2 lg:col-span-1">
+            <div className="space-y-3 text-center md:text-left">
               <h3 className="font-semibold text-white text-[18px]">Contact</h3>
               <ul className="flex flex-col gap-2 text-white text-[15px]">
                 <li>Office : 42 Marine Parade, Australia</li>

@@ -86,12 +86,12 @@ export default function Navbar() {
         }`}
       >
         <div className="container mx-auto flex items-center justify-between py-3">
-          <Link href="/" className="text-lg font-semibold hover:opacity-90">
+          <Link href="/" className="text-lg font-semibold hover:opacity-90 border rounded-sm p-1">
             <Image
               src="/assets/logo-nav.png"
               alt="Login Image"
-              width={54}
-              height={54}
+              width={46}
+              height={46}
             />
           </Link>
 
