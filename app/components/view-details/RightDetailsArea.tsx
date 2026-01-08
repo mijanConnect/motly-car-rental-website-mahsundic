@@ -21,19 +21,23 @@ export default function DetailsArea() {
       </div>
       <div className="mt-1 flex justify-between items-baseline">
         <div>
-          <h2 className="text-[32px] font-medium text-primaryText">
+          <h2 className="text-[26px] lg:text-[32px] font-medium text-primaryText">
             Porsche S60
           </h2>
           <a
             href="#"
-            className="text-[18px] text-primaryTextLight mb-3 hover:underline inline-block"
+            className="text-[14px] lg:text-[18px] text-primaryTextLight mb-3 hover:underline inline-block"
           >
             Or similar upper class
           </a>
         </div>
         <div className="flex flex-col items-end">
-          <h3 className="text-[36px] font-medium text-red-500">€46.91</h3>
-          <p className="text-[18px] text-primaryTextLight">Price for 3 days</p>
+          <h3 className="text-[28px] lg:text-[36px] font-medium text-red-500">
+            €46.91
+          </h3>
+          <p className="text-[14px] lg:text-[18px] text-primaryTextLight">
+            Price for 3 days
+          </p>
         </div>
       </div>
       <div className="mt-2 lg:mt-4">
@@ -45,7 +49,7 @@ export default function DetailsArea() {
         />
         <a
           href="#"
-          className="text-[18px] text-primaryTextLight mt-1.5 hover:underline inline-block"
+          className="text-[14px] lg:text-[18px] text-primaryTextLight mt-1.5 hover:underline inline-block"
         >
           About Aurum Cars
         </a>

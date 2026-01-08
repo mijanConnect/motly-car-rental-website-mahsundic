@@ -189,6 +189,42 @@ body {
   opacity: 1;
 }
 
-.swiper{
+.swiper {
   padding: 15px !important;
+}
+
+/* Reusable CSS */
+.description {
+  font-size: 16px;
+  color: var(--color-primaryText);
+}
+
+@media (max-width: 1024px) {
+  .description {
+    font-size: 14px;
+  }
+}
+
+.heading-main {
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--color-primaryText);
+}
+
+@media (max-width: 1024px) {
+  .heading-main {
+    font-size: 22px;
+  }
+}
+
+.heading-secondary {
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--color-primaryText);
+}
+
+@media (max-width: 1024px) {
+  .heading-secondary {
+    font-size: 18px;
+  }
 }

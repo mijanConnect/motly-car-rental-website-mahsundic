@@ -30,12 +30,10 @@ export default function DetailsMain() {
 
       {/* Insurance Section */}
       <div className="mt-8 lg:mt-15">
-        <h2 className="font-semibold text-[32px] text-primaryText mb-4">
-          Insurance coverage
-        </h2>
+        <h2 className="heading-main mb-2 lg:mb-4">Insurance coverage</h2>
         <div>
           <section className="w-full bg-white">
-            <h2 className="text-xl font-semibold text-gray-900 mb-4">
+            <h2 className="heading-secondary mb-2 lg:mb-4">
               Insurance Coverage
             </h2>
 
@@ -77,10 +75,10 @@ export default function DetailsMain() {
 
       {/* Payment terms Section */}
       <div className="mt-6 lg:mt-15">
-        <h2 className="font-semibold text-[32px] text-primaryText mb-3">
-          Payment terms
-        </h2>
-        <h3 className="font-medium text-[22px]">Possible payment methods</h3>
+        <h2 className="heading-main mb-2 lg:mb-4">Payment terms</h2>
+        <h3 className="heading-secondary mb-2 lg:mb-4">
+          Possible payment methods
+        </h3>
         <div>
           <div className="flex items-center gap-10 mt-4">
             <div className="flex gap-2 items-center">
@@ -165,12 +163,12 @@ export default function DetailsMain() {
 
       {/* Terms and Conditions & Rental Conditions */}
       <div className="mt-6 lg:mt-15">
-        <h2 className="font-semibold text-[32px] text-primaryText mb-4">
+        <h2 className="heading-main mb-2 lg:mb-4">
           Terms and Conditions & Rental Conditions
         </h2>
         <div>
           <section className="w-full bg-white text-gray-700">
-            <h2 className="text-2xl font-semibold text-gray-900 mb-4">
+            <h2 className="heading-secondary mb-2 lg:mb-4">
               Insurance Coverage and Included Services
             </h2>
 
