@@ -15,10 +15,34 @@ export default function CarFunctionality() {
       {carcarFeatures.map((carFeatures) => (
         <div
           key={carFeatures.label}
-          className="flex flex-col gap-2 items-center border px-5 py-2 rounded-sm border-strock"
+          className="flex flex-col gap-1 lg:gap-2 items-center border px-2 py-2 md:px-4 rounded-sm border-strock"
         >
-          <Image src={carFeatures.src} alt="Icon" width={32} height={32} />
-          <p className="text-primaryText text-[20px]">{carFeatures.label}</p>
+          <Image
+            src={carFeatures.src}
+            alt="Icon"
+            width={18}
+            height={18}
+            className="block md:hidden"
+          />
+
+          <Image
+            src={carFeatures.src}
+            alt="Icon"
+            width={28}
+            height={28}
+            className="hidden md:block lg:hidden"
+          />
+
+          <Image
+            src={carFeatures.src}
+            alt="Icon"
+            width={32}
+            height={32}
+            className="hidden lg:block"
+          />
+          <p className="text-primaryText text-[12px] md:text-[16px]">
+            {carFeatures.label}
+          </p>
         </div>
       ))}
 

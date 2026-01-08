@@ -6,14 +6,14 @@ import DetailsArea from "./RightDetailsArea";
 export default function DetailsMain() {
   return (
     <>
-      <div className="flex gap-[50px]">
+      <div className="flex flex-col lg:flex-row gap-[30px] lg:gap-[50px]">
         {/* Image Area */}
-        <div className="w-[50%]">
+        <div className="w-full lg:w-[50%]">
           <ImageArea />
         </div>
 
         {/* Details Area */}
-        <div className="w-[50%] pl-4">
+        <div className="w-full lg:w-[50%] pl-0 lg:pl-4">
           <DetailsArea />
 
           {/* Booking Buttons */}
@@ -29,7 +29,7 @@ export default function DetailsMain() {
       </div>
 
       {/* Insurance Section */}
-      <div className="mt-15">
+      <div className="mt-8 lg:mt-15">
         <h2 className="font-semibold text-[32px] text-primaryText mb-4">
           Insurance coverage
         </h2>
@@ -76,22 +76,31 @@ export default function DetailsMain() {
       </div>
 
       {/* Payment terms Section */}
-      <div className="mt-15">
+      <div className="mt-6 lg:mt-15">
         <h2 className="font-semibold text-[32px] text-primaryText mb-3">
           Payment terms
         </h2>
         <h3 className="font-medium text-[22px]">Possible payment methods</h3>
         <div>
-          <div className="flex items-center gap-10 mt-3">
+          <div className="flex items-center gap-10 mt-4">
             <div className="flex gap-2 items-center">
               <Image
                 src="/assets/view-details/PayPal.png"
                 alt="Icon"
                 width={75}
                 height={50}
-                className="h-[50px] w-[75px]"
+                className="h-[50px] w-[75px] hidden lg:block"
               />
-              <p className="text-[20px] text-primaryText">PayPal</p>
+              <Image
+                src="/assets/view-details/PayPal.png"
+                alt="Icon"
+                width={60}
+                height={35}
+                className="h-[35px] w-[60px] block lg:hidden"
+              />
+              <p className="text-[20px] text-primaryText hidden lg:block">
+                PayPal
+              </p>
             </div>
             <div className="flex gap-2 items-center">
               <Image
@@ -99,9 +108,18 @@ export default function DetailsMain() {
                 alt="Icon"
                 width={75}
                 height={50}
-                className="h-[50px] w-[75px]"
+                className="h-[50px] w-[75px] hidden lg:block"
               />
-              <p className="text-[20px] text-primaryText">American Express</p>
+              <Image
+                src="/assets/view-details/amex.png"
+                alt="Icon"
+                width={60}
+                height={35}
+                className="h-[35px] w-[60px] block lg:hidden"
+              />
+              <p className="text-[20px] text-primaryText hidden lg:block">
+                American Express
+              </p>
             </div>
             <div className="flex gap-2 items-center">
               <Image
@@ -109,9 +127,18 @@ export default function DetailsMain() {
                 alt="Icon"
                 width={75}
                 height={50}
-                className="h-[50px] w-[75px]"
+                className="h-[50px] w-[75px] hidden lg:block"
               />
-              <p className="text-[20px] text-primaryText">Visa Card</p>
+              <Image
+                src="/assets/view-details/Visa.png"
+                alt="Icon"
+                width={60}
+                height={35}
+                className="h-[35px] w-[60px] block lg:hidden"
+              />
+              <p className="text-[20px] text-primaryText hidden lg:block">
+                Visa Card
+              </p>
             </div>
             <div className="flex gap-2 items-center">
               <Image
@@ -119,16 +146,25 @@ export default function DetailsMain() {
                 alt="Icon"
                 width={75}
                 height={50}
-                className="h-[50px] w-[75px]"
+                className="h-[50px] w-[75px] hidden lg:block"
               />
-              <p className="text-[20px] text-primaryText">Maestro Card</p>
+              <Image
+                src="/assets/view-details/Maestro.png"
+                alt="Icon"
+                width={60}
+                height={35}
+                className="h-[35px] w-[60px] block lg:hidden"
+              />
+              <p className="text-[20px] text-primaryText hidden lg:block">
+                Maestro Card
+              </p>
             </div>
           </div>
         </div>
       </div>
 
       {/* Terms and Conditions & Rental Conditions */}
-      <div className="mt-15">
+      <div className="mt-6 lg:mt-15">
         <h2 className="font-semibold text-[32px] text-primaryText mb-4">
           Terms and Conditions & Rental Conditions
         </h2>

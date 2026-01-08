@@ -36,7 +36,7 @@ export default function DetailsArea() {
           <p className="text-[18px] text-primaryTextLight">Price for 3 days</p>
         </div>
       </div>
-      <div className="mt-4">
+      <div className="mt-2 lg:mt-4">
         <Image
           src="/assets/view-details/hertz.png"
           alt="Car Image"
@@ -55,7 +55,7 @@ export default function DetailsArea() {
       <CarFunctionality />
 
       {/* Additional Features */}
-      <div className="flex gap-6 justify-between mt-6">
+      <div className="flex flex-col md:flex-row gap-3 md:gap-6 justify-between mt-6">
         {/* Fuel Policy */}
         <AdditionalFeatures
           imageUrl="/assets/view-details/fuel.png"
@@ -72,7 +72,7 @@ export default function DetailsArea() {
           PolicyDescription="You can drive as much as you want without worrying about extra charges."
         />
       </div>
-      <div className="flex gap-6 justify-between mt-4">
+      <div className="flex flex-col md:flex-row gap-3 md:gap-6 justify-between mt-3">
         {/* Extras */}
         <AdditionalFeatures
           imageUrl="/assets/view-details/add.png"
