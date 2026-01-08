@@ -228,3 +228,15 @@ body {
     font-size: 18px;
   }
 }
+
+.section-title {
+  font-size: 42px;
+  font-weight: 800;
+  color: var(--color-primaryText);
+}
+
+@media (max-width: 1024px) {
+  .section-title {
+    font-size: 26px;
+  }
+}

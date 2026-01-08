@@ -112,7 +112,7 @@ function FAQItem({ item, isExpanded, onToggle }: FAQItemProps) {
         onClick={onToggle}
         className="w-full flex justify-between items-center py-3 transition-colors duration-200"
       >
-        <p className="text-[20px] text-left text-primaryText font-medium">
+        <p className="text-[16px] lg:text-[20px] text-left text-primaryText font-medium">
           {item.question}
         </p>
         <i
@@ -164,10 +164,10 @@ export default function FAQ() {
 
   return (
     <div className="mb-[70px] lg:mb-[180px]">
-      <h2 className="text-[48px] font-bold text-center uppercase leading-[1.2]">
+      <h2 className="section-title text-center uppercase leading-[1.2]">
         Frequently <br /> asked questions
       </h2>
-      <div className="flex flex-col lg:flex-row items-start gap-5 lg:gap-10 mt-8 lg:mt-20">
+      <div className="flex flex-col lg:flex-row items-start gap-5 lg:gap-10 mt-4 lg:mt-20">
         {/* Left side */}
         <div className="w-full lg:w-auto flex flex-col gap-0 lg:gap-10 flex-1">
           <div>

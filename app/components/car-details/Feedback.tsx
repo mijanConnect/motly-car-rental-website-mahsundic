@@ -92,7 +92,7 @@ const reviews = [
 export default function Feedback() {
   return (
     <div className="my-30">
-      <h2 className="text-[48px] font-bold text-center uppercase leading-[1.2]">
+      <h2 className="section-title text-center uppercase leading-[1.2]">
         What the People Thinks
         <br />
         About Us

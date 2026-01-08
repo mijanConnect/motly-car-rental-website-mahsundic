@@ -93,7 +93,7 @@ export default function Cars() {
   return (
     <>
       <div>
-        <h1 className="text-[30px] font-semiBold mb-3">Top Rated Cars</h1>
+        <h1 className="text-[24px] lg:text-[30px] font-semiBold mb-3">Top Rated Cars</h1>
         <div className="flex flex-col gap-4">
           {cars.map((car) => (
             <CarCard key={car.id} car={car} />
