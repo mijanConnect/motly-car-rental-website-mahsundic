@@ -3,7 +3,7 @@ import type { ChangeEvent } from "react";
 type InputFieldProps = {
   title?: string;
   placeholder?: string;
-  type?: "text" | "email" | "password" | "number";
+  type?: "text" | "email" | "password" | "number" | "date" | "tel";
   value?: string;
   name?: string;
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
@@ -38,7 +38,7 @@ export default function InputField({
         mt-1
           w-full
           h-12
-          rounded-lg
+          rounded-[6px]
           border
           border-[#E2E8F0]
           bg-[#F0F8FF]
