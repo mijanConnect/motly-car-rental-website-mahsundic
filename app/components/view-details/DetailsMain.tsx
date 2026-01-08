@@ -1,9 +1,14 @@
+"use client";
+
 import Image from "next/image";
 import Button from "../ui/Button";
 import ImageArea from "./DetailsImageArea";
 import DetailsArea from "./RightDetailsArea";
+import { useRouter } from "next/navigation";
 
 export default function DetailsMain() {
+  const router = useRouter();
+
   return (
     <>
       <div className="flex flex-col lg:flex-row gap-[30px] lg:gap-[50px]">
@@ -18,9 +23,15 @@ export default function DetailsMain() {
 
           {/* Booking Buttons */}
           <div className="flex justify-end mt-8 flex-col sm:flex-row gap-4">
-            <Button variant="outline" size="lg" className="w-full">
+            <Button
+              variant="outline"
+              size="lg"
+              className="w-full"
+              onClick={() => router.push("/view-reviews")}
+            >
               View Reviews
             </Button>
+
             <Button variant="primary" size="lg" className="w-full">
               Book Now
             </Button>
