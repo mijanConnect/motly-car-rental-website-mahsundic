@@ -1,10 +1,41 @@
+"use client";
+
+import { useState } from "react";
+import DrivingInfo from "@/app/components/profile/DrivingInfo";
 import PersonalInfo from "@/app/components/profile/PersonalInfo";
-import React from "react";
 
 export default function Page() {
+  const [activeTab, setActiveTab] = useState<"personal" | "driving">(
+    "personal"
+  );
+
   return (
-    <>
-      <PersonalInfo />
-    </>
+    <div className="my-6 lg:my-15">
+      <div className="flex gap-4 border-b border-gray-200 mb-8">
+        <button
+          onClick={() => setActiveTab("personal")}
+          className={`pb-1 px-2 font-semibold text-[16px] transition ${
+            activeTab === "personal"
+              ? "text-primary border-b-2 border-primary"
+              : "text-primaryParagraph hover:text-primaryText"
+          }`}
+        >
+          Personal Information
+        </button>
+        <button
+          onClick={() => setActiveTab("driving")}
+          className={`pb-1 px-2 font-semibold text-[16px] transition ${
+            activeTab === "driving"
+              ? "text-primary border-b-2 border-primary"
+              : "text-primaryParagraph hover:text-primaryText"
+          }`}
+        >
+          Driving Information
+        </button>
+      </div>
+
+      {activeTab === "personal" && <PersonalInfo />}
+      {activeTab === "driving" && <DrivingInfo />}
+    </div>
   );
 }

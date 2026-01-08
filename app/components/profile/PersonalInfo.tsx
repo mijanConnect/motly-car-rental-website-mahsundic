@@ -1,10 +1,18 @@
 "use client";
 
 import { useState } from "react";
+import { format } from "date-fns";
 import InputField from "../ui/InputField";
 import ProfileImage from "./ProfileImage";
 import SelectField from "../ui/SelectField";
 import Button from "../ui/Button";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import { Calendar } from "@/components/ui/calendar";
+import { CalendarIcon } from "lucide-react";
 
 export default function PersonalInfo() {
   const [formData, setFormData] = useState({
@@ -25,11 +33,11 @@ export default function PersonalInfo() {
   };
 
   return (
-    <div className="my-6 lg:my-15 inline-block p-8 rounded-lg border border-gray-200">
+    <div className="inline-block p-8 rounded-lg border border-gray-200 w-full md:w-auto md:min-w-[300px]">
       <ProfileImage />
-      <div className="flex gap-12 mt-10">
+      <div className="flex gap-10 mt-10 w-full lg:flex-row flex-col">
         {/* Left side */}
-        <div>
+        <div className="flex-1">
           <h2 className="mb-4 text-[20px] font-semibold">
             Personal Information
           </h2>
@@ -58,12 +66,73 @@ export default function PersonalInfo() {
               onChange={(e) => handleChange("email", e.target.value)}
             />
 
-            <InputField
-              title="Birth Date"
-              type="date"
-              value={formData.birthDate}
-              onChange={(e) => handleChange("birthDate", e.target.value)}
-            />
+            <div className="w-full space-y-3">
+              <label className="text-[16px] font-semibold text-primaryText">
+                Birth Date
+              </label>
+              <Popover>
+                <PopoverTrigger asChild>
+                  <button
+                    className="
+                      mt-1
+                      w-full
+                      h-12
+                      rounded-lg
+                      border
+                      border-[#E2E8F0]
+                      bg-[#F0F8FF]
+                      px-3
+                      py-3
+                      text-[14px]
+                      text-gray-900
+                      outline-none
+                      transition
+                      focus:border-primary
+                      focus:ring-1
+                      focus:ring-primary/20
+                      flex
+                      items-center
+                      justify-between
+                      hover:border-primary/50
+                    "
+                  >
+                    <span>
+                      {formData.birthDate
+                        ? format(new Date(formData.birthDate), "MMM dd, yyyy")
+                        : "Select a date"}
+                    </span>
+                    <CalendarIcon className="h-4 w-4 text-gray-400" />
+                  </button>
+                </PopoverTrigger>
+                <PopoverContent className="w-auto p-0" align="start">
+                  <Calendar
+                    mode="single"
+                    selected={
+                      formData.birthDate
+                        ? new Date(formData.birthDate)
+                        : undefined
+                    }
+                    onSelect={(date) => {
+                      if (date) {
+                        handleChange(
+                          "birthDate",
+                          date.toISOString().split("T")[0]
+                        );
+                      }
+                    }}
+                    disabled={(date) => {
+                      const today = new Date();
+                      today.setHours(0, 0, 0, 0);
+                      return date > today;
+                    }}
+                    initialFocus
+                    captionLayout="dropdown"
+                    fromYear={1950}
+                    toYear={new Date().getFullYear()}
+                  />
+                </PopoverContent>
+              </Popover>
+            </div>
 
             <InputField
               title="Phone Number"
@@ -87,7 +156,7 @@ export default function PersonalInfo() {
           </div>
         </div>
         {/* Right side */}
-        <div>
+        <div className="flex-1">
           <h2 className="mb-4 text-[20px] font-semibold">
             Residential Address
           </h2>
