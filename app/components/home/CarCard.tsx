@@ -166,7 +166,7 @@ export default function CarCard({ car }: CarCardProps) {
           </div>
           {/* Card Right side */}
           <div className="flex-7/4 pl-0 lg:pl-8">
-            <div className="flex justify-between">
+            {/* <div className="flex justify-between">
               <div>
                 <p className="text-xl text-primaryText">Terrific</p>
                 <p className="text-[16px] text-primaryTextLight">
@@ -178,7 +178,7 @@ export default function CarCard({ car }: CarCardProps) {
                   {car.rating}
                 </p>
               </div>
-            </div>
+            </div> */}
             <div className="flex justify-between mt-5">
               <div>
                 <p className="text-2xl font-medium text-primaryText">
