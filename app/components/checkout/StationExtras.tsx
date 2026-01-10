@@ -23,7 +23,7 @@ export default function StationExtras() {
       </div>
       <div className="flex justify-center">
         {/* Spacer for bottom fixed bar */}
-        <Button className="mt-8 w-full lg:w-[350px]">
+        <Button className="mt-12 w-full lg:w-[350px]">
           Continue to your details
         </Button>
       </div>
