@@ -22,12 +22,12 @@ export default function Checkout() {
   // };
 
   return (
-    <section className="w-full flex flex-col items-center px-4 lg:px-0">
+    <section className="w-full flex flex-col items-center">
       <ProgressStepper
         steps={steps}
         currentStep={currentStep}
         onStepClick={setCurrentStep}
-        className="mb-8 w-full max-w-4xl"
+        className="mb-2 lg:mb-8 w-full lg:max-w-5xl"
       />
 
       {/* Conditional content based on current step */}

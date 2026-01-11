@@ -6,15 +6,15 @@ import Button from "../ui/Button";
 export default function StationExtras() {
   return (
     <>
-      <div className="border border-stroke p-6 rounded-lg mt-6">
+      <div className="border border-stroke p-4 lg:p-6 rounded-lg mt-6">
         <PickupInfor />
       </div>
-      <div className="mt-15 border border-stroke rounded-md">
+      <div className="mt-10 lg:mt-15 border border-stroke rounded-md">
         <SelectedCarDetails />
       </div>
       {/* Extras */}
-      <div className="p-6 mt-15 border border-stroke rounded-md">
-        <h2 className="text-[24px] font-semibold text-primaryText">
+      <div className="p-4 lg:p-6 mt-10 lg:mt-15 border border-stroke rounded-md">
+        <h2 className="text-[20px] lg:text-[24px] font-semibold text-primaryText">
           Select extra and accessories
         </h2>
         <div className="mt-6">
@@ -23,7 +23,7 @@ export default function StationExtras() {
       </div>
       <div className="flex justify-center">
         {/* Spacer for bottom fixed bar */}
-        <Button className="mt-12 w-full lg:w-[350px]">
+        <Button className="mt-6 lg:mt-12 w-full lg:w-[350px]">
           Continue to your details
         </Button>
       </div>

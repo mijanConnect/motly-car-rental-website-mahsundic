@@ -15,7 +15,7 @@ export default function ProgressStepper({
 }: ProgressStepperProps) {
   return (
     <div className={className ?? "w-full flex justify-center mb-8"}>
-      <div className="w-full max-w-4xl px-4">
+      <div className="w-full max-w-4xl">
         {/* Stepper */}
         <div
           className="grid items-center"
@@ -59,7 +59,7 @@ export default function ProgressStepper({
 
                 {/* Labels */}
                 <p
-                  className={`mt-3 text-sm font-medium text-center
+                  className={`mt-3 text-[10px] lg:text-[18px] font-medium text-center
                       ${
                         isActive || isCompleted
                           ? "text-primary"

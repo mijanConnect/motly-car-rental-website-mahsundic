@@ -33,7 +33,7 @@ export default function PersonalInfo() {
   };
 
   return (
-    <div className="inline-block p-8 rounded-lg border border-gray-200 w-full md:w-auto md:min-w-[300px]">
+    <div className="inline-block p-4 lg:p-8 rounded-lg border border-gray-200 w-full md:w-auto md:min-w-[300px]">
       <ProfileImage />
       <div className="flex gap-10 mt-10 w-full lg:flex-row flex-col">
         {/* Left side */}

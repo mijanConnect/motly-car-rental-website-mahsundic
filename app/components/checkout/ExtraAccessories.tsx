@@ -33,12 +33,14 @@ function AccessoryItem({ item }: AccessoryItemProps) {
   };
 
   return (
-    <div className="border border-stroke p-5 rounded-sm">
+    <div className="border border-stroke p-2 lg:p-5 rounded-sm">
       <div className="flex justify-between items-center">
         <div className="flex gap-3 items-center">
           <Icon className="w-8 h-8" />
           <div>
-            <p className="text-[20px] text-primaryText">{item.title}</p>
+            <p className="text-[16px] lg:text-[20px] text-primaryText">
+              {item.title}
+            </p>
             <p className="text-[18px] text-primaryText font-bold">
               €{item.price.toFixed(2)}
             </p>
@@ -64,14 +66,14 @@ export default function ExtraAccessories() {
   const rightItems = accessoriesData.slice(3);
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-      <div className="space-y-8">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-8">
+      <div className="space-y-4 lg:space-y-8">
         {leftItems.map((item) => (
           <AccessoryItem key={item.id} item={item} />
         ))}
       </div>
 
-      <div className="space-y-8">
+      <div className="space-y-4 lg:space-y-8">
         {rightItems.map((item) => (
           <AccessoryItem key={item.id} item={item} />
         ))}

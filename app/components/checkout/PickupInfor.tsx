@@ -6,14 +6,14 @@ import Calendar24 from "@/components/ui/time-picker";
 export default function PickupInfor() {
   return (
     <>
-      <div className="flex gap-6 flex-col lg:flex-row">
+      <div className="flex gap-6 lg:gap-6 flex-col lg:flex-row">
         <div className="flex-1">
-          <p className="text-[24px] font-medium text-primaryText">
+          <p className="text-[20px] lg:text-[24px] font-medium text-primaryText">
             Pick-up and return station
           </p>
           {/* Collection */}
           <div className="flex gap-4 items-start mt-4">
-            <CarFront className="w-14 h-14 text-yellow-500" />
+            <CarFront className="w-10 h-10 lg:w-14 lg:h-14 text-yellow-500" />
             <div>
               <h2 className="text-[20px] font-bold text-primaryText mb-1">
                 Collection
@@ -37,7 +37,7 @@ export default function PickupInfor() {
           </div>
           {/* Return */}
           <div className="flex gap-4 items-start mt-6">
-            <CarFront className="w-14 h-14 text-yellow-500" />
+            <CarFront className="w-10 h-10 lg:w-14 lg:h-14 text-yellow-500" />
             <div>
               <h2 className="text-[20px] font-bold text-primaryText mb-1">
                 Return
@@ -61,7 +61,7 @@ export default function PickupInfor() {
           </div>
           {/* Address */}
           <div className="flex gap-4 items-start mt-6">
-            <MapPin className="w-14 h-14 text-yellow-500" />
+            <MapPin className="w-10 h-10 lg:w-14 lg:h-14 text-yellow-500" />
             <div>
               <h2 className="text-[20px] font-bold text-primaryText mb-1">
                 Address

@@ -172,7 +172,7 @@ export default function DetailsCarCard({ car }: CarCardProps) {
           </div>
           {/* Card Right side */}
           <div className="flex-10/7 pl-0 lg:pl-4">
-            <div className="flex justify-between">
+            {/* <div className="flex justify-between">
               <div>
                 <p className="text-[18px] text-primaryText">Terrific</p>
                 <p className="text-[14px] text-primaryTextLight">
@@ -184,10 +184,10 @@ export default function DetailsCarCard({ car }: CarCardProps) {
                   {car.rating}
                 </p>
               </div>
-            </div>
-            <div className="flex flex-col justify-between gap-3 mt-3">
+            </div> */}
+            <div className="flex flex-col justify-between items-end gap-3">
               <div>
-                <p className="text-[22px] font-medium text-primaryText">
+                <p className="text-[22px] font-medium text-primaryText text-right">
                   €{car.price}
                 </p>
                 <p className="text-[14px] text-primaryText">

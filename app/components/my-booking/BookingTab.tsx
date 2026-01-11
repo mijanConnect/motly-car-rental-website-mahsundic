@@ -13,7 +13,7 @@ export default function BookingTab() {
 
   return (
     <div className="">
-      <div className="flex flex-wrap gap-5">
+      <div className="flex flex-wrap gap-2 lg:gap-5 justify-center lg:justify-start">
         {tabs.map((tab, index) => {
           const isActive = activeTab === index;
 
@@ -21,7 +21,7 @@ export default function BookingTab() {
             <button
               key={tab}
               onClick={() => setActiveTab(index)}
-              className={`w-[180px] rounded-md px-4 py-3 text-sm font-normal transition cursor-pointer
+              className={`w-[150px] lg:w-[180px] rounded-md px-4 py-3 text-sm font-normal transition cursor-pointer
                 ${
                   isActive
                     ? "border border-blue-600 bg-blue-600 text-white"
