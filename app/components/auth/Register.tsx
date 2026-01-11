@@ -61,14 +61,12 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="bg-background shadow-sm p-8 rounded-lg w-full max-w-[650px] border border-gray-200">
+    <div className="bg-background shadow-sm p-4 lg:p-8 rounded-lg w-full max-w-[650px] border border-gray-200">
       <div className="flex justify-center mb-6">
         <Image src="/assets/logo.png" alt="Logo" width={130} height={130} />
       </div>
       <div className="mb-6">
-        <h1 className="mb-1 text-[18px] font-bold text-primaryText">
-          Sign Up
-        </h1>
+        <h1 className="mb-1 text-[18px] font-bold text-primaryText">Sign Up</h1>
         <p className="text-[15px] text-primaryParagraph">
           Create an account to get started
         </p>
@@ -79,7 +77,7 @@ export default function RegisterPage() {
         </div>
       )}
       <div className="w-full space-y-4">
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
           <InputField
             title="First Name"
             type="text"
@@ -113,7 +111,7 @@ export default function RegisterPage() {
           }}
         />
 
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
           <InputField
             title="Password"
             type="password"

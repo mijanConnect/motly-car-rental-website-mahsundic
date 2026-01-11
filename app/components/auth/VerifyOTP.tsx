@@ -36,7 +36,7 @@ export default function VerifyOTPPage() {
   };
 
   return (
-    <div className="bg-background shadow-sm p-8 rounded-lg w-full max-w-[525px] border border-gray-200">
+    <div className="bg-background shadow-sm p-4 lg:p-8 rounded-lg w-full max-w-[525px] border border-gray-200">
       <div className="flex justify-center mb-6">
         <Image src="/assets/logo.png" alt="Logo" width={130} height={130} />
       </div>
