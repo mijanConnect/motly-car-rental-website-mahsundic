@@ -6,10 +6,12 @@ import Cars from "../components/home/Cars";
 export default function Home() {
   return (
     <main>
-      <SearchBox />
-      <Cars />
-      <DownloadLink />
-      <FAQ />
+      <div className="my-5 lg:my-12">
+        <SearchBox />
+        <Cars />
+        <DownloadLink />
+        <FAQ />
+      </div>
     </main>
   );
 }

@@ -86,7 +86,7 @@ export default function Page() {
         </div>
       )}
 
-      <div className="flex gap-4 my-6 xl:my-12 items-start">
+      <div className="flex gap-4 my-5 lg:my-12 items-start">
         {/* Desktop Sidebar */}
         <div className="hidden xl:block flex-4/18">
           <SideSearch />

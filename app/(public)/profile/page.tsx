@@ -10,7 +10,7 @@ export default function Page() {
   );
 
   return (
-    <div className="my-6 lg:my-15">
+    <div className="my-5 lg:my-12">
       <div className="flex gap-4 border-b border-gray-200 mb-8">
         <button
           onClick={() => setActiveTab("personal")}

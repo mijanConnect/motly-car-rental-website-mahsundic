@@ -8,7 +8,7 @@ export default function BookedCarCard() {
 
   return (
     <>
-      <div className=" border-l-5 border-r-2 border-t-2 border-b-2 border-primary rounded-2xl">
+      <div className="border-l-5 border-r-2 border-t-2 border-b-2 border-primary rounded-2xl">
         <div className="p-4 flex flex-col md:flex-row justify-between gap-5">
           <div>
             <div className="flex gap-4">
@@ -26,7 +26,7 @@ export default function BookedCarCard() {
             </div>
           </div>
           {/* Right side */}
-          <div className="flex flex-col md:flex-row w-full justify-between gap-4">
+          <div className="flex flex-col lg:flex-row w-full justify-between gap-4">
             <div className="order-1 md:order-1 flex flex-col justify-between">
               <div>
                 <h3 className="text-[20px] font-bold text-primaryText">

@@ -4,7 +4,7 @@ import TopBar from "@/app/components/view-reviews/TopBar";
 export default function Page() {
   return (
     <>
-      <div className="py-6 lg:py-15">
+      <div className="my-5 lg:my-12">
         <TopBar />
         <Reviews />
       </div>
