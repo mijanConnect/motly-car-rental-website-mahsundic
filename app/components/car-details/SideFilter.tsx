@@ -9,36 +9,52 @@ type Section = {
 
 const sections: Section[] = [
   {
-    title: "Other popular filters",
+    title: "Number of seats",
+    items: ["2 Seats", "4 Seats", "5 Seats", "7 Seats", "9 Seats"],
+  },
+  {
+    title: "Transmission",
+    items: ["Automatic", "Manual"],
+  },
+  {
+    title: "Fuel type",
+    items: ["Petrol", "Diesel", "Electric", "Hybrid"],
+  },
+  {
+    title: "Number of doors",
+    items: ["2 Doors", "4 Doors", "5 Doors"],
+  },
+  {
+    title: "Mileage limit",
     items: [
-      "Berlin Brandenburg",
-      "In the terminal",
-      "City Stations",
-      "Premium Protection",
-      "Unlimited Kilometers",
-      "Additional Driver",
-      "Fair Fuel Policy",
-      "Good Customer Review",
-      "Available Immediately",
-      "Without a Credit Card",
+      "Unlimited Mileage",
+      "200km per day limit",
+      "400km per day limit",
+      "500km per day limit",
     ],
   },
   {
-    title: "Vehicle class and type",
-    items: [
-      "Small cars",
-      "Compact class",
-      "Upper class",
-      "Premium class",
-      "Unlimited Kilometers",
-      "Additional Driver",
-    ],
+    title: "Fuel policy",
+    items: ["Full to Full", "Full to Empty"],
+  },
+  {
+    title: "Rating and popularity",
+    items: ["Top Rated", "Most Popular"],
   },
 ];
 
 export default function FilterAccordion() {
   const [openSections, setOpenSections] = useState<number[]>([0]);
   const [checked, setChecked] = useState<string[]>([]);
+  const [priceRange, setPriceRange] = useState<[number, number]>([0, 500]);
+
+  const handleMinChange = (value: number) => {
+    setPriceRange(([_, max]) => [Math.min(value, max - 10), max]);
+  };
+
+  const handleMaxChange = (value: number) => {
+    setPriceRange(([min, _]) => [min, Math.max(value, min + 10)]);
+  };
 
   const toggleSection = (index: number) => {
     setOpenSections((prev) =>
@@ -54,6 +70,47 @@ export default function FilterAccordion() {
 
   return (
     <div className="border mt-4 border-stroke rounded-lg p-4">
+      {/* Price range filter */}
+      <div className=" border-b pb-4 border-stroke">
+        <p className="text-sm font-medium text-primaryText mb-3">Price range</p>
+
+        <div className="relative h-2 bg-gray-200 rounded">
+          <div
+            className="absolute h-2 bg-gray-400 rounded"
+            style={{
+              left: `${(priceRange[0] / 500) * 100}%`,
+              right: `${100 - (priceRange[1] / 500) * 100}%`,
+            }}
+          />
+        </div>
+
+        <div className="relative">
+          <input
+            type="range"
+            min={0}
+            max={500}
+            value={priceRange[0]}
+            onChange={(e) => handleMinChange(Number(e.target.value))}
+            className="absolute -top-3 w-full pointer-events-auto appearance-none bg-transparent"
+          />
+
+          <input
+            type="range"
+            min={0}
+            max={500}
+            value={priceRange[1]}
+            onChange={(e) => handleMaxChange(Number(e.target.value))}
+            className="absolute -top-3 w-full pointer-events-auto appearance-none bg-transparent"
+          />
+        </div>
+
+        <div className="flex justify-between text-sm text-gray-600 mt-2">
+          <span>€{priceRange[0]}</span>
+          <span>€{priceRange[1]}</span>
+        </div>
+      </div>
+
+      {/* Filters */}
       <div className="w-full max-w-sm">
         {sections.map((section, index) => {
           const isOpen = openSections.includes(index);

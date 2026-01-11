@@ -32,7 +32,12 @@ export default function DetailsMain() {
               View Reviews
             </Button>
 
-            <Button variant="primary" size="lg" className="w-full">
+            <Button
+              variant="primary"
+              size="lg"
+              className="w-full"
+              onClick={() => router.push("/checkout")}
+            >
               Book Now
             </Button>
           </div>

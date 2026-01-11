@@ -4,12 +4,15 @@ import Image from "next/image";
 import { Star } from "lucide-react";
 import Button from "../ui/Button";
 import { Car } from "@/types/product";
+import { useRouter } from "next/navigation";
 
 interface CarCardProps {
   car: Car;
 }
 
 export default function CarCard({ car }: CarCardProps) {
+  const router = useRouter();
+
   return (
     <>
       <div className="p-4 border border-stroke rounded-lg shadow-md hover:shadow-lg hover:bg-gray-50 transition-shadow duration-300">
@@ -179,7 +182,9 @@ export default function CarCard({ car }: CarCardProps) {
                 </p>
               </div>
             </div> */}
-            <div className="flex justify-between mt-5">
+            {/* <div className="flex justify-between mt-5"> */}
+            <div className="flex justify-between">
+              {/* <div> */}
               <div>
                 <p className="text-2xl font-medium text-primaryText">
                   €{car.price}
@@ -217,13 +222,16 @@ export default function CarCard({ car }: CarCardProps) {
                 variant="primary"
                 size="md"
                 className="w-full sm:w-[150px]"
+                onClick={() => router.push("/checkout")}
               >
                 Book Now
               </Button>
+
               <Button
                 variant="outline"
                 size="md"
                 className="w-full sm:w-[150px]"
+                onClick={() => router.push("/view-details")}
               >
                 View Details
               </Button>
