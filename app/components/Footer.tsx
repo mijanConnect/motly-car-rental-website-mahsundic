@@ -43,7 +43,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/"
+                  href="/car-details"
                   className="hover:underline transform transition-all"
                 >
                   Service
@@ -51,26 +51,26 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/"
+                  href="/my-booking"
                   className="hover:underline transform transition-all"
                 >
                   My Booking
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link
                   href="/"
                   className="hover:underline transform transition-all"
                 >
                   About Us
                 </Link>
-              </li>
+              </li> */}
               <li>
                 <Link
-                  href="/"
+                  href="/profile"
                   className="hover:underline transform transition-all"
                 >
-                  Contact Us
+                  My Profile
                 </Link>
               </li>
             </ul>
@@ -84,7 +84,7 @@ export default function Footer() {
                   href="/"
                   className="hover:underline transform transition-all"
                 >
-                  Contact
+                  FAQ
                 </Link>
               </li>
               <li>
@@ -92,7 +92,7 @@ export default function Footer() {
                   href="/"
                   className="hover:underline transform transition-all"
                 >
-                  FAQ
+                  Contact Us
                 </Link>
               </li>
               <li>

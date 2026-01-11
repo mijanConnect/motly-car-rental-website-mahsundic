@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
-import { UserIcon } from "./Svg";
 
 const navbarStyles = `
   .nav-link {
@@ -86,7 +85,10 @@ export default function Navbar() {
         }`}
       >
         <div className="container mx-auto flex items-center justify-between py-3">
-          <Link href="/" className="text-lg font-semibold hover:opacity-90 border rounded-sm p-1">
+          <Link
+            href="/"
+            className="text-lg font-semibold hover:opacity-90 border rounded-sm p-1"
+          >
             <Image
               src="/assets/logo-nav.png"
               alt="Login Image"
@@ -113,18 +115,18 @@ export default function Navbar() {
                 Home
               </Link>
               <Link
-                href="#products"
+                href="/car-details"
                 className={`nav-link py-1 transform transition-all ${
-                  isActive("#products") ? "active" : ""
+                  isActive("/car-details") ? "active" : ""
                 }`}
                 onClick={() => setOpen(false)}
               >
                 Service
               </Link>
               <Link
-                href="#products"
+                href="/my-booking"
                 className={`nav-link py-1 transform transition-all ${
-                  isActive("#products") ? "active" : ""
+                  isActive("/my-booking") ? "active" : ""
                 }`}
                 onClick={() => setOpen(false)}
               >
@@ -140,9 +142,9 @@ export default function Navbar() {
                 About us
               </Link> */}
               <Link
-                href="#products"
+                href="/contact-us"
                 className={`nav-link py-1 transform transition-all ${
-                  isActive("#products") ? "active" : ""
+                  isActive("/contact-us") ? "active" : ""
                 }`}
                 onClick={() => setOpen(false)}
               >
@@ -174,16 +176,32 @@ export default function Navbar() {
                 </span>
               </div>
 
-              <Link
-                href="/login"
-                className="text-white"
-                onClick={() => setOpen(false)}
-              >
-                <div className="flex justify-start items-center gap-3">
-                  <UserIcon />
-                  <p className="text-[18px]">Sign In</p>
-                </div>
-              </Link>
+              <div className="flex gap-3 items-center">
+                <Link
+                  href="/profile"
+                  className="text-white"
+                  onClick={() => setOpen(false)}
+                >
+                  {/* <UserIcon /> */}
+                  <Image
+                    src="/assets/avatar.png"
+                    alt="Profile Image"
+                    width={46}
+                    height={46}
+                    className="rounded-full border border-white"
+                  />
+                </Link>
+                <Link
+                  href="/login"
+                  className="text-white"
+                  onClick={() => setOpen(false)}
+                >
+                  <div className="flex justify-start items-center gap-3">
+                    {/* <UserIcon /> */}
+                    <p className="text-[18px]">Sign In</p>
+                  </div>
+                </Link>
+              </div>
             </div>
 
             <button
