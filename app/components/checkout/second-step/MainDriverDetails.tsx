@@ -18,21 +18,30 @@ export default function MainDriverDetails() {
       >
         <div className="flex items-center space-x-2">
           <RadioGroupItem value="mr" id="mr" />
-          <label htmlFor="mr" className="text-[20px] text-primaryText">
+          <label
+            htmlFor="mr"
+            className="text-[20px] text-primaryText cursor-pointer"
+          >
             Mr
           </label>
         </div>
 
         <div className="flex items-center space-x-2">
           <RadioGroupItem value="mrs" id="mrs" />
-          <label htmlFor="mrs" className="text-[20px] text-primaryText">
+          <label
+            htmlFor="mrs"
+            className="text-[20px] text-primaryText cursor-pointer"
+          >
             Mrs
           </label>
         </div>
 
         <div className="flex items-center space-x-2">
           <RadioGroupItem value="dr" id="dr" />
-          <label htmlFor="dr" className="text-[20px] text-primaryText">
+          <label
+            htmlFor="dr"
+            className="text-[20px] text-primaryText cursor-pointer"
+          >
             Dr
           </label>
         </div>
