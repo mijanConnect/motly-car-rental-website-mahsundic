@@ -1,5 +1,6 @@
 import AddressDetails from "./second-step/AddressDetails";
 import MainDriverDetails from "./second-step/MainDriverDetails";
+import Overview from "./second-step/Overview";
 import PaymentMethod from "./second-step/PaymentMethod";
 
 export default function YourInformation() {
@@ -9,6 +10,7 @@ export default function YourInformation() {
         <MainDriverDetails />
         <AddressDetails />
         <PaymentMethod />
+        <Overview />
       </div>
     </>
   );
