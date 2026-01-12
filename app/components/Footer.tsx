@@ -8,22 +8,16 @@ export default function Footer() {
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-12 lg:gap-25">
           <div className="space-y-2 col-span-2 lg:col-span-1">
             <div>
-              <Link
-                href="/"
-                className="text-lg font-semibold flex items-center gap-4"
-              >
-                <div className="border rounded-sm p-1">
-                  <Image
-                    src="/assets/logo-nav.png"
-                    alt="Login Image"
-                    width={46}
-                    height={46}
-                  />
-                </div>
-                <h2 className="text-[30px] font-bold text-white">MOTLY</h2>
+              <Link href="/">
+                <Image
+                  src="/assets/logo-nav.png"
+                  alt="Login Image"
+                  width={150}
+                  height={48}
+                />
               </Link>
             </div>
-            <p className="text-[14px] text-white mt-[18px]">
+            <p className="text-[14px] text-white mt-[15px]">
               Rent a car with ease and confidence. We offer a wide selection of
               vehicles, simple booking, and dependable service to make every
               journey enjoyable.

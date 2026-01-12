@@ -84,16 +84,13 @@ export default function Navbar() {
           isVisible ? "translate-y-0" : "-translate-y-full"
         }`}
       >
-        <div className="container mx-auto flex items-center justify-between py-3">
-          <Link
-            href="/"
-            className="text-lg font-semibold hover:opacity-90 border rounded-sm p-1"
-          >
+        <div className="container mx-auto flex items-center justify-between py-4">
+          <Link href="/">
             <Image
               src="/assets/logo-nav.png"
               alt="Login Image"
-              width={46}
-              height={46}
+              width={150}
+              height={48}
             />
           </Link>
 
