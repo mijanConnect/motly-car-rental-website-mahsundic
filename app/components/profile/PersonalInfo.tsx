@@ -46,24 +46,24 @@ export default function PersonalInfo() {
               title="First Name"
               type="text"
               placeholder="Enter first name"
-              value={formData.firstName}
-              onChange={(e) => handleChange("firstName", e.target.value)}
+              initialValue={formData.firstName}
+              onChange={(value) => handleChange("firstName", value)}
             />
 
             <InputField
               title="Last Name"
               type="text"
               placeholder="Enter last name"
-              value={formData.lastName}
-              onChange={(e) => handleChange("lastName", e.target.value)}
+              initialValue={formData.lastName}
+              onChange={(value) => handleChange("lastName", value)}
             />
 
             <InputField
               title="Email Address"
               type="email"
               placeholder="Enter email address"
-              value={formData.email}
-              onChange={(e) => handleChange("email", e.target.value)}
+              initialValue={formData.email}
+              onChange={(value) => handleChange("email", value)}
             />
 
             <div className="w-full space-y-3">
@@ -138,8 +138,8 @@ export default function PersonalInfo() {
               title="Phone Number"
               type="tel"
               placeholder="Enter phone number"
-              value={formData.phone}
-              onChange={(e) => handleChange("phone", e.target.value)}
+              initialValue={formData.phone}
+              onChange={(value) => handleChange("phone", value)}
             />
 
             {/* Gender */}
@@ -165,16 +165,16 @@ export default function PersonalInfo() {
               title="Street and House Number"
               type="text"
               placeholder="Enter street and house number"
-              value={formData.street}
-              onChange={(e) => handleChange("street", e.target.value)}
+              initialValue={formData.street}
+              onChange={(value) => handleChange("street", value)}
             />
 
             <InputField
               title="Postal Code"
               type="text"
               placeholder="Enter postal code"
-              value={formData.postalCode}
-              onChange={(e) => handleChange("postalCode", e.target.value)}
+              initialValue={formData.postalCode}
+              onChange={(value) => handleChange("postalCode", value)}
             />
 
             {/* Country */}

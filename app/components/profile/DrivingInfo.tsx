@@ -68,8 +68,8 @@ export default function PersonalInfo() {
             title="Driver License Number"
             type="text"
             placeholder="Enter license number"
-            value={formData.licenseNumber}
-            onChange={(e) => handleChange("licenseNumber", e.target.value)}
+            initialValue={formData.licenseNumber}
+            onChange={(value) => handleChange("licenseNumber", value)}
           />
 
           <SelectField
