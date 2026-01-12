@@ -181,7 +181,7 @@ export default function SideSearch() {
           </Popover>
         </div>
         <Button
-          className="w-full mt-4 border-gray-700! text-gray-700! rounded-sm!"
+          className="w-full mt-4 border-primaryTextLight! text-primaryText! hover:bg-primaryTextLight/10 rounded-sm "
           variant="outline"
           size="md"
         >

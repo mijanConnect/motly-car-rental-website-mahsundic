@@ -37,8 +37,8 @@ export default function VerifyOTPPage() {
 
   return (
     <div className="bg-background shadow-sm p-4 lg:p-8 rounded-lg w-full max-w-[525px] border border-gray-200">
-      <div className="flex justify-center mb-6">
-        <Image src="/assets/logo.png" alt="Logo" width={130} height={130} />
+      <div className="flex justify-center mb-8 mt-2">
+        <Image src="/assets/logo.png" alt="Logo" width={187} height={48} />
       </div>
       <div className="mb-6">
         <h1 className="mb-1 text-[18px] font-bold text-primaryText">
@@ -53,10 +53,8 @@ export default function VerifyOTPPage() {
           title="OTP"
           type="text"
           placeholder="Enter 4-digit OTP"
-          value={otp}
-          onChange={(e) =>
-            setOtp(e.target.value.replace(/\D/g, "").slice(0, 4))
-          }
+          initialValue={otp}
+          onChange={(value) => setOtp(value.replace(/\D/g, "").slice(0, 4))}
         />
 
         <Button

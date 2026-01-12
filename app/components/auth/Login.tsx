@@ -48,12 +48,12 @@ export default function LoginPage() {
 
   return (
     <div className="bg-background shadow-sm p-4 lg:p-8 rounded-lg w-full max-w-[525px] border border-gray-200">
-      <div className="flex justify-center mb-6">
+      <div className="flex justify-center mb-8 mt-2">
         <Image
           src="/assets/logo.png"
           alt="Login Image"
-          width={130}
-          height={130}
+          width={187}
+          height={48}
         />
       </div>
       <div className="mb-6">
@@ -72,9 +72,9 @@ export default function LoginPage() {
           title="Email"
           type="email"
           placeholder="Enter your email"
-          value={email}
-          onChange={(e) => {
-            setEmail(e.target.value);
+          initialValue={email}
+          onChange={(value) => {
+            setEmail(value);
             setError("");
           }}
         />
@@ -83,9 +83,9 @@ export default function LoginPage() {
           title="Password"
           type="password"
           placeholder="Enter your password"
-          value={password}
-          onChange={(e) => {
-            setPassword(e.target.value);
+          initialValue={password}
+          onChange={(value) => {
+            setPassword(value);
             setError("");
           }}
         />

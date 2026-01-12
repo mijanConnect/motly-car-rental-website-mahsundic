@@ -2,49 +2,80 @@
 
 import { useState } from "react";
 
+type Item = {
+  label: string;
+  price: number;
+};
+
 type Section = {
   title: string;
-  items: string[];
+  items: Item[];
 };
 
 const sections: Section[] = [
   {
     title: "Number of seats",
-    items: ["2 Seats", "4 Seats", "5 Seats", "7 Seats", "9 Seats"],
+    items: [
+      { label: "2 Seats", price: 90 },
+      { label: "4 Seats", price: 120 },
+      { label: "5 Seats", price: 150 },
+      { label: "7 Seats", price: 180 },
+      { label: "9 Seats", price: 220 },
+    ],
   },
   {
     title: "Transmission",
-    items: ["Automatic", "Manual"],
+    items: [
+      { label: "Automatic", price: 160 },
+      { label: "Manual", price: 110 },
+    ],
   },
   {
     title: "Fuel type",
-    items: ["Petrol", "Diesel", "Electric", "Hybrid"],
+    items: [
+      { label: "Petrol", price: 130 },
+      { label: "Diesel", price: 140 },
+      { label: "Electric", price: 200 },
+      { label: "Hybrid", price: 170 },
+    ],
   },
   {
     title: "Number of doors",
-    items: ["2 Doors", "4 Doors", "5 Doors"],
+    items: [
+      { label: "2 Doors", price: 100 },
+      { label: "4 Doors", price: 140 },
+      { label: "5 Doors", price: 160 },
+    ],
   },
   {
     title: "Mileage limit",
     items: [
-      "Unlimited Mileage",
-      "200km per day limit",
-      "400km per day limit",
-      "500km per day limit",
+      { label: "Unlimited Mileage", price: 220 },
+      { label: "200km per day limit", price: 120 },
+      { label: "400km per day limit", price: 160 },
+      { label: "500km per day limit", price: 190 },
     ],
   },
   {
     title: "Fuel policy",
-    items: ["Full to Full", "Full to Empty"],
+    items: [
+      { label: "Full to Full", price: 130 },
+      { label: "Full to Empty", price: 100 },
+    ],
   },
   {
     title: "Rating and popularity",
-    items: ["Top Rated", "Most Popular"],
+    items: [
+      { label: "Top Rated", price: 210 },
+      { label: "Most Popular", price: 180 },
+    ],
   },
 ];
 
 export default function FilterAccordion() {
-  const [openSections, setOpenSections] = useState<number[]>([0]);
+  const [openSections, setOpenSections] = useState<number[]>(
+    sections.map((_, index) => index)
+  );
   const [checked, setChecked] = useState<string[]>([]);
   const [priceRange, setPriceRange] = useState<[number, number]>([0, 500]);
 
@@ -70,8 +101,7 @@ export default function FilterAccordion() {
 
   return (
     <div className="border mt-4 border-stroke rounded-lg p-4">
-      {/* Price range filter */}
-      <div className=" border-b pb-4 border-stroke">
+      <div className="border-b pb-4 border-stroke">
         <p className="text-sm font-medium text-primaryText mb-3">Price range</p>
 
         <div className="relative h-2 bg-gray-200 rounded">
@@ -91,16 +121,15 @@ export default function FilterAccordion() {
             max={500}
             value={priceRange[0]}
             onChange={(e) => handleMinChange(Number(e.target.value))}
-            className="absolute -top-3 w-full pointer-events-auto appearance-none bg-transparent"
+            className="absolute -top-3 w-full appearance-none bg-transparent"
           />
-
           <input
             type="range"
             min={0}
             max={500}
             value={priceRange[1]}
             onChange={(e) => handleMaxChange(Number(e.target.value))}
-            className="absolute -top-3 w-full pointer-events-auto appearance-none bg-transparent"
+            className="absolute -top-3 w-full appearance-none bg-transparent"
           />
         </div>
 
@@ -110,55 +139,52 @@ export default function FilterAccordion() {
         </div>
       </div>
 
-      {/* Filters */}
       <div className="w-full max-w-sm">
         {sections.map((section, index) => {
           const isOpen = openSections.includes(index);
 
           return (
             <div key={section.title} className="border-b last:border-b-0">
-              <div className="py-3">
-                <button
-                  onClick={() => toggleSection(index)}
-                  className="flex w-full items-center justify-between"
+              <button
+                onClick={() => toggleSection(index)}
+                className="flex w-full items-center justify-between py-3 cursor-pointer"
+              >
+                <p className="text-sm font-medium text-primaryText">
+                  {section.title}
+                </p>
+                <svg
+                  className={`h-4 w-4 transition-transform ${
+                    isOpen ? "rotate-180" : ""
+                  }`}
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
                 >
-                  <p className="text-sm font-medium text-primaryText">
-                    {section.title}
-                  </p>
-                  <svg
-                    className={`h-4 w-4 text-primaryText transition-transform duration-300 ${
-                      isOpen ? "rotate-180" : ""
-                    }`}
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path strokeWidth="2" d="M19 9l-7 7-7-7" />
-                  </svg>
-                </button>
-              </div>
+                  <path strokeWidth="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
 
               <div
-                className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                className={`overflow-hidden transition-all duration-300 ${
                   isOpen ? "max-h-[600px] opacity-100" : "max-h-0 opacity-0"
                 }`}
               >
                 <div className="space-y-3 pb-4">
                   {section.items.map((item) => (
                     <label
-                      key={item}
-                      className="flex cursor-pointer items-center justify-between text-sm text-primaryText"
+                      key={item.label}
+                      className="flex items-center justify-between text-sm cursor-pointer"
                     >
                       <div className="flex items-center gap-3">
                         <input
                           type="checkbox"
-                          checked={checked.includes(item)}
-                          onChange={() => toggleItem(item)}
-                          className="h-4 w-4 rounded border-stroke text-green-600 focus:ring-green-500"
+                          checked={checked.includes(item.label)}
+                          onChange={() => toggleItem(item.label)}
+                          className="h-4 w-4 rounded border-stroke"
                         />
-                        <span>{item}</span>
+                        <span>{item.label}</span>
                       </div>
-                      <span className="text-gray-500">174 €</span>
+                      <span className="text-gray-500">€{item.price}</span>
                     </label>
                   ))}
                 </div>
