@@ -1,12 +1,14 @@
-import type { ChangeEvent } from "react";
+"use client";
+
+import { ChangeEvent, useState } from "react";
 
 type InputFieldProps = {
   title?: string;
   placeholder?: string;
   type?: "text" | "email" | "password" | "number" | "date" | "tel";
-  value?: string;
+  initialValue?: string;
   name?: string;
-  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
+  onChange?: (value: string) => void;
   disabled?: boolean;
 };
 
@@ -14,11 +16,19 @@ export default function InputField({
   title,
   placeholder,
   type = "text",
-  value,
+  initialValue = "",
   name,
   onChange,
   disabled = false,
 }: InputFieldProps) {
+  const [value, setValue] = useState(initialValue);
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const newValue = e.target.value;
+    setValue(newValue);
+    onChange?.(newValue);
+  };
+
   return (
     <div className="w-full space-y-3">
       {title && (
@@ -32,7 +42,7 @@ export default function InputField({
         name={name}
         value={value}
         placeholder={placeholder}
-        onChange={onChange}
+        onChange={handleChange}
         disabled={disabled}
         className="
         mt-1

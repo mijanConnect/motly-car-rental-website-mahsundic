@@ -3,6 +3,8 @@
 import React, { useState } from "react";
 import ProgressStepper from "./ProgressStepper";
 import StationExtras from "./StationExtras";
+import YourInformation from "./YourInformation";
+import FinalStep from "./FinalStep";
 // import { Button } from "@/components/ui/button";
 
 export default function Checkout() {
@@ -39,12 +41,12 @@ export default function Checkout() {
         )}
         {currentStep === 1 && (
           <div>
-            <StationExtras />
+            <YourInformation />
           </div>
         )}
         {currentStep === 2 && (
           <div>
-            <StationExtras />
+            <FinalStep />
           </div>
         )}
       </div>

@@ -1,7 +1,7 @@
-import ExtraAccessories from "./ExtraAccessories";
-import SelectedCarDetails from "./SelectedCarDetails";
-import PickupInfor from "./PickupInfor";
+import ExtraAccessories from "./first-step/ExtraAccessories";
+import SelectedCarDetails from "./first-step/SelectedCarDetails";
 import Button from "../ui/Button";
+import PickupInfor from "./first-step/PickupInfor";
 
 export default function StationExtras() {
   return (
