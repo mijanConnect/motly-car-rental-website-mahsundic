@@ -3,7 +3,7 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  --color-primary: #39b15b;
+  --color-primary: #3ab15b;
   --color-background: #ffffff;
   --color-foreground: #171717;
   --font-poppins: "Poppins", sans-serif;
@@ -15,7 +15,7 @@
 }
 
 :root {
-  --color-primary: #39b15b;
+  --color-primary: #3ab15b;
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
@@ -23,7 +23,7 @@
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: #39b15b;
+  --primary: #3ab15b;
   --primary-foreground: oklch(0.985 0 0);
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
@@ -170,7 +170,7 @@ body {
 
 .swiper-button-next:hover,
 .swiper-button-prev:hover {
-  background-color: #39b15b;
+  background-color: #3ab15b;
   color: white;
 }
 
@@ -185,7 +185,7 @@ body {
 }
 
 .swiper-pagination-bullet-active {
-  background-color: #39b15b;
+  background-color: #3ab15b;
   opacity: 1;
 }
 

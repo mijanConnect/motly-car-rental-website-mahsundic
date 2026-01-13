@@ -5,6 +5,7 @@ import ProgressStepper from "./ProgressStepper";
 import StationExtras from "./StationExtras";
 import YourInformation from "./YourInformation";
 import FinalStep from "./FinalStep";
+import ThankYou from "./ThankYou";
 // import { Button } from "@/components/ui/button";
 
 export default function Checkout() {
@@ -50,6 +51,8 @@ export default function Checkout() {
           </div>
         )}
       </div>
+
+      <ThankYou />
 
       {/* Navigation buttons */}
       {/* <div className="flex justify-between mt-8">
