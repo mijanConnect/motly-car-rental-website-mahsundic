@@ -11,7 +11,7 @@ export default function PaymentMethod() {
   const inactiveBorder = "border-gray-300";
 
   return (
-    <div className="mt-10">
+    <div className="mt-6 lg:mt-10">
       <h1 className="text-[24px] lg:text-[32px] text-primaryText font-bold">
         Payment Method
       </h1>
@@ -79,7 +79,7 @@ export default function PaymentMethod() {
         </div>
       </RadioGroup>
 
-      <p className="text-[18px] text-primaryTextLight mt-2">
+      <p className="text-[18px] text-primaryTextLight mt-3">
         By proceeding, you agree to the{" "}
         <a
           href="#terms-and-conditions"

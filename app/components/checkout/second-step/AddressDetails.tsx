@@ -3,7 +3,7 @@ import InputField from "../../ui/InputField";
 
 export default function AddressDetails() {
   return (
-    <div className="mt-10">
+    <div className="mt-6 lg:mt-10">
       <h1 className="text-[24px] lg:text-[32px] text-primaryText font-bold">
         Address Details
       </h1>

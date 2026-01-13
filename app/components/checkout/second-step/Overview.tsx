@@ -5,10 +5,10 @@ import Button from "../../ui/Button";
 export default function Overview() {
   return (
     <>
-      <div className="mt-12 border border-stroke px-11 py-[34px] rounded-2xl">
+      <div className="mt-6 lg:mt-14 border border-stroke px-4 lg:px-11 py-5 lg:py-[34px] rounded-2xl">
         <div className="flex justify-between items-start">
           <div>
-            <h1 className="text-[32px] font-bold text-primaryText">
+            <h1 className="text-[24px] lg:text-[32px] font-bold text-primaryText">
               Your Overview
             </h1>
             <p className="text-[20px] text-primaryText mt-1">
@@ -21,7 +21,7 @@ export default function Overview() {
               Free cancellation up to 24h before pickup
             </p>
           </div>
-          <p className="bg-primary text-white px-4 py-2 rounded-full inline-block">Great Deal!</p>
+          <p className="bg-primary text-white px-4 py-2 rounded-full inline-block text-[12px] lg:text-[18px] whitespace-nowrap">Great Deal!</p>
         </div>
         {/* Car details */}
         <div className="flex flex-col md:flex-row justify-between gap-5 mt-3 border-b pb-4 border-t pt-7 border-stroke">
@@ -74,7 +74,7 @@ export default function Overview() {
           </div>
         </div>
 
-        <div className="mt-6 flex justify-between items-end">
+        <div className="mt-6 flex flex-col lg:flex-row gap-6 justify-between items-end">
           <div>
             <h4 className="text-[24px] text-primaryText font-medium">
               Rental Requirements:

@@ -1,12 +1,11 @@
-import React from "react";
-import BookedCar from "./third-step/BookedCar";
+import FinalStepContainer from "./third-step/FinalStepContainer";
 
 export default function FinalStep() {
   return (
     <>
       <div>
         <div>
-          <BookedCar />
+          <FinalStepContainer />
         </div>
       </div>
     </>

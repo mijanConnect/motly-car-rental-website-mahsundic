@@ -12,7 +12,7 @@ export default function BookedCar() {
             width={38}
             height={38}
           />
-          <h1 className="text-[32px] text-primaryText font-bold">
+          <h1 className="text-[24px] lg:text-[32px] text-primaryText font-bold">
             Final Review & Booking
           </h1>
         </div>
@@ -80,11 +80,11 @@ export default function BookedCar() {
               width={38}
               height={38}
             />
-            <h1 className="text-[32px] text-primaryText font-bold">
+            <h1 className="text-[24px] lg:text-[32px] text-primaryText font-bold">
               Driver & Contact
             </h1>
           </div>
-          <div className="flex gap-25">
+          <div className="flex flex-col lg:flex-row gap-5 lg:gap-25">
             <div>
               <p className="text-[20px] text-primaryText font-semibold mb-3">
                 Main Driver:
@@ -123,31 +123,33 @@ export default function BookedCar() {
               width={38}
               height={38}
             />
-            <h1 className="text-[32px] text-primaryText font-bold">
+            <h1 className="text-[24px] lg:text-[32px] text-primaryText font-bold">
               Payment Method
             </h1>
           </div>
 
           <div className="flex flex-col gap-4 mt-6 border border-stroke p-4 rounded-lg">
             <div className="text-[20px] text-primaryText flex justify-between w-full items-center">
-              <div className="flex items-center gap-10">
+              <div className="flex items-center gap-4 lg:gap-10">
                 <div className="flex gap-4">
                   <Image
                     src="/assets/view-details/Visa.png"
                     alt="Visa"
                     width={75}
                     height={50}
-                    className="h-[50px] w-[75px] hidden lg:block"
+                    className="h-[50px] w-[75px]"
                   />
                   <Image
                     src="/assets/view-details/Maestro.png"
                     alt="Maestro"
                     width={75}
                     height={50}
-                    className="h-[50px] w-[75px] hidden lg:block"
+                    className="h-[50px] w-[75px]"
                   />
                 </div>
-                <p>Credit Card (Visa / Mastercard)</p>
+                <p className="text-[20px] text-primaryText font-semibold hidden lg:block">
+                  Credit Card (Visa / Mastercard)
+                </p>
               </div>
               <button className="text-blue-500 underline cursor-pointer">
                 Change
