@@ -1,6 +1,7 @@
 "use client";
 
 import { ChangeEvent, useState } from "react";
+import { Eye, EyeOff } from "lucide-react";
 
 type InputFieldProps = {
   title?: string;
@@ -22,12 +23,15 @@ export default function InputField({
   disabled = false,
 }: InputFieldProps) {
   const [value, setValue] = useState(initialValue);
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const newValue = e.target.value;
     setValue(newValue);
     onChange?.(newValue);
   };
+
+  const inputType = type === "password" && showPassword ? "text" : type;
 
   return (
     <div className="w-full space-y-3">
@@ -37,34 +41,46 @@ export default function InputField({
         </label>
       )}
 
-      <input
-        type={type}
-        name={name}
-        value={value}
-        placeholder={placeholder}
-        onChange={handleChange}
-        disabled={disabled}
-        className="
-        mt-1
-          w-full
-          h-12
-          rounded-[6px]
-          border
-          border-[#E2E8F0]
-          bg-[#F0F8FF]
-          px-3
-          py-3
-          text-[14px]
-          text-gray-900
-          outline-none
-          transition
-          focus:border-primary
-          focus:ring-1
-          focus:ring-primary/20
-          disabled:cursor-not-allowed
-          disabled:bg-gray-100
-        "
-      />
+      <div className="relative">
+        <input
+          type={inputType}
+          name={name}
+          value={value}
+          placeholder={placeholder}
+          onChange={handleChange}
+          disabled={disabled}
+          className="
+          mt-1
+            w-full
+            h-12
+            rounded-[6px]
+            border
+            border-[#E2E8F0]
+            bg-[#F0F8FF]
+            px-3
+            py-3
+            text-[14px]
+            text-gray-900
+            outline-none
+            transition
+            focus:border-primary
+            focus:ring-1
+            focus:ring-primary/20
+            disabled:cursor-not-allowed
+            disabled:bg-gray-100
+          "
+        />
+        {type === "password" && (
+          <button
+            type="button"
+            onClick={() => setShowPassword(!showPassword)}
+            disabled={disabled}
+            className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 pt-1 hover:text-gray-500 disabled:cursor-not-allowed disabled:opacity-50 cursor-pointer"
+          >
+            {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+          </button>
+        )}
+      </div>
     </div>
   );
 }

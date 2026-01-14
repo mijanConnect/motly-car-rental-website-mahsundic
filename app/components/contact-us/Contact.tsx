@@ -23,7 +23,7 @@ export default function Contact() {
                 inputType="text"
               />
               <ContactInputField
-                label="Last Name*"
+                label="Last Name"
                 placeholder="Enter Last Name"
                 inputType="text"
               />
@@ -35,7 +35,7 @@ export default function Contact() {
                 inputType="email"
               />
               <ContactInputField
-                label="Phone*"
+                label="Phone"
                 placeholder="Enter Phone"
                 inputType="text"
               />

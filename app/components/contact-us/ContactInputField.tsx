@@ -17,14 +17,14 @@ export default function ContactInputField({
         isFocused ? `border border-${borderColor}` : "border"
       }`}
     >
-      <label htmlFor="" className="text-[13px] text-primaryTextLight">
+      <label htmlFor="" className="text-[13px] text-primaryText">
         {label}
       </label>
       {inputType === "textArea" ? (
         <textarea
           rows={rows}
           placeholder={placeholder}
-          className="border-none outline-none bg-transparent mt-1 text-[15px] text-primaryTextLight placeholder:text-primaryTextLight resize-none"
+          className="border-none outline-none bg-transparent mt-1 text-[15px] text-primaryText placeholder:text-gray-400 resize-none"
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
         />
@@ -32,7 +32,7 @@ export default function ContactInputField({
         <input
           type={inputType}
           placeholder={placeholder}
-          className="border-none outline-none bg-transparent mt-1 text-[15px] text-primaryTextLight placeholder:text-primaryTextLight"
+          className="border-none outline-none bg-transparent mt-1 text-[15px] text-primaryText placeholder:text-gray-400"
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
         />
