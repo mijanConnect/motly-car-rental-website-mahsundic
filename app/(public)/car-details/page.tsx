@@ -52,7 +52,7 @@ export default function Page() {
       <div className="xl:hidden flex items-center gap-2 my-4">
         <button
           onClick={() => setSidebarOpen(!sidebarOpen)}
-          className="flex items-center gap-2 text-primaryText border-b px-4 py-2 transition justify-between w-full cursor-pointer"
+          className="flex items-center gap-2 text-primaryText border-b py-2 transition justify-between w-full cursor-pointer"
         >
           <FiFilter className="text-xl" />
           <span>
