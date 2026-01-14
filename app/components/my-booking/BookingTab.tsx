@@ -114,8 +114,8 @@ export default function BookingTab() {
                 className={`min-w-[140px] lg:min-w-[150px] rounded-md px-4 py-3 text-sm font-normal transition cursor-pointer whitespace-nowrap
                   ${
                     isActive
-                      ? "border border-blue-600 bg-blue-600 text-white"
-                      : "border border-gray-300 bg-white text-black hover:border-blue-600 hover:text-blue-600"
+                      ? "border border-[#0563C1] bg-[#0563C1] text-white"
+                      : "border border-gray-300 bg-white text-black hover:border-[#0563C1] hover:text-[#0563C1]"
                   }`}
               >
                 {tab} ({count})

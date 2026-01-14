@@ -10,6 +10,8 @@ export default function MainDriverDetails() {
     phone: "",
     address: "",
     gender: "",
+    startDate: "",
+    endDate: "",
   });
 
   const handleChange = (field: string, value: string) => {
@@ -65,6 +67,20 @@ export default function MainDriverDetails() {
               { label: "Male", value: "male" },
               { label: "Female", value: "female" },
             ]}
+          />
+        </div>
+
+        <div className="flex flex-col lg:flex-row gap-4 lg:gap-10">
+          <InputField
+            title="Start Date"
+            placeholder="Enter your start date"
+            type="date"
+          />
+
+          <InputField
+            title="End Date"
+            placeholder="Enter your end date"
+            type="date"
           />
         </div>
       </div>
