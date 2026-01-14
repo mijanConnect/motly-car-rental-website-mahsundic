@@ -83,7 +83,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/"
+                  href="/contact-us"
                   className="hover:underline transform transition-all"
                 >
                   Contact Us
@@ -91,15 +91,15 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/"
+                  href="/privacy-policy"
                   className="hover:underline transform transition-all"
                 >
-                  Privacty Policy
+                  Privacy Policy
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/"
+                  href="/terms-conditions"
                   className="hover:underline transform transition-all"
                 >
                   Terms & Conditions
