@@ -46,7 +46,7 @@ const reviews = [
   {
     id: 4,
     name: "Sophia Lee",
-    role: "Property Manager",
+    role: "Property Owner",
     time: "4 weeks ago",
     title: "Great Support",
     rating: 5,

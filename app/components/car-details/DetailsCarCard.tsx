@@ -16,7 +16,7 @@ export default function DetailsCarCard({ car }: CarCardProps) {
   return (
     <>
       <div className="p-4 border border-stroke rounded-lg hover:shadow-md hover:bg-gray-50 transition-shadow duration-300">
-        <div className="flex flex-col lg:flex-row gap-8 lg:gap-0 justify-between">
+        <div className="flex flex-col lg:flex-row gap-3 lg:gap-0 justify-between">
           <div className="flex-10/3 border-0 lg:border-r border-stroke">
             <div className="flex flex-col md:flex-row gap-3 w-full pr-0 lg:pr-4">
               {/* Image part */}
@@ -185,9 +185,9 @@ export default function DetailsCarCard({ car }: CarCardProps) {
                 </p>
               </div>
             </div> */}
-            <div className="flex flex-col justify-between items-end gap-3">
+            <div className="flex flex-row lg:flex-col justify-between items-end gap-3">
               <div>
-                <p className="text-[22px] font-medium text-primaryText text-right">
+                <p className="text-[22px] font-medium text-primaryText text-left lg:text-right">
                   €{car.price}
                 </p>
                 <p className="text-[14px] text-primaryText">
