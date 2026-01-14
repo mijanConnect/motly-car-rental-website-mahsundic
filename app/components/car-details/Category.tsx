@@ -18,31 +18,31 @@ const categories: CategoryItem[] = [
   },
   {
     id: 2,
-    name: "SUV Cars",
-    price: 350,
+    name: "Compact Class",
+    price: 260,
     icon: "/assets/car-details/car-icon.png",
   },
   {
     id: 3,
-    name: "Luxury Cars",
-    price: 520,
+    name: "Middle Class",
+    price: 283,
     icon: "/assets/car-details/car-icon.png",
   },
   {
     id: 4,
-    name: "Electric Cars",
+    name: "Upper Class",
     price: 300,
     icon: "/assets/car-details/car-icon.png",
   },
   {
     id: 5,
-    name: "Sports Cars",
+    name: "Premium Cars",
     price: 650,
     icon: "/assets/car-details/car-icon.png",
   },
   {
     id: 6,
-    name: "Family Vans",
+    name: "Transporters",
     price: 280,
     icon: "/assets/car-details/car-icon.png",
   },
@@ -52,8 +52,8 @@ export default function Category() {
   const [selectedId, setSelectedId] = useState<number | null>(null);
 
   return (
-    <div className="border border-stroke rounded-lg p-1 lg:p-3 ">
-      <ul className="flex gap-1 lg:gap-4 justify-between overflow-x-scroll scrollbar-hide w-[320px] sm:w-[560px] md:w-[720px] xl:w-auto xl:overflow-hidden">
+    <div className="border border-stroke rounded-lg p-1 lg:p-3 overflow-hidden">
+      <ul className="flex justify-between gap-1 lg:gap-4 overflow-x-auto scrollbar-hide whitespace-nowrap">
         {categories.map((category) => {
           const isSelected = selectedId === category.id;
           return (

@@ -53,7 +53,7 @@ const sections: Section[] = [
       { label: "Unlimited Mileage", price: 220 },
       { label: "200km per day limit", price: 120 },
       { label: "400km per day limit", price: 160 },
-      { label: "500km per day limit", price: 190 },
+      { label: "20000km per day limit", price: 190 },
     ],
   },
   {
@@ -77,7 +77,7 @@ export default function FilterAccordion() {
     sections.map((_, index) => index)
   );
   const [checked, setChecked] = useState<string[]>([]);
-  const [priceRange, setPriceRange] = useState<[number, number]>([0, 500]);
+  const [priceRange, setPriceRange] = useState<[number, number]>([0, 20000]);
 
   const handleMinChange = (value: number) => {
     setPriceRange(([_, max]) => [Math.min(value, max - 10), max]);
@@ -108,8 +108,8 @@ export default function FilterAccordion() {
           <div
             className="absolute h-2 bg-gray-400 rounded"
             style={{
-              left: `${(priceRange[0] / 500) * 100}%`,
-              right: `${100 - (priceRange[1] / 500) * 100}%`,
+              left: `${(priceRange[0] / 20000) * 100}%`,
+              right: `${100 - (priceRange[1] / 20000) * 100}%`,
             }}
           />
         </div>
@@ -118,7 +118,7 @@ export default function FilterAccordion() {
           <input
             type="range"
             min={0}
-            max={500}
+            max={20000}
             value={priceRange[0]}
             onChange={(e) => handleMinChange(Number(e.target.value))}
             className="absolute -top-3 w-full appearance-none bg-transparent"
@@ -126,7 +126,7 @@ export default function FilterAccordion() {
           <input
             type="range"
             min={0}
-            max={500}
+            max={20000}
             value={priceRange[1]}
             onChange={(e) => handleMaxChange(Number(e.target.value))}
             className="absolute -top-3 w-full appearance-none bg-transparent"
@@ -184,7 +184,7 @@ export default function FilterAccordion() {
                         />
                         <span>{item.label}</span>
                       </div>
-                      <span className="text-gray-500">€{item.price}</span>
+                      <span className="text-gray-20000">€{item.price}</span>
                     </label>
                   ))}
                 </div>

@@ -92,7 +92,7 @@ export default function Page() {
           <SideSearch />
           <FilterPanel />
         </div>
-        <div className="flex-14/18 gap-4 rounded-lg flex flex-col">
+        <div className="flex-14/18 gap-4 rounded-lg flex flex-col overflow-hidden">
           <Category />
           <PopularTab />
           <div className="flex flex-col xl:flex-row gap-4">

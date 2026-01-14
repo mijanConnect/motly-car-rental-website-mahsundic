@@ -115,7 +115,7 @@ export default function BookingTab() {
                   ${
                     isActive
                       ? "border border-blue-600 bg-blue-600 text-white"
-                      : "border border-gray-300 bg-white text-black hover:border-blue-600"
+                      : "border border-gray-300 bg-white text-black hover:border-blue-600 hover:text-blue-600"
                   }`}
               >
                 {tab} ({count})
