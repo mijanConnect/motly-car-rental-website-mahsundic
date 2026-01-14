@@ -32,7 +32,7 @@ export default function CarViewModal({ isOpen, onClose }: CarViewModalProps) {
           <X size={24} />
         </button>
 
-        <div className="flex flex-col gap-[30px] lg:gap-3 overflow-y-auto flex-1">
+        <div className="flex flex-col gap-[30px] lg:gap-3 overflow-y-auto flex-1 modal-scroll">
           {/* Image Area */}
           <div className="w-full">
             <ModalDetailsImageArea />
