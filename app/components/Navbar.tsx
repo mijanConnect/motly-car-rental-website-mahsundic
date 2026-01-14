@@ -2,8 +2,9 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
+import { ChevronDown } from "lucide-react";
 
 const navbarStyles = `
   .nav-link {
@@ -45,11 +46,41 @@ export default function Navbar() {
   const [lang, setLang] = useState("EN");
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [langDropdownOpen, setLangDropdownOpen] = useState(false);
+  const langDropdownRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
 
-  const toggleLanguage = () => {
-    setLang((prev) => (prev === "EN" ? "DE" : "EN"));
+  const selectLanguage = (language: string) => {
+    setLang(language);
+    setLangDropdownOpen(false);
   };
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        langDropdownRef.current &&
+        !langDropdownRef.current.contains(event.target as Node)
+      ) {
+        setLangDropdownOpen(false);
+      }
+    };
+
+    if (langDropdownOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [langDropdownOpen]);
+
+  const languages = [
+    { code: "EN", name: "English" },
+    { code: "DE", name: "Deutsch" },
+    { code: "FR", name: "Français" },
+    { code: "ES", name: "Español" },
+    { code: "IT", name: "Italiano" },
+  ];
 
   const isActive = (href: string) => {
     if (href === "/" && pathname === "/") return true;
@@ -85,14 +116,26 @@ export default function Navbar() {
         }`}
       >
         <div className="container mx-auto flex items-center justify-between py-4">
-          <Link href="/">
-            <Image
-              src="/assets/logo-nav.png"
-              alt="Login Image"
-              width={150}
-              height={48}
-            />
-          </Link>
+          <div>
+            <Link href="/">
+              <Image
+                src="/assets/logo-nav.png"
+                alt="Login Image"
+                width={150}
+                height={48}
+                className="hidden md:block"
+              />
+            </Link>
+            <Link href="/">
+              <Image
+                src="/assets/logo-icon.png"
+                alt="Login Image"
+                width={50}
+                height={48}
+                className="block md:hidden"
+              />
+            </Link>
+          </div>
 
           <nav
             className={`${
@@ -153,24 +196,44 @@ export default function Navbar() {
           <div className="flex gap-4 align-middle justify-between">
             <div className="flex justify-start items-center gap-4">
               <div
-                onClick={toggleLanguage}
-                className="flex items-center cursor-pointer select-none text-white border-r pr-4 h-10"
+                className="relative border-r border-white"
+                ref={langDropdownRef}
               >
-                <span
-                  className={`pr-2 ${
-                    lang === "EN" ? "opacity-100" : "opacity-50"
-                  }`}
+                <button
+                  onClick={() => setLangDropdownOpen(!langDropdownOpen)}
+                  className="flex items-center cursor-pointer select-none text-white px-3 py-2 rounded-md hover:bg-white/10 transition-colors"
                 >
-                  EN
-                </span>
-                <div className="border-l border-white h-6" />
-                <span
-                  className={`pl-2 ${
-                    lang === "DE" ? "opacity-100" : "opacity-50"
-                  }`}
-                >
-                  DE
-                </span>
+                  <span className="font-medium">{lang}</span>
+                  <ChevronDown
+                    className={`ml-1 transition-transform ${
+                      langDropdownOpen ? "rotate-180" : ""
+                    }`}
+                    fill="white"
+                    stroke="null"
+                  />
+                </button>
+
+                {langDropdownOpen && (
+                  <div className="absolute right-0 mt-2 w-40 bg-white rounded-lg shadow-lg z-50">
+                    {languages.map((language, index) => (
+                      <button
+                        key={language.code}
+                        onClick={() => selectLanguage(language.code)}
+                        className={`w-full text-left px-4 py-2 hover:bg-gray-100 transition-colors cursor-pointer ${
+                          index === 0 ? "rounded-t-lg" : ""
+                        } ${
+                          index === languages.length - 1 ? "rounded-b-lg" : ""
+                        } ${
+                          lang === language.code
+                            ? "bg-primary/10 text-primary font-semibold"
+                            : "text-gray-800"
+                        }`}
+                      >
+                        {language.name}
+                      </button>
+                    ))}
+                  </div>
+                )}
               </div>
 
               <div className="flex gap-3 items-center">
