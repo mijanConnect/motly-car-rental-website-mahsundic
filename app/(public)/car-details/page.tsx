@@ -8,6 +8,7 @@ import PopularTab from "@/app/components/car-details/PopularTab";
 import FilterPanel from "@/app/components/car-details/SideFilter";
 import SideSearch from "@/app/components/car-details/SideSearch";
 import Feedback from "@/app/components/car-details/Feedback";
+import { SlidersHorizontal, X } from "lucide-react";
 
 const sidebarAnimationStyles = `
   @keyframes slideInFromLeft {
@@ -53,8 +54,16 @@ export default function Page() {
           onClick={() => setSidebarOpen(!sidebarOpen)}
           className="flex items-center gap-2 text-primaryText border-b px-4 py-2 transition justify-between w-full cursor-pointer"
         >
-          <FiFilter className="text-lg" />
-          <span>{sidebarOpen ? "Close" : "Filter"}</span>
+          <FiFilter className="text-xl" />
+          <span>
+            {sidebarOpen ? (
+              <X />
+            ) : (
+              <>
+                <SlidersHorizontal />
+              </>
+            )}
+          </span>
           {/* {sidebarOpen && <FiX className="text-lg ml-2" />} */}
         </button>
       </div>
