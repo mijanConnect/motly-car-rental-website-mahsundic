@@ -1,9 +1,11 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import Button from "../ui/Button";
 import { CarFront, Clock } from "lucide-react";
 import { useRouter } from "next/navigation";
+import CarViewModal from "./CarViewModal";
 
 /* ---------- status color map ---------- */
 const STATUS_COLORS: Record<string, string> = {
@@ -15,21 +17,30 @@ const STATUS_COLORS: Record<string, string> = {
 };
 
 /* ---------- component ---------- */
+interface CarType {
+  id: string;
+  name: string;
+  status: string;
+  vehicleType: string;
+  pickup: string;
+  return: string;
+  image: string;
+}
+
 interface BookedCarCardProps {
-  cars?: Array<{
-    id: string;
-    name: string;
-    status: string;
-    vehicleType: string;
-    pickup: string;
-    return: string;
-    image: string;
-  }>;
+  cars?: CarType[];
 }
 
 export default function BookedCarCard({ cars: propsCars }: BookedCarCardProps) {
   const router = useRouter();
   const carsToDisplay = propsCars || [];
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedCar, setSelectedCar] = useState<CarType | null>(null);
+
+  const handleViewDetails = (car: CarType) => {
+    setSelectedCar(car);
+    setIsModalOpen(true);
+  };
 
   return (
     <div className="flex flex-col gap-6">
@@ -103,7 +114,11 @@ export default function BookedCarCard({ cars: propsCars }: BookedCarCardProps) {
                 {/* actions */}
                 <div className="flex flex-col justify-end">
                   <div className="flex flex-col md:flex-row gap-4">
-                    <Button variant="outline" className="w-full md:w-auto">
+                    <Button
+                      variant="outline"
+                      className="w-full md:w-auto"
+                      onClick={() => handleViewDetails(car)}
+                    >
                       View Details
                     </Button>
 
@@ -121,6 +136,15 @@ export default function BookedCarCard({ cars: propsCars }: BookedCarCardProps) {
           </div>
         );
       })}
+
+      {/* Modal */}
+      {isModalOpen && selectedCar && (
+        <CarViewModal
+          isOpen={isModalOpen}
+          selectedCar={selectedCar}
+          onClose={() => setIsModalOpen(false)}
+        />
+      )}
     </div>
   );
 }

@@ -15,7 +15,7 @@ export default function ProgressStepper({
 }: ProgressStepperProps) {
   return (
     <div className={className ?? "w-full flex justify-center mb-8"}>
-      <div className="w-full max-w-4xl">
+      <div className="w-full max-w-5xl">
         {/* Stepper */}
         <div
           className="grid items-center"
