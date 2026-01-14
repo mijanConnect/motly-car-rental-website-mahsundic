@@ -1,8 +1,15 @@
 import { CircleCheck, Clock } from "lucide-react";
 import Image from "next/image";
 import Button from "../../ui/Button";
+import { useRouter } from "next/navigation";
 
 export default function Overview() {
+  const router = useRouter();
+
+  const handleContinue = () => {
+    router.push("/checkout?step=3");
+  };
+
   return (
     <>
       <div className="mt-6 lg:mt-14 border border-stroke px-4 lg:px-11 py-5 lg:py-[34px] rounded-2xl">
@@ -21,7 +28,9 @@ export default function Overview() {
               Free cancellation up to 24h before pickup
             </p>
           </div>
-          <p className="bg-primary text-white px-4 py-2 rounded-full inline-block text-[12px] lg:text-[18px] whitespace-nowrap">Great Deal!</p>
+          <p className="bg-primary text-white px-4 py-2 rounded-full inline-block text-[12px] lg:text-[18px] whitespace-nowrap">
+            Great Deal!
+          </p>
         </div>
         {/* Car details */}
         <div className="flex flex-col md:flex-row justify-between gap-5 mt-3 border-b pb-4 border-t pt-7 border-stroke">
@@ -95,7 +104,11 @@ export default function Overview() {
               </li>
             </ul>
           </div>
-          <Button variant="primary" className="w-full md:w-[270px]">
+          <Button
+            variant="primary"
+            className="w-full md:w-[270px]"
+            onClick={handleContinue}
+          >
             To The Final Step
           </Button>
         </div>

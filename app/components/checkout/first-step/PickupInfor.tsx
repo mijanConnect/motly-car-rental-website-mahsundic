@@ -2,8 +2,15 @@ import React from "react";
 import Button from "../../ui/Button";
 import { CarFront, CircleCheck, MapPin } from "lucide-react";
 import Calendar24 from "@/components/ui/time-picker";
+import { useRouter } from "next/navigation";
 
 export default function PickupInfor() {
+  const router = useRouter();
+
+  const handleContinue = () => {
+    router.push("/checkout?step=2");
+  };
+
   return (
     <>
       <div className="flex gap-6 lg:gap-6 flex-col lg:flex-row">
@@ -105,7 +112,9 @@ export default function PickupInfor() {
               <li>Airport Surcharge</li>
             </ul>
           </div>
-          <Button className="w-full mt-6">Continue to your details</Button>
+          <Button className="w-full mt-6" onClick={handleContinue}>
+            Continue to your details
+          </Button>
           <p className="text-[14px] text-primaryTextLight mt-2">
             No risk. Free Cancellation Up to 24 hours before pickup
           </p>

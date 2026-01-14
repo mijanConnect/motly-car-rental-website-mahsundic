@@ -1,9 +1,15 @@
+import { useRouter } from "next/navigation";
 import ExtraAccessories from "./first-step/ExtraAccessories";
 import SelectedCarDetails from "./first-step/SelectedCarDetails";
 import Button from "../ui/Button";
 import PickupInfor from "./first-step/PickupInfor";
 
 export default function StationExtras() {
+  const router = useRouter();
+
+  const handleContinue = () => {
+    router.push("/checkout?step=2");
+  };
   return (
     <>
       <div className="border border-stroke p-4 lg:p-6 rounded-lg mt-6">
@@ -23,7 +29,7 @@ export default function StationExtras() {
       </div>
       <div className="flex justify-center">
         {/* Spacer for bottom fixed bar */}
-        <Button className="mt-6 lg:mt-12 w-full lg:w-[350px]">
+        <Button className="mt-6 lg:mt-12 w-full lg:w-[350px]" onClick={handleContinue}>
           Continue to your details
         </Button>
       </div>

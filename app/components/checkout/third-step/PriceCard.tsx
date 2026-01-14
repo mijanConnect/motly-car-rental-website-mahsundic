@@ -1,7 +1,14 @@
 import React from "react";
 import Button from "../../ui/Button";
+import { useRouter } from "next/navigation";
 
 export default function PriceCard() {
+  const router = useRouter();
+
+  const handleContinue = () => {
+    router.push("/checkout?step=4");
+  };
+
   return (
     <>
       <div className="border border-primary rounded-lg p-5 lg:p-8 min-w-full lg:min-w-[500px] shadow-[0_0_15px_rgba(0,0,0,0.25)]">
@@ -23,7 +30,9 @@ export default function PriceCard() {
           <p className="text-[20px] text-primaryText font-semibold">€70.58</p>
         </div>
 
-        <Button className="w-full mt-10">Confirm & Book Now</Button>
+        <Button className="w-full mt-10" onClick={handleContinue}>
+          Confirm & Book Now
+        </Button>
 
         <p className="text-[18px] text-primaryTextLight mt-3 max-w-[480px] text-center">
           By clicking &quot;Confirm & Book Now&quot;, you accept the{" "}
