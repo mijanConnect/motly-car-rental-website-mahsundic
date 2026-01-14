@@ -91,14 +91,14 @@ const reviews = [
 
 export default function Feedback() {
   return (
-    <div className="my-30">
+    <div className="my-10 lg:my-30">
       <h2 className="section-title text-center uppercase leading-[1.2]">
         What the People Thinks
         <br />
         About Us
       </h2>
 
-      <div className="relative mt-12">
+      <div className="relative mt-2 lg:mt-12">
         <Swiper
           modules={[Navigation, Pagination, Autoplay]}
           navigation={{
@@ -126,8 +126,8 @@ export default function Feedback() {
         >
           {reviews.map((review) => (
             <SwiperSlide key={review.id}>
-              <div className="w-full rounded-lg p-7 mb-12 shadow-lg flex flex-col justify-between bg-white">
-                <div className="flex justify-between items-start gap-2">
+              <div className="w-full rounded-lg p-4 lg:p-7 mb-4 lg:mb-12 shadow-lg flex flex-col bg-white">
+                <div className="flex justify-between items-center lg:items-start gap-2">
                   <div className="flex items-center gap-4">
                     <Image
                       src={review.image}
@@ -154,7 +154,7 @@ export default function Feedback() {
                       {[...Array(5)].map((_, i) => (
                         <Star
                           key={i}
-                          className={`h-4.5 w-4.5 ${
+                          className={`h-3.5 w-3.5 lg:w-4.5 lg:h-4.5 ${
                             i < review.rating
                               ? "fill-yellow-400 text-yellow-400"
                               : "fill-gray-300 text-gray-300"
@@ -165,7 +165,7 @@ export default function Feedback() {
                   </div>
                 </div>
 
-                <div className="mt-16">
+                <div className="mt-8 lg:mt-16">
                   <h3 className="text-[20px] font-bold">{review.title}</h3>
                   <p className="text-[15px] text-primaryParagraph leading-[1.7] mt-2">
                     {review.message}
