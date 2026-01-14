@@ -1,52 +1,26 @@
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import InputField from "../../ui/InputField";
 import { useState } from "react";
+import InputField from "../../ui/InputField";
+import SelectField from "../../ui/SelectField";
 
 export default function MainDriverDetails() {
-  const [title, setTitle] = useState("mr");
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    address: "",
+    gender: "",
+  });
+
+  const handleChange = (field: string, value: string) => {
+    setFormData((prev: typeof formData) => ({ ...prev, [field]: value }));
+  };
 
   return (
     <div>
       <h1 className="text-[24px] lg:text-[32px] text-primaryText font-bold">
         Main Driver Details
       </h1>
-
-      <RadioGroup
-        value={title}
-        onValueChange={setTitle}
-        className="flex gap-4 mt-4"
-      >
-        <div className="flex items-center space-x-2">
-          <RadioGroupItem value="mr" id="mr" />
-          <label
-            htmlFor="mr"
-            className="text-[20px] text-primaryText cursor-pointer"
-          >
-            Mr
-          </label>
-        </div>
-
-        <div className="flex items-center space-x-2">
-          <RadioGroupItem value="mrs" id="mrs" />
-          <label
-            htmlFor="mrs"
-            className="text-[20px] text-primaryText cursor-pointer"
-          >
-            Mrs
-          </label>
-        </div>
-
-        <div className="flex items-center space-x-2">
-          <RadioGroupItem value="dr" id="dr" />
-          <label
-            htmlFor="dr"
-            className="text-[20px] text-primaryText cursor-pointer"
-          >
-            Dr
-          </label>
-        </div>
-      </RadioGroup>
-
       <div className="w-full space-y-4 mt-6">
         <div className="flex flex-col lg:flex-row gap-4 lg:gap-10">
           <InputField
@@ -61,16 +35,38 @@ export default function MainDriverDetails() {
             placeholder="Enter your last name"
           />
         </div>
+        <div className="flex flex-col lg:flex-row gap-4 lg:gap-10">
+          <InputField
+            title="Email"
+            placeholder="Enter your email"
+            type="email"
+          />
 
-        <InputField title="Email" placeholder="Enter your email" type="email" />
+          <InputField
+            title="Phone Number"
+            type="tel"
+            placeholder="Enter your phone number"
+          />
+        </div>
 
-        <InputField title="Birth Date" type="date" />
+        <div className="flex flex-col lg:flex-row gap-4 lg:gap-10">
+          <InputField
+            title="Address"
+            placeholder="Enter your address"
+            type="text"
+          />
 
-        <InputField
-          title="Phone Number"
-          type="tel"
-          placeholder="Enter your phone number"
-        />
+          {/* Gender */}
+          <SelectField
+            title="Select Gender"
+            value={formData.gender}
+            onChange={(e) => handleChange("gender", e.target.value)}
+            options={[
+              { label: "Male", value: "male" },
+              { label: "Female", value: "female" },
+            ]}
+          />
+        </div>
       </div>
     </div>
   );

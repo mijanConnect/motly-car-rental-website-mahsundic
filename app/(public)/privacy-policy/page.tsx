@@ -3,8 +3,8 @@ import React from "react";
 export default function Page() {
   return (
     <>
-      <div className="py-6 lg:py-20">
-        <div className="max-w-4xl mx-auto p-8 bg-white rounded-lg shadow-xl">
+      <div className="py-6 lg:py-15">
+        <div className="max-w-4xl mx-auto p-4 lg:p-8 bg-white rounded-lg shadow-xl border border-gray-200">
           <h2 className="text-2xl font-semibold text-gray-800 mb-6">
             Privacy Policy
           </h2>
