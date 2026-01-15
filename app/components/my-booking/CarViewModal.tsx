@@ -27,7 +27,7 @@ export default function CarViewModal({ isOpen, onClose }: CarViewModalProps) {
         {/* Close button outside the modal */}
         <button
           onClick={onClose}
-          className="absolute top-2 right-2 text-white hover:text-gray-100 z-20 bg-red-500 hover:bg-red-600 transform transition rounded-full p-2 shadow-md cursor-pointer"
+          className="absolute top-2 right-2 text-gray-600 hover:text-gray-800 z-20 bg-gray-200 hover:bg-gray-300 transform transition rounded-full p-2 shadow-md cursor-pointer"
         >
           <X size={24} />
         </button>

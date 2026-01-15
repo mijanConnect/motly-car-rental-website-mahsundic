@@ -6,6 +6,7 @@ import Button from "../ui/Button";
 import { CarFront, Clock } from "lucide-react";
 import { useRouter } from "next/navigation";
 import CarViewModal from "./CarViewModal";
+import WriteReviewModal from "./WriteReview";
 
 /* ---------- status color map ---------- */
 const STATUS_COLORS: Record<string, string> = {
@@ -35,11 +36,109 @@ export default function BookedCarCard({ cars: propsCars }: BookedCarCardProps) {
   const router = useRouter();
   const carsToDisplay = propsCars || [];
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isReviewModalOpen, setIsReviewModalOpen] = useState(false);
   const [selectedCar, setSelectedCar] = useState<CarType | null>(null);
 
   const handleViewDetails = (car: CarType) => {
     setSelectedCar(car);
     setIsModalOpen(true);
+  };
+
+  const handleWriteReview = (car: CarType) => {
+    setSelectedCar(car);
+    setIsReviewModalOpen(true);
+  };
+
+  const renderActionButtons = (car: CarType) => {
+    const commonClass = "w-full md:w-auto";
+
+    switch (car.status) {
+      case "Pending":
+        return (
+          <>
+            <Button
+              variant="outline"
+              className={commonClass}
+              onClick={() => handleViewDetails(car)}
+            >
+              View Details
+            </Button>
+            <Button
+              variant="primary"
+              className={`${commonClass} bg-[#F6BB06]! hover:bg-yellow-500! w-[200px] md:w-auto`}
+              onClick={() => router.push("/checkout")}
+            >
+              Complete Payment
+            </Button>
+          </>
+        );
+
+      case "Confirmed":
+        return (
+          <>
+            <Button
+              variant="outline"
+              className={commonClass}
+              onClick={() => handleViewDetails(car)}
+            >
+              View Details
+            </Button>
+            <Button
+              variant="primary"
+              className={`${commonClass} bg-[#EB1616]! hover:bg-red-500! w-[200px] md:w-auto`}
+              onClick={() => router.push("/checkout")}
+            >
+              Cancel Rental
+            </Button>
+          </>
+        );
+
+      case "Active":
+        return (
+          <>
+            <Button
+              variant="outline"
+              className={commonClass}
+              onClick={() => handleViewDetails(car)}
+            >
+              View Details
+            </Button>
+            <Button
+              variant="primary"
+              className={`${commonClass} bg-[#2563EB]! hover:bg-blue-700!`}
+              onClick={() => router.push("/checkout")}
+            >
+              Extend Rental
+            </Button>
+          </>
+        );
+
+      case "Completed":
+        return (
+          <>
+            <Button
+              variant="outline"
+              className={commonClass}
+              onClick={() => handleWriteReview(car)}
+            >
+              Write a Review
+            </Button>
+            <Button
+              variant="primary"
+              className={commonClass}
+              onClick={() => router.push("/checkout")}
+            >
+              Book Again
+            </Button>
+          </>
+        );
+
+      case "Cancelled":
+        return null;
+
+      default:
+        return null;
+    }
   };
 
   return (
@@ -114,21 +213,7 @@ export default function BookedCarCard({ cars: propsCars }: BookedCarCardProps) {
                 {/* actions */}
                 <div className="flex flex-col justify-end">
                   <div className="flex flex-col md:flex-row gap-4">
-                    <Button
-                      variant="outline"
-                      className="w-full md:w-auto"
-                      onClick={() => handleViewDetails(car)}
-                    >
-                      View Details
-                    </Button>
-
-                    <Button
-                      variant="primary"
-                      className="w-full md:w-auto"
-                      onClick={() => router.push("/checkout")}
-                    >
-                      Complete Payment
-                    </Button>
+                    {renderActionButtons(car)}
                   </div>
                 </div>
               </div>
@@ -143,6 +228,14 @@ export default function BookedCarCard({ cars: propsCars }: BookedCarCardProps) {
           isOpen={isModalOpen}
           selectedCar={selectedCar}
           onClose={() => setIsModalOpen(false)}
+        />
+      )}
+
+      {/* Write Review Modal */}
+      {isReviewModalOpen && selectedCar && (
+        <WriteReviewModal
+          isOpen={isReviewModalOpen}
+          onClose={() => setIsReviewModalOpen(false)}
         />
       )}
     </div>
