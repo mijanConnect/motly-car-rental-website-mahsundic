@@ -2,7 +2,11 @@ import { Star } from "lucide-react";
 import SearchBar from "../ui/SearchBar";
 import DropdownFilter from "../ui/DropdownFilter";
 
-export default function TopBar() {
+interface TopBarProps {
+  carId?: number | null;
+}
+
+export default function TopBar({ carId }: TopBarProps) {
   return (
     <>
       <div className="flex gap-1.5 items-baseline">

@@ -1,12 +1,16 @@
-import React from "react";
 import Button from "../../ui/Button";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
-export default function PriceCard() {
+interface PriceCardProps {
+  carId?: number;
+}
+
+export default function PriceCard({ carId = 1 }: PriceCardProps) {
   const router = useRouter();
 
   const handleContinue = () => {
-    router.push("/checkout?step=4");
+    router.push(`/checkout/${carId}?step=4`);
   };
 
   return (
@@ -36,19 +40,19 @@ export default function PriceCard() {
 
         <p className="text-[18px] text-primaryTextLight mt-3 max-w-[480px] text-center">
           By clicking &quot;Confirm & Book Now&quot;, you accept the{" "}
-          <a
-            href="#terms-and-conditions"
+          <Link
+            href="/terms-conditions"
             className="text-blue-700 hover:text-blue-500 underline transition transform duration-200"
           >
             Terms and Conditions
-          </a>{" "}
+          </Link>{" "}
           and{" "}
-          <a
-            href="#terms-and-conditions"
+          <Link
+            href="/cancellation-policy"
             className="text-blue-700 hover:text-blue-500 underline transition transform duration-200"
           >
             Cancellation Policy
-          </a>{" "}
+          </Link>{" "}
           .
         </p>
       </div>

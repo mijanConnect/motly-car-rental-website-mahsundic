@@ -66,7 +66,7 @@ export default function BookedCarCard({ cars: propsCars }: BookedCarCardProps) {
             <Button
               variant="primary"
               className={`${commonClass} bg-[#F6BB06]! hover:bg-yellow-500! w-[200px] md:w-auto`}
-              onClick={() => router.push("/checkout")}
+              onClick={() => router.push(`/checkout/${car.id}?step=3`)}
             >
               Complete Payment
             </Button>
@@ -86,7 +86,7 @@ export default function BookedCarCard({ cars: propsCars }: BookedCarCardProps) {
             <Button
               variant="primary"
               className={`${commonClass} bg-[#EB1616]! hover:bg-red-500! w-[200px] md:w-auto`}
-              onClick={() => router.push("/checkout")}
+              onClick={() => router.push(`/checkout/${car.id}?step=3`)}
             >
               Cancel Rental
             </Button>
@@ -106,7 +106,7 @@ export default function BookedCarCard({ cars: propsCars }: BookedCarCardProps) {
             <Button
               variant="primary"
               className={`${commonClass} bg-[#2563EB]! hover:bg-blue-700!`}
-              onClick={() => router.push("/checkout")}
+              onClick={() => router.push(`/checkout/${car.id}?step=1`)}
             >
               Extend Rental
             </Button>
@@ -126,7 +126,7 @@ export default function BookedCarCard({ cars: propsCars }: BookedCarCardProps) {
             <Button
               variant="primary"
               className={commonClass}
-              onClick={() => router.push("/checkout")}
+              onClick={() => router.push(`/checkout/${car.id}?step=1`)}
             >
               Book Again
             </Button>

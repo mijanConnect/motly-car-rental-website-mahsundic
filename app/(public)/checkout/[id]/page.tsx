@@ -5,12 +5,20 @@ function CheckoutFallback() {
   return <div className="my-5 lg:my-12">Loading...</div>;
 }
 
-export default function Page() {
+type PageProps = {
+  params: Promise<{ id: string }>;
+};
+
+export default async function Page({ params }: PageProps) {
+  const resolvedParams = await params;
+  const carId = Number(resolvedParams.id);
+  const displayCarId = Number.isNaN(carId) ? 1 : carId; // Default to 1 if invalid
+
   return (
     <>
       <Suspense fallback={<CheckoutFallback />}>
         <div className="my-5 lg:my-12">
-          <Checkout />
+          <Checkout carId={displayCarId} />
         </div>
       </Suspense>
     </>

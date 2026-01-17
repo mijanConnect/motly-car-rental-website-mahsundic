@@ -12,18 +12,19 @@ interface DetailsMainProps {
 
 export default function DetailsMain({ carId }: DetailsMainProps) {
   const router = useRouter();
+  const displayCarId = carId || 1; // Default to 1 if null
 
   return (
     <>
       <div className="flex flex-col lg:flex-row gap-[30px] lg:gap-[50px]">
         {/* Image Area */}
         <div className="w-full lg:w-[50%]">
-          <ImageArea carId={carId} />
+          <ImageArea carId={displayCarId} />
         </div>
 
         {/* Details Area */}
         <div className="w-full lg:w-[50%] pl-0 lg:pl-4">
-          <DetailsArea carId={carId} />
+          <DetailsArea carId={displayCarId} />
 
           {/* Booking Buttons */}
           <div className="flex justify-end mt-8 flex-col sm:flex-row gap-4">
@@ -31,7 +32,7 @@ export default function DetailsMain({ carId }: DetailsMainProps) {
               variant="outline"
               size="lg"
               className="w-full"
-              onClick={() => router.push("/view-reviews")}
+              onClick={() => router.push(`/view-reviews/${displayCarId}`)}
             >
               View Reviews
             </Button>
@@ -40,7 +41,7 @@ export default function DetailsMain({ carId }: DetailsMainProps) {
               variant="primary"
               size="lg"
               className="w-full"
-              onClick={() => router.push("/checkout")}
+              onClick={() => router.push(`/checkout/${displayCarId}`)}
             >
               Book Now
             </Button>

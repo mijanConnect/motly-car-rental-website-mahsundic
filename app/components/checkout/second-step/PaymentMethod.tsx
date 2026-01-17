@@ -1,5 +1,6 @@
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 
 export default function PaymentMethod() {
@@ -81,12 +82,12 @@ export default function PaymentMethod() {
 
       <p className="text-[18px] text-primaryTextLight mt-3">
         By proceeding, you agree to the{" "}
-        <a
-          href="#terms-and-conditions"
+        <Link
+          href="/terms-conditions"
           className="text-blue-700 hover:text-blue-500 underline transition transform duration-200"
         >
           Terms and Conditions
-        </a>{" "}
+        </Link>{" "}
         and confirm that you have read the rental agreement.
       </p>
     </div>

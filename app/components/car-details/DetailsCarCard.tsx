@@ -225,7 +225,7 @@ export default function DetailsCarCard({ car }: CarCardProps) {
             variant="outline"
             size="md"
             className="w-full sm:w-[150px]"
-            onClick={() => router.push("/view-details")}
+            onClick={() => router.push(`/view-details/${car.id}`)}
           >
             View Details
           </Button>
@@ -233,7 +233,7 @@ export default function DetailsCarCard({ car }: CarCardProps) {
             variant="primary"
             size="md"
             className="w-full sm:w-[150px]"
-            onClick={() => router.push("/checkout")}
+            onClick={() => router.push(`/checkout/${car.id}`)}
           >
             Book Now
           </Button>

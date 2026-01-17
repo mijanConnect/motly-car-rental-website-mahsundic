@@ -1,27 +1,19 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import FinalStepContainer from "./third-step/FinalStepContainer";
-import Button from "../ui/Button";
 
-export default function FinalStep() {
-  const router = useRouter();
+interface FinalStepProps {
+  carId?: number | null;
+}
 
-  const handleConfirmAndBook = () => {
-    router.push("/checkout?step=4");
-  };
-
+export default function FinalStep({ carId }: FinalStepProps) {
+  const validCarId = carId && !isNaN(carId) ? carId : 1; // Ensure valid carId
   return (
     <>
       <div>
         <div>
-          <FinalStepContainer />
+          <FinalStepContainer carId={validCarId} />
         </div>
-      </div>
-      <div className="flex justify-center mt-8">
-        <Button className="w-full lg:w-[350px]" onClick={handleConfirmAndBook}>
-          Confirm and Book Now
-        </Button>
       </div>
     </>
   );

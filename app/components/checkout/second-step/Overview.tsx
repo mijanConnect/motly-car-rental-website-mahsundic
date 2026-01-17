@@ -3,11 +3,15 @@ import Image from "next/image";
 import Button from "../../ui/Button";
 import { useRouter } from "next/navigation";
 
-export default function Overview() {
+interface OverviewProps {
+  carId?: number;
+}
+
+export default function Overview({ carId = 1 }: OverviewProps) {
   const router = useRouter();
 
   const handleContinue = () => {
-    router.push("/checkout?step=3");
+    router.push(`/checkout/${carId}?step=3`);
   };
 
   return (

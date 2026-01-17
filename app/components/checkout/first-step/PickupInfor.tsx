@@ -4,11 +4,15 @@ import { CarFront, CircleCheck, MapPin } from "lucide-react";
 import Calendar24 from "@/components/ui/time-picker";
 import { useRouter } from "next/navigation";
 
-export default function PickupInfor() {
+interface PickupInforProps {
+  carId?: number;
+}
+
+export default function PickupInfor({ carId = 1 }: PickupInforProps) {
   const router = useRouter();
 
   const handleContinue = () => {
-    router.push("/checkout?step=2");
+    router.push(`/checkout/${carId}?step=2`);
   };
 
   return (

@@ -9,6 +9,10 @@ interface ReviewData {
   image: string;
 }
 
+interface ReviewsProps {
+  carId?: number | null;
+}
+
 const reviews: ReviewData[] = [
   {
     id: 1,
@@ -84,7 +88,7 @@ const reviews: ReviewData[] = [
   },
 ];
 
-export default function Reviews() {
+export default function Reviews({ carId }: ReviewsProps) {
   return (
     <>
       <div className="mt-10 space-y-6 lg:space-y-10">

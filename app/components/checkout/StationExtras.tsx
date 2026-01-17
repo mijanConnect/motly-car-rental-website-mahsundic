@@ -4,16 +4,20 @@ import SelectedCarDetails from "./first-step/SelectedCarDetails";
 import Button from "../ui/Button";
 import PickupInfor from "./first-step/PickupInfor";
 
-export default function StationExtras() {
+interface StationExtrasProps {
+  carId?: number;
+}
+
+export default function StationExtras({ carId = 1 }: StationExtrasProps) {
   const router = useRouter();
 
   const handleContinue = () => {
-    router.push("/checkout?step=2");
+    router.push(`/checkout/${carId}?step=2`);
   };
   return (
     <>
       <div className="border border-stroke p-4 lg:p-6 rounded-lg mt-6">
-        <PickupInfor />
+        <PickupInfor carId={carId} />
       </div>
       <div className="mt-10 lg:mt-15 border border-stroke rounded-md">
         <SelectedCarDetails />
