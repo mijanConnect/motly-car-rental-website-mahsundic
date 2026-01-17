@@ -8,6 +8,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import Button from "../ui/Button";
+import { useRouter } from "next/navigation";
 
 const reviews = [
   {
@@ -90,6 +91,8 @@ const reviews = [
 ];
 
 export default function Feedback() {
+  const router = useRouter();
+
   return (
     <div className="my-10 lg:my-30">
       <h2 className="section-title text-center uppercase leading-[1.2]">
@@ -178,7 +181,12 @@ export default function Feedback() {
         {/* <button className="swiper-button-prev absolute left-0 top-1/2 -translate-y-1/2 p-3 rounded-full shadow bg-white z-10"></button>
         <button className="swiper-button-next absolute right-0 top-1/2 -translate-y-1/2 p-3 rounded-full shadow bg-white z-10"></button> */}
       </div>
-      <Button variant="primary" size="md" className="h-12 flex mx-auto">
+      <Button
+        variant="primary"
+        size="md"
+        className="h-12 flex mx-auto"
+        onClick={() => router.push(`/view-reviews/all`)}
+      >
         View All Reveiws
       </Button>
     </div>
