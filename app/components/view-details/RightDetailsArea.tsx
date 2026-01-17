@@ -1,9 +1,106 @@
+"use client";
+
 import { Star } from "lucide-react";
 import Image from "next/image";
 import CarFunctionality from "./CarFunctionality";
 import AdditionalFeatures from "./AdditionalFeatures";
+import { Car } from "@/types/product";
 
-export default function DetailsArea() {
+const cars: Car[] = [
+  {
+    id: 1,
+    name: "Audi S60",
+    image: "/assets/card/car-1.png",
+    star: 4,
+    doors: 4,
+    seats: 4,
+    suitcases: 4,
+    transmission: "Automatic",
+    climate: "Climate Control",
+    fuelPolicy: "Fair",
+    kilometers: 1400,
+    price: 46.91,
+    days: 3,
+    deposit: 250,
+    rating: 8.6,
+  },
+  {
+    id: 2,
+    name: "BMW 5 Series",
+    image: "/assets/card/car-2.png",
+    star: 5,
+    doors: 4,
+    seats: 5,
+    suitcases: 3,
+    transmission: "Automatic",
+    climate: "Climate Control",
+    fuelPolicy: "Full to Full",
+    kilometers: 1200,
+    price: 59.99,
+    days: 3,
+    deposit: 300,
+    rating: 9.1,
+  },
+  {
+    id: 3,
+    name: "Mercedes C Class",
+    image: "/assets/card/car-3.png",
+    star: 5,
+    doors: 4,
+    seats: 5,
+    suitcases: 3,
+    transmission: "Automatic",
+    climate: "Climate Control",
+    fuelPolicy: "Fair",
+    kilometers: 1500,
+    price: 55.5,
+    days: 3,
+    deposit: 280,
+    rating: 8.9,
+  },
+  {
+    id: 4,
+    name: "Toyota Corolla",
+    image: "/assets/card/car-4.png",
+    star: 3,
+    doors: 4,
+    seats: 5,
+    suitcases: 2,
+    transmission: "Manual",
+    climate: "AC",
+    fuelPolicy: "Full to Full",
+    kilometers: 1800,
+    price: 32.75,
+    days: 3,
+    deposit: 200,
+    rating: 8.2,
+  },
+  {
+    id: 5,
+    name: "Honda Civic",
+    image: "/assets/card/car-5.png",
+    star: 4,
+    doors: 4,
+    seats: 5,
+    suitcases: 2,
+    transmission: "Automatic",
+    climate: "Climate Control",
+    fuelPolicy: "Fair",
+    kilometers: 1600,
+    price: 38.9,
+    days: 3,
+    deposit: 220,
+    rating: 8.5,
+  },
+];
+
+interface DetailsAreaProps {
+  carId: number | null;
+}
+
+export default function DetailsArea({ carId }: DetailsAreaProps) {
+  const car = cars.find((c) => c.id === carId) || cars[0];
+
   return (
     <>
       <div className="flex gap-1.5 items-baseline">
@@ -11,18 +108,18 @@ export default function DetailsArea() {
           <Star
             key={i}
             className={`h-4 w-4 ${
-              i < 4
+              i < car.star
                 ? "fill-gray-800 text-gray-800"
                 : "fill-gray-300 text-gray-300"
             }`}
           />
         ))}
-        <p className="pl-1.5 text-yellow-400 text-[20px] font-medium">4.5</p>
+        <p className="pl-1.5 text-yellow-400 text-[20px] font-medium">{car.rating}</p>
       </div>
       <div className="mt-1 flex justify-between items-baseline">
         <div>
           <h2 className="text-[26px] lg:text-[32px] font-medium text-primaryText">
-            Porsche S60
+            {car.name}
           </h2>
           <a
             href="#"
@@ -33,10 +130,10 @@ export default function DetailsArea() {
         </div>
         <div className="flex flex-col items-end">
           <h3 className="text-[28px] lg:text-[36px] font-medium text-red-500">
-            €46.91
+            €{car.price}
           </h3>
           <p className="text-[14px] lg:text-[18px] text-primaryTextLight">
-            Price for 3 days
+            Price for {car.days} days
           </p>
         </div>
       </div>
@@ -64,7 +161,7 @@ export default function DetailsArea() {
         <AdditionalFeatures
           imageUrl="/assets/view-details/fuel.png"
           PolicyHeader="Fuel Policy"
-          PolicyType="Full to Full"
+          PolicyType={car.fuelPolicy}
           PolicyDescription="You can return your rental car with the same fuel level as when you picked it up."
         />
 
@@ -72,7 +169,7 @@ export default function DetailsArea() {
         <AdditionalFeatures
           imageUrl="/assets/view-details/meter.png"
           PolicyHeader="Kilometers"
-          PolicyType="Unlimited"
+          PolicyType={`${car.kilometers} km Free`}
           PolicyDescription="You can drive as much as you want without worrying about extra charges."
         />
       </div>

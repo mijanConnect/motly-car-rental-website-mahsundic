@@ -6,7 +6,11 @@ import ImageArea from "./DetailsImageArea";
 import DetailsArea from "./RightDetailsArea";
 import { useRouter } from "next/navigation";
 
-export default function DetailsMain() {
+interface DetailsMainProps {
+  carId: number | null;
+}
+
+export default function DetailsMain({ carId }: DetailsMainProps) {
   const router = useRouter();
 
   return (
@@ -14,12 +18,12 @@ export default function DetailsMain() {
       <div className="flex flex-col lg:flex-row gap-[30px] lg:gap-[50px]">
         {/* Image Area */}
         <div className="w-full lg:w-[50%]">
-          <ImageArea />
+          <ImageArea carId={carId} />
         </div>
 
         {/* Details Area */}
         <div className="w-full lg:w-[50%] pl-0 lg:pl-4">
-          <DetailsArea />
+          <DetailsArea carId={carId} />
 
           {/* Booking Buttons */}
           <div className="flex justify-end mt-8 flex-col sm:flex-row gap-4">

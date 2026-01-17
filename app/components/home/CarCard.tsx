@@ -231,7 +231,7 @@ export default function CarCard({ car }: CarCardProps) {
                 variant="outline"
                 size="md"
                 className="w-full sm:w-[150px]"
-                onClick={() => router.push("/view-details")}
+                onClick={() => router.push(`/view-details?id=${car.id}`)}
               >
                 View Details
               </Button>
