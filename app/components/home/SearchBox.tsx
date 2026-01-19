@@ -9,18 +9,21 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { Calendar } from "@/components/ui/calendar";
+import { useRouter } from "next/navigation";
 
 export default function SearchBox() {
   const [collectionDate, setCollectionDate] = useState<Date | undefined>(
-    new Date(2026, 11, 11)
+    new Date(2026, 11, 11),
   );
   const [collectionTime, setCollectionTime] = useState<string>("11:00");
   const [returnDate, setReturnDate] = useState<Date | undefined>(
-    new Date(2026, 11, 11)
+    new Date(2026, 11, 11),
   );
   const [returnTime, setReturnTime] = useState<string>("11:00");
   const [openCollection, setOpenCollection] = useState(false);
   const [openReturn, setOpenReturn] = useState(false);
+
+  const router = useRouter();
 
   const formatDate = (date: Date | undefined) => {
     if (!date) return "Select date";
@@ -180,7 +183,12 @@ export default function SearchBox() {
             </PopoverContent>
           </Popover>
         </div>
-        <Button className="w-full mt-6">Search</Button>
+        <Button
+          className="w-full mt-6"
+          onClick={() => router.push("/car-details")}
+        >
+          Search
+        </Button>
       </div>
     </>
   );
