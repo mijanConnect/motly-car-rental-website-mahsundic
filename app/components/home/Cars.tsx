@@ -96,7 +96,7 @@ export default function Cars() {
         <h1 className="text-[24px] lg:text-[30px] font-semiBold mb-3">
           Top Rated Cars
         </h1>
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-5">
           {cars.map((car) => (
             <CarCard key={car.id} car={car} />
           ))}
