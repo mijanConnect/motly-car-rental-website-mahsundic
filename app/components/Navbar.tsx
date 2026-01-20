@@ -126,7 +126,7 @@ export default function Navbar() {
         <div className="container mx-auto flex items-center justify-between py-4 relative">
           <button
             type="button"
-            className="inline-flex items-center justify-center rounded-md text-white hover:bg-black/5 focus:outline-none focus:ring-2 focus:ring-[--color-primary] cursor-pointer"
+            className="items-center justify-center rounded-md text-white hover:bg-black/5 focus:outline-none focus:ring-2 focus:ring-[--color-primary] cursor-pointer hidden lg:inline-flex"
             aria-label="Toggle navigation"
             onClick={() => setOpen((v) => !v)}
           >
@@ -332,6 +332,36 @@ export default function Navbar() {
                 </Link>
               </div>
             </div>
+            <button
+              type="button"
+              className="items-center justify-center rounded-md text-white hover:bg-black/5 focus:outline-none focus:ring-2 focus:ring-[--color-primary] cursor-pointer inline-flex lg:hidden"
+              aria-label="Toggle navigation"
+              onClick={() => setOpen((v) => !v)}
+            >
+              <span className="sr-only">Toggle navigation</span>
+              <svg
+                className="h-8 md:h-10 w-8 md:w-10"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth="1.5"
+              >
+                {open ? (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                ) : (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M3.75 7.5h16.5M3.75 12h16.5M3.75 16.5h16.5"
+                  />
+                )}
+              </svg>
+            </button>
           </div>
         </div>
       </header>
