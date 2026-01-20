@@ -37,18 +37,18 @@ export default function SearchBox() {
 
   return (
     <>
-      <div className="border border-stroke shadow-md p-[15px] lg:p-[30px] rounded-lg mb-6 md:mb-15">
+      <div className="shadow-[0_0_12px_rgba(0,0,0,0.15)] p-[15px] lg:p-[30px] rounded-lg mb-6 md:mb-13">
         {/* Search Bar */}
         <div className="flex items-center gap-2 border-b pb-2 mb-5 border-stroke">
           <MapPin className="h-5 sm:h-6 text-gray-500" />
           <input
             type="text"
-            placeholder="Enter location"
+            placeholder="Pickup location"
             className="flex-1 border-none outline-none font-medium text-[16px] sm:text-[20px]"
           />
         </div>
         {/* Date and Time Selection */}
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col lg:flex-row gap-3">
           {/* Collection Date and Time */}
           <Popover open={openCollection} onOpenChange={setOpenCollection}>
             <PopoverTrigger asChild>
