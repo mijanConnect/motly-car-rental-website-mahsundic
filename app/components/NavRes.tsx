@@ -14,7 +14,7 @@ const navbarStyles = `
   }
 
   .nav-link:hover {
-    color: #262626;
+    color: #ffffff;
   }
 
   .nav-link::after {
@@ -26,7 +26,7 @@ const navbarStyles = `
     width: 0%;
     content: '';
     color: transparent;
-    background: #262626;
+    background: #ffffff;
     height: 2px;
     transition: width 0.3s ease;
   }
@@ -37,19 +37,17 @@ const navbarStyles = `
   }
 
   .nav-link.active {
-    color: #262626;
+    color: #ffffff;
   }
 `;
 
-export default function Navbar() {
+export default function NavRes() {
   const [open, setOpen] = useState(false);
   const [lang, setLang] = useState("EN");
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [langDropdownOpen, setLangDropdownOpen] = useState(false);
-  const [serviceDropdownOpen, setServiceDropdownOpen] = useState(false);
   const langDropdownRef = useRef<HTMLDivElement>(null);
-  const serviceDropdownRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
 
   const selectLanguage = (language: string) => {
@@ -65,22 +63,16 @@ export default function Navbar() {
       ) {
         setLangDropdownOpen(false);
       }
-      if (
-        serviceDropdownRef.current &&
-        !serviceDropdownRef.current.contains(event.target as Node)
-      ) {
-        setServiceDropdownOpen(false);
-      }
     };
 
-    if (langDropdownOpen || serviceDropdownOpen) {
+    if (langDropdownOpen) {
       document.addEventListener("mousedown", handleClickOutside);
     }
 
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [langDropdownOpen, serviceDropdownOpen]);
+  }, [langDropdownOpen]);
 
   const languages = [
     { code: "EN", name: "English" },
@@ -123,45 +115,36 @@ export default function Navbar() {
           isVisible ? "translate-y-0" : "-translate-y-full"
         }`}
       >
-        <div className="container mx-auto flex items-center justify-between py-4 relative">
-          <button
-            type="button"
-            className="inline-flex items-center justify-center rounded-md text-white hover:bg-black/5 focus:outline-none focus:ring-2 focus:ring-[--color-primary] cursor-pointer"
-            aria-label="Toggle navigation"
-            onClick={() => setOpen((v) => !v)}
-          >
-            <span className="sr-only">Toggle navigation</span>
-            <svg
-              className="h-8 md:h-10 w-8 md:w-10"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth="1.5"
-            >
-              {open ? (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              ) : (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M3.75 7.5h16.5M3.75 12h16.5M3.75 16.5h16.5"
-                />
-              )}
-            </svg>
-          </button>
+        <div className="container mx-auto flex items-center justify-between py-4">
+          <div>
+            <Link href="/">
+              <Image
+                src="/assets/logo-nav.png"
+                alt="Login Image"
+                width={150}
+                height={48}
+                className="hidden md:block"
+              />
+            </Link>
+            <Link href="/">
+              <Image
+                src="/assets/logo-icon.png"
+                alt="Login Image"
+                width={50}
+                height={48}
+                className="block md:hidden"
+              />
+            </Link>
+          </div>
+
           <nav
             className={`${
               open
-                ? "max-h-[500px] opacity-100 visible"
+                ? "max-h-96 opacity-100 visible"
                 : "max-h-0 opacity-0 invisible"
-            } absolute left-0 right-0 lg:left-0 lg:right-auto lg:w-[25%] mt-1 top-full overflow-y-hidden bg-[#FBFBFB] text-primaryText px-4 shadow-2xl transition-all duration-300 ease-out`}
+            } absolute left-0 right-0 mt-1 top-full overflow-hidden bg-linear-to-b from-primary via-primary/95 to-primary/90 px-4 shadow-2xl transition-all duration-300 ease-out lg:static lg:max-h-none lg:flex lg:items-center lg:justify-end lg:gap-4 lg:border-0 lg:bg-transparent lg:p-0 lg:opacity-100 lg:shadow-none lg:visible`}
           >
-            <div className="flex flex-col gap-4 py-6 text-[16px] font-medium text-primaryText items-start">
+            <div className="flex flex-col gap-4 lg:gap-18 py-6 text-[16px] font-medium text-white lg:flex-row lg:items-center lg:py-0 items-center">
               <Link
                 href="/"
                 className={`nav-link py-1 transform transition-all ${
@@ -171,48 +154,15 @@ export default function Navbar() {
               >
                 Home
               </Link>
-              <div className="relative " ref={serviceDropdownRef}>
-                <button
-                  onClick={() => setServiceDropdownOpen(!serviceDropdownOpen)}
-                  className={`nav-link py-1 transform transition-all flex items-center justify-start w-full cursor-pointer ${
-                    isActive("/car-details") ? "active" : ""
-                  }`}
-                >
-                  Service
-                  <ChevronDown
-                    className={`ml-1 transition-transform w-4 h-4 ${
-                      serviceDropdownOpen ? "rotate-180" : ""
-                    }`}
-                    fill="#262626"
-                    stroke="null"
-                  />
-                </button>
-
-                {serviceDropdownOpen && (
-                  <div className="mt-2 w-full bg-white/10 backdrop-blur-sm rounded-lg">
-                    <Link
-                      href="/car-details"
-                      onClick={() => {
-                        setServiceDropdownOpen(false);
-                        setOpen(false);
-                      }}
-                      className="block w-full text-start px-4 py-2 hover:bg-gray-200 transition-colors text-primaryText"
-                    >
-                      Car Rental
-                    </Link>
-                    <Link
-                      href="/flight-booking"
-                      onClick={() => {
-                        setServiceDropdownOpen(false);
-                        setOpen(false);
-                      }}
-                      className="block w-full text-start px-4 py-2 hover:bg-gray-200 transition-colors text-primaryText"
-                    >
-                      Flight Booking
-                    </Link>
-                  </div>
-                )}
-              </div>
+              <Link
+                href="/car-details"
+                className={`nav-link py-1 transform transition-all ${
+                  isActive("/car-details") ? "active" : ""
+                }`}
+                onClick={() => setOpen(false)}
+              >
+                Service
+              </Link>
               <Link
                 href="/my-booking"
                 className={`nav-link py-1 transform transition-all ${
@@ -243,27 +193,6 @@ export default function Navbar() {
             </div>
           </nav>
 
-          <div>
-            <Link href="/">
-              <Image
-                src="/assets/logo-nav.png"
-                alt="Login Image"
-                width={150}
-                height={48}
-                className="hidden md:block"
-              />
-            </Link>
-            <Link href="/">
-              <Image
-                src="/assets/logo-icon.png"
-                alt="Login Image"
-                width={50}
-                height={48}
-                className="block md:hidden"
-              />
-            </Link>
-          </div>
-
           <div className="flex gap-4 align-middle justify-between">
             <div className="flex justify-start items-center gap-4">
               <div
@@ -285,14 +214,16 @@ export default function Navbar() {
                 </button>
 
                 {langDropdownOpen && (
-                  <div className="absolute right-0 mt-2 w-40 bg-white shadow-lg z-50">
+                  <div className="absolute right-0 mt-2 w-40 bg-white rounded-lg shadow-lg z-50">
                     {languages.map((language, index) => (
                       <button
                         key={language.code}
                         onClick={() => selectLanguage(language.code)}
                         className={`w-full text-left px-4 py-2 hover:bg-gray-100 transition-colors cursor-pointer ${
-                          index === 0 ? "" : ""
-                        } ${index === languages.length - 1 ? "" : ""} ${
+                          index === 0 ? "rounded-t-lg" : ""
+                        } ${
+                          index === languages.length - 1 ? "rounded-b-lg" : ""
+                        } ${
                           lang === language.code
                             ? "bg-primary/10 text-primary font-semibold"
                             : "text-gray-800"
@@ -332,6 +263,37 @@ export default function Navbar() {
                 </Link>
               </div>
             </div>
+
+            <button
+              type="button"
+              className="inline-flex items-center justify-center rounded-md text-white hover:bg-black/5 focus:outline-none focus:ring-2 focus:ring-[--color-primary] lg:hidden"
+              aria-label="Toggle navigation"
+              onClick={() => setOpen((v) => !v)}
+            >
+              <span className="sr-only">Toggle navigation</span>
+              <svg
+                className="h-8 w-8"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth="1.5"
+              >
+                {open ? (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                ) : (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M3.75 7.5h16.5M3.75 12h16.5M3.75 16.5h16.5"
+                  />
+                )}
+              </svg>
+            </button>
           </div>
         </div>
       </header>

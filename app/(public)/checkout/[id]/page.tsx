@@ -12,7 +12,7 @@ type PageProps = {
 export default async function Page({ params }: PageProps) {
   const resolvedParams = await params;
   const carId = Number(resolvedParams.id);
-  const displayCarId = Number.isNaN(carId) ? 1 : carId; // Default to 1 if invalid
+  const displayCarId = Number.isNaN(carId) ? 1 : carId;
 
   return (
     <>
