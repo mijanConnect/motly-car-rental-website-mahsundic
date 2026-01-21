@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { AppStore, GooglePlay } from "../Svg";
 
 export default function DownloadLink() {
   return (
@@ -16,20 +17,10 @@ export default function DownloadLink() {
             </p>
             <div className="flex justify-center gap-4 mt-6">
               <a href="#" className="block">
-                <Image
-                  src="/assets/download/appstore.png"
-                  alt="Download on the App Store"
-                  width={228}
-                  height={62}
-                />
+                <GooglePlay />
               </a>
               <a href="#" className="block">
-                <Image
-                  src="/assets/download/googleplay.png"
-                  alt="Get it on Google Play"
-                  width={228}
-                  height={62}
-                />
+                <AppStore />
               </a>
             </div>
           </div>

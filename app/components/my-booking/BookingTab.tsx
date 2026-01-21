@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import BookedCarCard from "./BookedCarCard";
-import Image from "next/image";
+import { PhoneCar } from "../Svg";
 
 /* ---------- car data ---------- */
 const cars = [
@@ -78,13 +78,7 @@ export default function BookingTab() {
     <div>
       <div className="flex gap-2 md:gap-4 items-center mb-1 lg:mb-3">
         <div className="relative w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12">
-          <Image
-            src="/assets/my-booking/car-phone.png"
-            alt="Car Image"
-            fill
-            className="object-contain"
-            priority
-          />
+          <PhoneCar />
         </div>
 
         <h1 className="text-[24px] lg:text-[48px] text-primaryText font-bold">

@@ -1,10 +1,10 @@
 "use client";
 
-import Image from "next/image";
 import Button from "../ui/Button";
 import ImageArea from "./DetailsImageArea";
 import DetailsArea from "./RightDetailsArea";
 import { useRouter } from "next/navigation";
+import { Amex, Maestro, PayPal, Visa } from "../Svg";
 
 interface DetailsMainProps {
   carId: number | null;
@@ -103,77 +103,33 @@ export default function DetailsMain({ carId }: DetailsMainProps) {
         <div>
           <div className="flex items-center gap-10 mt-4">
             <div className="flex gap-2 items-center">
-              <Image
-                src="/assets/view-details/PayPal.png"
-                alt="Icon"
-                width={75}
-                height={50}
-                className="h-[50px] w-[75px] hidden lg:block"
-              />
-              <Image
-                src="/assets/view-details/PayPal.png"
-                alt="Icon"
-                width={60}
-                height={35}
-                className="h-[35px] w-[60px] block lg:hidden"
-              />
+              <div className="border border-gray-100 rounded-sm h-[50px] w-[75px] flex items-center justify-center">
+                <PayPal width={42} height={37} />
+              </div>
               <p className="text-[20px] text-primaryText hidden lg:block">
                 PayPal
               </p>
             </div>
             <div className="flex gap-2 items-center">
-              <Image
-                src="/assets/view-details/amex.png"
-                alt="Icon"
-                width={75}
-                height={50}
-                className="h-[50px] w-[75px] hidden lg:block"
-              />
-              <Image
-                src="/assets/view-details/amex.png"
-                alt="Icon"
-                width={60}
-                height={35}
-                className="h-[35px] w-[60px] block lg:hidden"
-              />
+              <div className="border border-gray-100 rounded-sm h-[50px] w-[75px] flex items-center justify-center">
+                <Amex width={73} height={50} />
+              </div>
               <p className="text-[20px] text-primaryText hidden lg:block">
                 American Express
               </p>
             </div>
             <div className="flex gap-2 items-center">
-              <Image
-                src="/assets/view-details/Visa.png"
-                alt="Icon"
-                width={75}
-                height={50}
-                className="h-[50px] w-[75px] hidden lg:block"
-              />
-              <Image
-                src="/assets/view-details/Visa.png"
-                alt="Icon"
-                width={60}
-                height={35}
-                className="h-[35px] w-[60px] block lg:hidden"
-              />
+              <div className="border border-gray-100 rounded-sm h-[50px] w-[75px] flex items-center justify-center">
+                <Visa width={45} height={14} />
+              </div>
               <p className="text-[20px] text-primaryText hidden lg:block">
                 Visa Card
               </p>
             </div>
             <div className="flex gap-2 items-center">
-              <Image
-                src="/assets/view-details/Maestro.png"
-                alt="Icon"
-                width={75}
-                height={50}
-                className="h-[50px] w-[75px] hidden lg:block"
-              />
-              <Image
-                src="/assets/view-details/Maestro.png"
-                alt="Icon"
-                width={60}
-                height={35}
-                className="h-[35px] w-[60px] block lg:hidden"
-              />
+              <div className="border border-gray-100 rounded-sm h-[50px] w-[75px] flex items-center justify-center">
+                <Maestro width={48} height={29} />
+              </div>
               <p className="text-[20px] text-primaryText hidden lg:block">
                 Maestro Card
               </p>

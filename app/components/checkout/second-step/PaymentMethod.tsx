@@ -1,7 +1,7 @@
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { Maestro, PayPal, Visa } from "../../Svg";
 
 export default function PaymentMethod() {
   const [title, setTitle] = useState("visa");
@@ -39,20 +39,12 @@ export default function PaymentMethod() {
           >
             <p>Credit Card (Visa / Mastercard)</p>
             <div className="flex gap-4">
-              <Image
-                src="/assets/view-details/Visa.png"
-                alt="Visa"
-                width={75}
-                height={50}
-                className="h-[50px] w-[75px] hidden lg:block"
-              />
-              <Image
-                src="/assets/view-details/Maestro.png"
-                alt="Maestro"
-                width={75}
-                height={50}
-                className="h-[50px] w-[75px] hidden lg:block"
-              />
+              <div className="border border-gray-100 bg-gray-50 rounded-sm h-[50px] w-[75px] flex items-center justify-center">
+                <Visa width={45} height={14} />
+              </div>
+              <div className="border border-gray-100 bg-gray-50 rounded-sm h-[50px] w-[75px] flex items-center justify-center">
+                <Maestro width={48} height={29} />
+              </div>
             </div>
           </label>
         </div>
@@ -69,13 +61,9 @@ export default function PaymentMethod() {
             className="text-[20px] text-primaryText flex justify-between w-full items-center cursor-pointer"
           >
             <p>Pay with PayPal</p>
-            <Image
-              src="/assets/view-details/PayPal.png"
-              alt="PayPal"
-              width={75}
-              height={50}
-              className="h-[50px] w-[75px] hidden lg:block"
-            />
+            <div className="border border-gray-100 rounded-sm h-[50px] w-[75px] flex items-center justify-center">
+              <PayPal width={42} height={37} />
+            </div>
           </label>
         </div>
       </RadioGroup>

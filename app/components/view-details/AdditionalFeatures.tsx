@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { ReactNode } from "react";
 
 export default function ModalAdditionalFeatures({
   imageUrl,
@@ -6,7 +7,7 @@ export default function ModalAdditionalFeatures({
   PolicyType,
   PolicyDescription,
 }: {
-  imageUrl: string;
+  imageUrl: string | ReactNode;
   PolicyHeader: string;
   PolicyType: string;
   PolicyDescription: string;
@@ -15,20 +16,11 @@ export default function ModalAdditionalFeatures({
     <>
       <div className="flex-1">
         <div className="flex gap-3 items-center">
-          <Image
-            src={imageUrl}
-            alt="Icon"
-            width={35}
-            height={35}
-            className="block lg:hidden"
-          />
-          <Image
-            src={imageUrl}
-            alt="Icon"
-            width={44}
-            height={44}
-            className="hidden lg:block"
-          />
+          {typeof imageUrl === "string" ? (
+            <Image src={imageUrl} alt={PolicyHeader} width={44} height={44} />
+          ) : (
+            imageUrl
+          )}
           <div>
             <p className="text-[16px] lg:text-[20px] text-primaryText font-medium">
               {PolicyHeader}

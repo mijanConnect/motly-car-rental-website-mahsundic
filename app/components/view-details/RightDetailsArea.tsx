@@ -5,6 +5,7 @@ import Image from "next/image";
 import CarFunctionality from "./CarFunctionality";
 import AdditionalFeatures from "./AdditionalFeatures";
 import { Car } from "@/types/product";
+import { Extras, FuelTank, Meter, WinterTires } from "../Svg";
 
 const cars: Car[] = [
   {
@@ -114,7 +115,9 @@ export default function DetailsArea({ carId }: DetailsAreaProps) {
             }`}
           />
         ))}
-        <p className="pl-1.5 text-yellow-400 text-[20px] font-medium">{car.rating}</p>
+        <p className="pl-1.5 text-yellow-400 text-[20px] font-medium">
+          {car.rating}
+        </p>
       </div>
       <div className="mt-1 flex justify-between items-baseline">
         <div>
@@ -159,7 +162,7 @@ export default function DetailsArea({ carId }: DetailsAreaProps) {
       <div className="flex flex-col md:flex-row gap-3 md:gap-6 justify-between mt-6">
         {/* Fuel Policy */}
         <AdditionalFeatures
-          imageUrl="/assets/view-details/fuel.png"
+          imageUrl={<FuelTank width={44} height={44} />}
           PolicyHeader="Fuel Policy"
           PolicyType={car.fuelPolicy}
           PolicyDescription="You can return your rental car with the same fuel level as when you picked it up."
@@ -167,7 +170,7 @@ export default function DetailsArea({ carId }: DetailsAreaProps) {
 
         {/* Kilometers */}
         <AdditionalFeatures
-          imageUrl="/assets/view-details/meter.png"
+          imageUrl={<Meter width={44} height={44} />}
           PolicyHeader="Kilometers"
           PolicyType={`${car.kilometers} km Free`}
           PolicyDescription="You can drive as much as you want without worrying about extra charges."
@@ -176,14 +179,14 @@ export default function DetailsArea({ carId }: DetailsAreaProps) {
       <div className="flex flex-col md:flex-row gap-3 md:gap-6 justify-between mt-3">
         {/* Extras */}
         <AdditionalFeatures
-          imageUrl="/assets/view-details/add.png"
+          imageUrl={<Extras width={44} height={44} />}
           PolicyHeader="Extras"
           PolicyType="Included"
           PolicyDescription="Additional features such as GPS, child seats, and more are included in your rental."
         />
         {/* Winter Tires */}
         <AdditionalFeatures
-          imageUrl="/assets/view-details/tire.png"
+          imageUrl={<WinterTires width={44} height={44} />}
           PolicyHeader="Winter Tires"
           PolicyType="Included"
           PolicyDescription="Your rental car comes equipped with winter tires for safe driving in cold conditions."

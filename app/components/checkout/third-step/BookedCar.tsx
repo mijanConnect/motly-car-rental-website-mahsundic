@@ -1,17 +1,13 @@
 import { Clock } from "lucide-react";
 import Image from "next/image";
+import { Driver, Maestro, PaymentHand, ReviewSearch, Visa } from "../../Svg";
 
 export default function BookedCar() {
   return (
     <>
       <div>
         <div className="flex gap-3 items-center mb-8">
-          <Image
-            src="/assets/checkout/review.png"
-            alt="Car Image"
-            width={38}
-            height={38}
-          />
+          <ReviewSearch />
           <h1 className="text-[24px] lg:text-[32px] text-primaryText font-bold">
             Final Review & Booking
           </h1>
@@ -74,12 +70,7 @@ export default function BookedCar() {
         {/* Driver & Contact */}
         <div>
           <div className="flex gap-3 items-center mb-8 mt-12">
-            <Image
-              src="/assets/checkout/driver.png"
-              alt="Car Image"
-              width={38}
-              height={38}
-            />
+            <Driver />
             <h1 className="text-[24px] lg:text-[32px] text-primaryText font-bold">
               Driver & Contact
             </h1>
@@ -117,12 +108,7 @@ export default function BookedCar() {
         {/* Payment Method */}
         <div>
           <div className="flex gap-3 items-center mb-8 mt-12">
-            <Image
-              src="/assets/checkout/pay.png"
-              alt="Car Image"
-              width={38}
-              height={38}
-            />
+            <PaymentHand />
             <h1 className="text-[24px] lg:text-[32px] text-primaryText font-bold">
               Payment Method
             </h1>
@@ -132,20 +118,12 @@ export default function BookedCar() {
             <div className="text-[20px] text-primaryText flex justify-between w-full items-center">
               <div className="flex items-center gap-4 lg:gap-10">
                 <div className="flex gap-4">
-                  <Image
-                    src="/assets/view-details/Visa.png"
-                    alt="Visa"
-                    width={75}
-                    height={50}
-                    className="h-[50px] w-[75px]"
-                  />
-                  <Image
-                    src="/assets/view-details/Maestro.png"
-                    alt="Maestro"
-                    width={75}
-                    height={50}
-                    className="h-[50px] w-[75px]"
-                  />
+                  <div className="border border-gray-100 rounded-sm h-[50px] w-[75px] flex items-center justify-center">
+                    <Visa width={45} height={14} />
+                  </div>
+                  <div className="border border-gray-100 rounded-sm h-[50px] w-[75px] flex items-center justify-center">
+                    <Maestro width={48} height={29} />
+                  </div>
                 </div>
                 <p className="text-[20px] text-primaryText font-semibold hidden lg:block">
                   Credit Card (Visa / Mastercard)

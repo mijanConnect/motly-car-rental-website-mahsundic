@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import { ChevronDown } from "lucide-react";
+import { NavbarLogo, NavbarLogoIcon } from "./Svg";
 
 const navbarStyles = `
   .nav-link {
@@ -244,23 +245,11 @@ export default function Navbar() {
           </nav>
 
           <div>
-            <Link href="/">
-              <Image
-                src="/assets/logo-nav.png"
-                alt="Login Image"
-                width={150}
-                height={48}
-                className="hidden md:block"
-              />
+            <Link href="/" className="hidden md:block">
+              <NavbarLogo />
             </Link>
-            <Link href="/">
-              <Image
-                src="/assets/logo-icon.png"
-                alt="Login Image"
-                width={50}
-                height={48}
-                className="block md:hidden"
-              />
+            <Link href="/" className="block md:hidden">
+              <NavbarLogoIcon />
             </Link>
           </div>
 

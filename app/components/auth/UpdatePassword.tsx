@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import InputField from "@/app/components/ui/InputField";
 import Button from "@/app/components/ui/Button";
-import Image from "next/image";
+import { NavbarLogoGreen } from "../Svg";
 
 export default function UpdatePasswordPage() {
   const router = useRouter();
@@ -53,7 +53,7 @@ export default function UpdatePasswordPage() {
   return (
     <div className="bg-background shadow-sm p-4 lg:p-8 rounded-lg w-full max-w-[525px] border border-gray-200">
       <div className="flex justify-center mb-8 mt-2">
-        <Image src="/assets/logo.png" alt="Logo" width={187} height={48} />
+        <NavbarLogoGreen />
       </div>
       <div className="mb-6">
         <h1 className="mb-1 text-[18px] font-bold text-primaryText">

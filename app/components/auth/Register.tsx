@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import InputField from "@/app/components/ui/InputField";
 import Button from "@/app/components/ui/Button";
-import Image from "next/image";
+import { GoogleIcon, NavbarLogoGreen } from "../Svg";
 
 export default function RegisterPage() {
   const router = useRouter();
@@ -63,7 +63,7 @@ export default function RegisterPage() {
   return (
     <div className="bg-background shadow-sm p-4 lg:p-8 rounded-lg w-full max-w-[650px] border border-gray-200">
       <div className="flex justify-center mb-8 mt-2">
-        <Image src="/assets/logo.png" alt="Logo" width={187} height={48} />
+        <NavbarLogoGreen />
       </div>
       <div className="mb-6">
         <h1 className="mb-1 text-[18px] font-bold text-primaryText">Sign Up</h1>
@@ -174,12 +174,7 @@ export default function RegisterPage() {
 
       <div>
         <Button fullWidth variant="secondary" size="md" className="mt-4">
-          <Image
-            src="/assets/google.png"
-            alt="Google Logo"
-            width={20}
-            height={20}
-          />
+          <GoogleIcon />
           Continue with Google
         </Button>
       </div>

@@ -5,6 +5,19 @@ import { Star } from "lucide-react";
 import Button from "../ui/Button";
 import { Car } from "@/types/product";
 import { useRouter } from "next/navigation";
+import {
+  Autometic,
+  Climate,
+  Door,
+  FuelTank,
+  Information,
+  Maestro,
+  Meter,
+  PayPal,
+  Seat,
+  Suitcase,
+  Visa,
+} from "../Svg";
 
 interface CarCardProps {
   car: Car;
@@ -55,60 +68,35 @@ export default function CarCard({ car }: CarCardProps) {
                 <div className="flex gap-3 items-center flex-wrap mb-3">
                   {/* Doors */}
                   <div className="flex gap-[5px] items-center">
-                    <Image
-                      src="/assets/card/door.png"
-                      alt="Icon"
-                      width={16}
-                      height={16}
-                    />
+                    <Door width={18} height={18} />
                     <p className="text-primaryText text-[14px]">
                       {car.doors} Doors
                     </p>
                   </div>
                   {/* Seats */}
                   <div className="flex gap-[5px] items-center">
-                    <Image
-                      src="/assets/card/seat.png"
-                      alt="Icon"
-                      width={16}
-                      height={16}
-                    />
+                    <Seat width={18} height={18} />
                     <p className="text-primaryText text-[14px]">
                       {car.seats} Seats
                     </p>
                   </div>
                   {/* Suitcase */}
                   <div className="flex gap-[5px] items-center">
-                    <Image
-                      src="/assets/card/suitcase.png"
-                      alt="Icon"
-                      width={16}
-                      height={16}
-                    />
+                    <Suitcase width={18} height={18} />
                     <p className="text-primaryText text-[14px]">
                       {car.suitcases} Suitcases
                     </p>
                   </div>
                   {/* Automatic */}
                   <div className="flex gap-[5px] items-center">
-                    <Image
-                      src="/assets/card/automatic.png"
-                      alt="Icon"
-                      width={16}
-                      height={16}
-                    />
+                    <Autometic width={18} height={18} />
                     <p className="text-primaryText text-[14px]">
                       {car.transmission}
                     </p>
                   </div>
                   {/* Climate */}
                   <div className="flex gap-[5px] items-center">
-                    <Image
-                      src="/assets/card/climate.png"
-                      alt="Icon"
-                      width={16}
-                      height={16}
-                    />
+                    <Climate width={18} height={18} />
                     <p className="text-primaryText text-[14px]">
                       {car.climate}
                     </p>
@@ -118,12 +106,7 @@ export default function CarCard({ car }: CarCardProps) {
                 <div className="flex gap-6">
                   {/* Fuel Policy */}
                   <div className="flex gap-3 items-start">
-                    <Image
-                      src="/assets/card/fuel.png"
-                      alt="Icon"
-                      width={16}
-                      height={16}
-                    />
+                    <FuelTank width={18} height={18} />
                     <div>
                       <p className="text-[14px] text-primaryText">
                         Fuel Policy
@@ -135,12 +118,7 @@ export default function CarCard({ car }: CarCardProps) {
                   </div>
                   {/* Kilometers */}
                   <div className="flex gap-3 items-start">
-                    <Image
-                      src="/assets/card/kilometers.png"
-                      alt="Icon"
-                      width={16}
-                      height={16}
-                    />
+                    <Meter width={18} height={18} />
                     <div>
                       <p className="text-[14px] text-primaryText">Kilometers</p>
                       <p className="text-[14px] font-medium text-primaryText">
@@ -151,12 +129,7 @@ export default function CarCard({ car }: CarCardProps) {
                 </div>
                 {/* Information */}
                 <div className="mt-4 flex gap-2 items-start">
-                  <Image
-                    src="/assets/card/info.png"
-                    alt="Icon"
-                    width={16}
-                    height={16}
-                  />
+                  <Information width={18} height={18} />
                   <p className="text-[14px] text-primaryText">
                     Comprehensive insurance and theft protection{" "}
                     <span className="font-semibold">
@@ -194,27 +167,15 @@ export default function CarCard({ car }: CarCardProps) {
                 </p>
               </div>
               <div className="flex items-center gap-2">
-                <Image
-                  src="/assets/card/PayPal.png"
-                  alt="Icon"
-                  width={50}
-                  height={34}
-                  className="h-[34px] w-[50px]"
-                />
-                <Image
-                  src="/assets/card/Visa.png"
-                  alt="Icon"
-                  width={50}
-                  height={34}
-                  className="h-[34px] w-[50px]"
-                />
-                <Image
-                  src="/assets/card/Maestro.png"
-                  alt="Icon"
-                  width={50}
-                  height={34}
-                  className="h-[34px] w-[50px]"
-                />
+                <div className="border border-gray-100 rounded-sm h-[34px] w-[50px] flex items-center justify-center">
+                  <PayPal />
+                </div>
+                <div className="border border-gray-100 rounded-sm h-[34px] w-[50px] flex items-center justify-center">
+                  <Visa />
+                </div>
+                <div className="border border-gray-100 rounded-sm h-[34px] w-[50px] flex items-center justify-center">
+                  <Maestro />
+                </div>
               </div>
             </div>
             <div className="flex justify-end mt-8 flex-col sm:flex-row gap-4">

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Image from "next/image";
+import { NavbarLogo } from "./Svg";
 
 export default function Footer() {
   return (
@@ -9,12 +9,7 @@ export default function Footer() {
           <div className="space-y-2 col-span-2 lg:col-span-1">
             <div>
               <Link href="/">
-                <Image
-                  src="/assets/logo-nav.png"
-                  alt="Login Image"
-                  width={150}
-                  height={48}
-                />
+                <NavbarLogo />
               </Link>
             </div>
             <p className="text-[14px] text-white mt-[15px]">
