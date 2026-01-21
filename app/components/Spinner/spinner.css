@@ -1,7 +1,7 @@
 .loader {
   width: 48px;
   height: 48px;
-  border: 5px dotted #fff;
+  border: 5px dotted #3ab15b;
   border-radius: 50%;
   display: inline-block;
   position: relative;
@@ -24,7 +24,7 @@
   left: 50%;
   width: 12px;
   height: 12px;
-  background-color: #fff;
+  background-color: #3ab15b;
   border-radius: 50%;
   transform: translate(-50%, -50%);
 }
