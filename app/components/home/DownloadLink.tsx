@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { AppStore, GooglePlay } from "../Svg";
 
 export default function DownloadLink() {

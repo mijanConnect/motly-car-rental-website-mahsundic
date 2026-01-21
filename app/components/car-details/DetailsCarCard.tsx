@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Star } from "lucide-react";
+// import { Star } from "lucide-react";
 import Button from "../ui/Button";
 import { Car } from "@/types/product";
 import { useRouter } from "next/navigation";
@@ -46,7 +46,7 @@ export default function DetailsCarCard({ car }: CarCardProps) {
               <div className="flex-1">
                 <div className="flex justify-between items-center">
                   <h2 className="text-[18px] text-primaryText">{car.name}</h2>
-                  <div className="flex gap-1">
+                  {/* <div className="flex gap-1">
                     {[...Array(5)].map((_, i) => (
                       <Star
                         key={i}
@@ -57,7 +57,7 @@ export default function DetailsCarCard({ car }: CarCardProps) {
                         }`}
                       />
                     ))}
-                  </div>
+                  </div> */}
                 </div>
                 {/* <p className="text-[12px]">Dhaka Da-11 6422</p> */}
                 <a

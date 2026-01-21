@@ -275,8 +275,8 @@ const Amex = ({ width = 33, height = 20 }: SvgSizeProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="75"
-      height="51"
+      width={width}
+      height={height}
       viewBox="0 0 75 51"
       fill="none"
     >

@@ -11,10 +11,10 @@ import WriteReviewModal from "./WriteReview";
 /* ---------- status color map ---------- */
 const STATUS_COLORS: Record<string, string> = {
   Pending: "#F6BB06",
-  Completed: "#979997",
+  Completed: "#2563EB",
   Confirmed: "#39B15B",
   Cancelled: "#EB1616",
-  Active: "#2563EB",
+  Active: "#39B15B",
 };
 
 /* ---------- component ---------- */
@@ -105,7 +105,7 @@ export default function BookedCarCard({ cars: propsCars }: BookedCarCardProps) {
             </Button>
             <Button
               variant="primary"
-              className={`${commonClass} bg-[#2563EB]! hover:bg-blue-700!`}
+              className={commonClass}
               onClick={() => router.push(`/checkout/${car.id}?step=1`)}
             >
               Extend Rental
@@ -125,7 +125,7 @@ export default function BookedCarCard({ cars: propsCars }: BookedCarCardProps) {
             </Button>
             <Button
               variant="primary"
-              className={commonClass}
+              className={`${commonClass} bg-[#2563EB]! hover:bg-blue-700!`}
               onClick={() => router.push(`/checkout/${car.id}?step=1`)}
             >
               Book Again

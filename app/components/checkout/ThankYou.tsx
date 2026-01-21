@@ -1,7 +1,11 @@
 import Link from "next/link";
 import Image from "next/image";
 
-export default function ThankYou() {
+interface ThankYouProps {
+  carId: number;
+}
+
+export default function ThankYou({ carId }: ThankYouProps) {
   return (
     <div className="flex flex-col items-center mt-12">
       <Image
