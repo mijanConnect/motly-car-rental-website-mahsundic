@@ -1,5 +1,6 @@
-import Image from "next/image";
-import React from "react";
+
+
+import { Driver } from "../Svg";
 
 export default function DriverContact() {
   return (
@@ -7,12 +8,7 @@ export default function DriverContact() {
       {/* Driver & Contact */}
       <div>
         <div className="flex gap-3 items-center mb-3 mt-4">
-          <Image
-            src="/assets/checkout/driver.png"
-            alt="Car Image"
-            width={24}
-            height={24}
-          />
+          <Driver width={32} height={32} />
           <h1 className="text-[18px] lg:text-[24px] text-primaryText font-bold">
             Driver & Contact
           </h1>

@@ -1,13 +1,14 @@
-import { Star } from "lucide-react";
+// import { Star } from "lucide-react";
 import Image from "next/image";
 import CarFunctionality from "./ModalCarFunctionality";
 import AdditionalFeatures from "./ModalAdditionalFeatures";
 import DriverContact from "./DriverContact";
+import { FuelTank, Meter } from "../Svg";
 
 export default function DetailsArea() {
   return (
     <>
-      <div className="flex gap-1 items-baseline">
+      {/* <div className="flex gap-1 items-baseline">
         {[...Array(5)].map((_, i) => (
           <Star
             key={i}
@@ -19,7 +20,7 @@ export default function DetailsArea() {
           />
         ))}
         <p className="pl-1.5 text-yellow-400 text-[16px] font-medium">4.5</p>
-      </div>
+      </div> */}
       <div className="mt-1 flex justify-between items-baseline">
         <div>
           <h2 className="text-[18px] lg:text-[24px] font-medium text-primaryText">
@@ -63,7 +64,7 @@ export default function DetailsArea() {
       <div className="flex flex-col md:flex-row gap-3 md:gap-6 justify-between mt-6">
         {/* Fuel Policy */}
         <AdditionalFeatures
-          imageUrl="/assets/view-details/fuel.png"
+          imageUrl={<FuelTank width={40} height={40} />}
           PolicyHeader="Fuel Policy"
           PolicyType="Full to Full"
           PolicyDescription="You can return your rental car with the same fuel level as when you picked it up."
@@ -71,7 +72,7 @@ export default function DetailsArea() {
 
         {/* Kilometers */}
         <AdditionalFeatures
-          imageUrl="/assets/view-details/meter.png"
+          imageUrl={<Meter width={40} height={40} />}
           PolicyHeader="Kilometers"
           PolicyType="Unlimited"
           PolicyDescription="You can drive as much as you want without worrying about extra charges."

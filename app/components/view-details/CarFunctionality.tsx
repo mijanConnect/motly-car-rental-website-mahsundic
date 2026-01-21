@@ -35,57 +35,6 @@ export default function CarFunctionality() {
           </div>
         );
       })}
-
-      {/* Doors */}
-      {/* <div className="flex flex-col gap-2 items-center border px-5 py-2 rounded-sm border-strock">
-        <Image
-          src="/assets/view-details/door.png"
-          alt="Icon"
-          width={32}
-          height={32}
-        />
-        <p className="text-primaryText text-[20px]">4 Doors</p>
-      </div> */}
-      {/* Seats */}
-      {/* <div className="flex flex-col gap-2 items-center border px-5 py-2 rounded-sm border-strock">
-        <Image
-          src="/assets/view-details/seat.png"
-          alt="Icon"
-          width={32}
-          height={32}
-        />
-        <p className="text-primaryText text-[20px]">5 Seats</p>
-      </div> */}
-      {/* Suitcase */}
-      {/* <div className="flex flex-col gap-2 items-center border px-5 py-2 rounded-sm border-strock">
-        <Image
-          src="/assets/view-details/suitcase.png"
-          alt="Icon"
-          width={32}
-          height={32}
-        />
-        <p className="text-primaryText text-[20px]">2 Suitcases</p>
-      </div> */}
-      {/* Automatic */}
-      {/* <div className="flex flex-col gap-2 items-center border px-5 py-2 rounded-sm border-strock">
-        <Image
-          src="/assets/view-details/autometic.png"
-          alt="Icon"
-          width={32}
-          height={32}
-        />
-        <p className="text-primaryText text-[20px]">Automatic</p>
-      </div> */}
-      {/* Climate */}
-      {/* <div className="flex flex-col gap-2 items-center border px-5 py-2 rounded-sm border-strock">
-        <Image
-          src="/assets/view-details/climate.png"
-          alt="Icon"
-          width={32}
-          height={32}
-        />
-        <p className="text-primaryText text-[20px]">Climate</p>
-      </div> */}
     </div>
   );
 }

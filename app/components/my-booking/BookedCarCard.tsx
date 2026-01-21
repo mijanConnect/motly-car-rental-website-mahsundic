@@ -11,7 +11,7 @@ import WriteReviewModal from "./WriteReview";
 /* ---------- status color map ---------- */
 const STATUS_COLORS: Record<string, string> = {
   Pending: "#F6BB06",
-  Completed: "#2563EB",
+  Completed: "#0563C1",
   Confirmed: "#39B15B",
   Cancelled: "#EB1616",
   Active: "#39B15B",
@@ -58,7 +58,7 @@ export default function BookedCarCard({ cars: propsCars }: BookedCarCardProps) {
           <>
             <Button
               variant="outline"
-              className={commonClass}
+              className={`${commonClass} border-[#F6BB06]! text-[#F6BB06]! hover:bg-[#F6BB06]/10!`}
               onClick={() => handleViewDetails(car)}
             >
               View Details
@@ -78,17 +78,17 @@ export default function BookedCarCard({ cars: propsCars }: BookedCarCardProps) {
           <>
             <Button
               variant="outline"
+              className={`${commonClass} border-[#EB1616]! text-[#EB1616]! hover:bg-red-500/10! w-[200px] md:w-auto`}
+              onClick={() => router.push(`/checkout/${car.id}?step=3`)}
+            >
+              Cancel Rental
+            </Button>
+            <Button
+              variant="primary"
               className={commonClass}
               onClick={() => handleViewDetails(car)}
             >
               View Details
-            </Button>
-            <Button
-              variant="primary"
-              className={`${commonClass} bg-[#EB1616]! hover:bg-red-500! w-[200px] md:w-auto`}
-              onClick={() => router.push(`/checkout/${car.id}?step=3`)}
-            >
-              Cancel Rental
             </Button>
           </>
         );
@@ -118,14 +118,14 @@ export default function BookedCarCard({ cars: propsCars }: BookedCarCardProps) {
           <>
             <Button
               variant="outline"
-              className={commonClass}
+              className={`${commonClass} border-[#0563C1]! text-[#0563C1]! hover:bg-[#0563C1]/10!`}
               onClick={() => handleWriteReview(car)}
             >
               Write a Review
             </Button>
             <Button
               variant="primary"
-              className={`${commonClass} bg-[#2563EB]! hover:bg-blue-700!`}
+              className={`${commonClass} bg-[#0563C1]! hover:bg-blue-700!`}
               onClick={() => router.push(`/checkout/${car.id}?step=1`)}
             >
               Book Again
