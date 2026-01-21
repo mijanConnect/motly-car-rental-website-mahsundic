@@ -1,6 +1,6 @@
 "use client";
 
-import { Star } from "lucide-react";
+// import { Star } from "lucide-react";
 import Image from "next/image";
 import CarFunctionality from "./CarFunctionality";
 import AdditionalFeatures from "./AdditionalFeatures";
@@ -23,7 +23,7 @@ const cars: Car[] = [
     price: 46.91,
     days: 3,
     deposit: 250,
-    rating: 8.6,
+    rating: 4.5,
   },
   {
     id: 2,
@@ -40,7 +40,7 @@ const cars: Car[] = [
     price: 59.99,
     days: 3,
     deposit: 300,
-    rating: 9.1,
+    rating: 4.5,
   },
   {
     id: 3,
@@ -57,7 +57,7 @@ const cars: Car[] = [
     price: 55.5,
     days: 3,
     deposit: 280,
-    rating: 8.9,
+    rating: 4.5,
   },
   {
     id: 4,
@@ -74,7 +74,7 @@ const cars: Car[] = [
     price: 32.75,
     days: 3,
     deposit: 200,
-    rating: 8.2,
+    rating: 4.5,
   },
   {
     id: 5,
@@ -91,7 +91,7 @@ const cars: Car[] = [
     price: 38.9,
     days: 3,
     deposit: 220,
-    rating: 8.5,
+    rating: 4.5,
   },
 ];
 
@@ -104,7 +104,7 @@ export default function DetailsArea({ carId }: DetailsAreaProps) {
 
   return (
     <>
-      <div className="flex gap-1.5 items-baseline">
+      {/* <div className="flex gap-1.5 items-baseline">
         {[...Array(5)].map((_, i) => (
           <Star
             key={i}
@@ -118,7 +118,7 @@ export default function DetailsArea({ carId }: DetailsAreaProps) {
         <p className="pl-1.5 text-yellow-400 text-[20px] font-medium">
           {car.rating}
         </p>
-      </div>
+      </div> */}
       <div className="mt-1 flex justify-between items-baseline">
         <div>
           <h2 className="text-[26px] lg:text-[32px] font-medium text-primaryText">

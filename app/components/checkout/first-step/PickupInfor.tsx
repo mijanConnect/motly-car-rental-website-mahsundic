@@ -1,7 +1,10 @@
-import React from "react";
+"use client";
+
+import React, { useState, useRef, useEffect } from "react";
 import Button from "../../ui/Button";
-import { CarFront, CircleCheck, MapPin } from "lucide-react";
-import Calendar24 from "@/components/ui/time-picker";
+import { CarFront, CircleCheck, MapPin, Pencil, X } from "lucide-react";
+import Calendar from "react-calendar";
+import "react-calendar/dist/Calendar.css";
 import { useRouter } from "next/navigation";
 
 interface PickupInforProps {
@@ -10,7 +13,54 @@ interface PickupInforProps {
 
 export default function PickupInfor({ carId = 1 }: PickupInforProps) {
   const router = useRouter();
+  const [collectionDate, setCollectionDate] = useState<Date | undefined>(
+    new Date(2026, 11, 11),
+  );
+  const [collectionTime, setCollectionTime] = useState<string>("11:00");
+  const [returnDate, setReturnDate] = useState<Date | undefined>(
+    new Date(2026, 11, 11),
+  );
+  const [returnTime, setReturnTime] = useState<string>("11:00");
+  const [openCollection, setOpenCollection] = useState(false);
+  const [openReturn, setOpenReturn] = useState(false);
+  const collectionRef = useRef<HTMLDivElement>(null);
+  const returnRef = useRef<HTMLDivElement>(null);
 
+  // Close calendar when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        collectionRef.current &&
+        !collectionRef.current.contains(event.target as Node)
+      ) {
+        setOpenCollection(false);
+      }
+      if (
+        returnRef.current &&
+        !returnRef.current.contains(event.target as Node)
+      ) {
+        setOpenReturn(false);
+      }
+    };
+
+    if (openCollection || openReturn) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [openCollection, openReturn]);
+
+  const formatDate = (date: Date | undefined) => {
+    if (!date) return "Select date";
+    return date.toLocaleDateString("en-US", {
+      weekday: "long",
+      month: "long",
+      day: "numeric",
+      year: "numeric",
+    });
+  };
   const handleContinue = () => {
     router.push(`/checkout/${carId}?step=2`);
   };
@@ -25,17 +75,28 @@ export default function PickupInfor({ carId = 1 }: PickupInforProps) {
           {/* Collection */}
           <div className="flex gap-4 items-start mt-4">
             <CarFront className="w-8 h-8 lg:w-14 lg:h-14 text-yellow-500" />
-            <div>
-              <h2 className="text-[20px] font-bold text-primaryText mb-1">
-                Collection
-              </h2>
+            <div className="flex-1">
+              <div className="flex items-center gap-2 mb-1">
+                <h2 className="text-[20px] font-bold text-primaryText">
+                  Collection
+                </h2>
+                <button
+                  onClick={() => setOpenCollection(!openCollection)}
+                  className="text-gray-500 hover:text-gray-700 transition"
+                  title="Edit collection date"
+                >
+                  <Pencil className="w-4 h-4" />
+                </button>
+              </div>
               <p className="text-[18px] text-primaryTextLight mb-3">
-                Friday, December 11, 2026
+                {formatDate(collectionDate)}
               </p>
               <div className="flex flex-col md:flex-row gap-3 items-start md:items-center">
                 <div className="flex items-center gap-2 border p-1.5 rounded-sm">
                   <CircleCheck className="w-6 h-6 text-green-600" />
-                  <Calendar24 />
+                  <span className="text-[16px] font-medium">
+                    {collectionTime}
+                  </span>
                 </div>
                 <p className="text-[18px] text-primary">
                   Pickup time confirmed!
@@ -44,22 +105,76 @@ export default function PickupInfor({ carId = 1 }: PickupInforProps) {
               <p className="text-[14px] md:text-[20px] text-primaryTextLight mt-2 lg:mt-4">
                 Opening hours: 7:00 AM - 6:00 PM
               </p>
+
+              {/* Collection Calendar Dropdown */}
+              <div ref={collectionRef} className="relative">
+                {openCollection && (
+                  <div className="absolute top-full left-0 mt-2 bg-white border border-stroke rounded-lg shadow-xl z-50 p-4">
+                    <div className="space-y-4">
+                      <div className="flex justify-between items-center mb-2">
+                        <p className="text-sm font-semibold">Select Date</p>
+                        <button
+                          onClick={() => setOpenCollection(false)}
+                          className="text-gray-500 hover:text-gray-700"
+                        >
+                          <X className="h-4 w-4" />
+                        </button>
+                      </div>
+                      <Calendar
+                        value={collectionDate}
+                        onChange={(value) => {
+                          if (value instanceof Date) {
+                            setCollectionDate(value);
+                          }
+                        }}
+                        minDate={new Date()}
+                      />
+                      <div>
+                        <p className="text-sm font-semibold mb-2">
+                          Select Time
+                        </p>
+                        <input
+                          type="time"
+                          value={collectionTime}
+                          onChange={(e) => setCollectionTime(e.target.value)}
+                          className="border border-stroke rounded px-3 py-2 w-full text-sm"
+                        />
+                      </div>
+                      <button
+                        onClick={() => setOpenCollection(false)}
+                        className="w-full bg-primary text-white py-2 rounded hover:opacity-90 text-sm font-medium"
+                      >
+                        Done
+                      </button>
+                    </div>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
           {/* Return */}
           <div className="flex gap-4 items-start mt-6">
             <CarFront className="w-8 h-8 lg:w-14 lg:h-14 text-yellow-500" />
-            <div>
-              <h2 className="text-[20px] font-bold text-primaryText mb-1">
-                Return
-              </h2>
+            <div className="flex-1">
+              <div className="flex items-center gap-2 mb-1">
+                <h2 className="text-[20px] font-bold text-primaryText">
+                  Return
+                </h2>
+                <button
+                  onClick={() => setOpenReturn(!openReturn)}
+                  className="text-gray-500 hover:text-gray-700 transition"
+                  title="Edit return date"
+                >
+                  <Pencil className="w-4 h-4" />
+                </button>
+              </div>
               <p className="text-[18px] text-primaryTextLight mb-4">
-                Friday, December 11, 2026
+                {formatDate(returnDate)}
               </p>
               <div className="flex flex-col md:flex-row gap-3 items-start md:items-center">
                 <div className="flex items-center gap-2 border p-1.5 rounded-sm">
                   <CircleCheck className="w-6 h-6 text-green-600" />
-                  <Calendar24 />
+                  <span className="text-[16px] font-medium">{returnTime}</span>
                 </div>
                 <p className="text-[18px] text-primary">
                   Pickup time confirmed!
@@ -68,6 +183,51 @@ export default function PickupInfor({ carId = 1 }: PickupInforProps) {
               <p className="text-[14px] md:text-[20px] text-primaryTextLight mt-2 lg:mt-4">
                 Opening hours: 7:00 AM - 6:00 PM
               </p>
+
+              {/* Return Calendar Dropdown */}
+              <div ref={returnRef} className="relative">
+                {openReturn && (
+                  <div className="absolute top-full left-0 mt-2 bg-white border border-stroke rounded-lg shadow-xl z-50 p-4">
+                    <div className="space-y-4">
+                      <div className="flex justify-between items-center mb-2">
+                        <p className="text-sm font-semibold">Select Date</p>
+                        <button
+                          onClick={() => setOpenReturn(false)}
+                          className="text-gray-500 hover:text-gray-700"
+                        >
+                          <X className="h-4 w-4" />
+                        </button>
+                      </div>
+                      <Calendar
+                        value={returnDate}
+                        onChange={(value) => {
+                          if (value instanceof Date) {
+                            setReturnDate(value);
+                          }
+                        }}
+                        minDate={collectionDate || new Date()}
+                      />
+                      <div>
+                        <p className="text-sm font-semibold mb-2">
+                          Select Time
+                        </p>
+                        <input
+                          type="time"
+                          value={returnTime}
+                          onChange={(e) => setReturnTime(e.target.value)}
+                          className="border border-stroke rounded px-3 py-2 w-full text-sm"
+                        />
+                      </div>
+                      <button
+                        onClick={() => setOpenReturn(false)}
+                        className="w-full bg-primary text-white py-2 rounded hover:opacity-90 text-sm font-medium"
+                      >
+                        Done
+                      </button>
+                    </div>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
           {/* Address */}
