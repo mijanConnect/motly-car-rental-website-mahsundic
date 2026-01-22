@@ -11,7 +11,7 @@ export default function CookieConsentBanner() {
       enableDeclineButton
       cookieName="motly-cookie-consent"
       style={{
-        background: "rgba(23, 23, 23, 0.8)",
+        background: "rgba(23, 23, 23, 0.5)",
         backdropFilter: "blur(10px)",
         border: "1px solid rgba(255, 255, 255, 0.1)",
         padding: "20px",
@@ -37,10 +37,11 @@ export default function CookieConsentBanner() {
         fontSize: "14px",
         padding: "10px 30px",
         borderRadius: "6px",
-        fontWeight: "600",
+        fontWeight: "400",
         cursor: "pointer",
         border: "1px solid #ffff",
         marginRight: "5px",
+        letterSpacing: "0.5px",
       }}
       declineButtonClasses="cookie-consent-decline"
       expires={365}
@@ -60,13 +61,17 @@ export default function CookieConsentBanner() {
           &quot;Accept&quot;, you consent to our use of cookies.{" "}
           <a
             href="/privacy-policy"
+            className="cookie-policy-link"
             style={{
-              color: "#a5f3fc",
+              color: "#ffff",
               textDecoration: "underline",
-              fontWeight: "500",
+              textDecorationThickness: "2px",
+              textUnderlineOffset: "3px",
+              fontWeight: "400",
+              letterSpacing: "0.5px",
             }}
           >
-            Learn more
+            Learn more..
           </a>
         </span>
       </div>

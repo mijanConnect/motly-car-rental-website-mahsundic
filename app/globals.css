@@ -218,6 +218,14 @@ body {
   transform: translateY(-1px);
 }
 
+.cookie-policy-link {
+  transition: all 0.2s ease;
+}
+.cookie-policy-link:hover {
+  color: #ffff !important;
+  text-decoration-thickness: 2.5px !important;
+}
+
 @media (max-width: 1024px) {
   .description {
     font-size: 14px;
