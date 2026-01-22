@@ -199,6 +199,25 @@ body {
   color: var(--color-primaryText);
 }
 
+/* Cookie Consent button hover styles */
+.cookie-consent-accept {
+  transition: all 0.2s ease;
+}
+.cookie-consent-accept:hover {
+  background-color: rgba(255, 255, 255, 0.85);
+  border-color: rgba(255, 255, 255, 0.35);
+  transform: translateY(-1px);
+}
+
+.cookie-consent-decline {
+  transition: all 0.2s ease;
+}
+.cookie-consent-decline:hover {
+  color: #ffffff;
+  border-color: #ffffff;
+  transform: translateY(-1px);
+}
+
 @media (max-width: 1024px) {
   .description {
     font-size: 14px;
