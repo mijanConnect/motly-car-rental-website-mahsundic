@@ -201,7 +201,7 @@ export default function Navbar() {
                     >
                       Car Rental
                     </Link>
-                    <Link
+                    {/* <Link
                       href="/flight-booking"
                       onClick={() => {
                         setServiceDropdownOpen(false);
@@ -210,7 +210,7 @@ export default function Navbar() {
                       className="block w-full text-start px-4 py-2 hover:bg-gray-200 transition-colors text-primaryText"
                     >
                       Flight Booking
-                    </Link>
+                    </Link> */}
                   </div>
                 )}
               </div>

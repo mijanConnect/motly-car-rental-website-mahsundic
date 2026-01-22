@@ -100,6 +100,14 @@ export default function Footer() {
                   Terms & Conditions
                 </Link>
               </li>
+              <li>
+                <Link
+                  href="/imprint"
+                  className="hover:underline transform transition-all"
+                >
+                  Imprint
+                </Link>
+              </li>
             </ul>
           </div>
 
